@@ -217,7 +217,7 @@
             btnHome.Image = Properties.Resources.LOGO;
             btnHome.Location = new Point(3, 3);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(214, 131);
+            btnHome.Size = new Size(214, 64);
             btnHome.SizeMode = PictureBoxSizeMode.Zoom;
             btnHome.TabIndex = 0;
             btnHome.TabStop = false;
