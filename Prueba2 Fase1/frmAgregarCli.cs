@@ -10,17 +10,24 @@ using System.Windows.Forms;
 
 namespace Prueba2_Fase1
 {
-    public partial class FrmPrueba2 : Form
+    public partial class frmAgregarCli : Form
     {
-        public FrmPrueba2()
+        public frmAgregarCli()
         {
             InitializeComponent();
+
+            this.MaximizeBox = false;
+
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            frmCompras formCompras = new frmCompras();
-            formCompras.ShowDialog();
+            this.Close();
+        }
+
+        private void frmAgregarCli_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

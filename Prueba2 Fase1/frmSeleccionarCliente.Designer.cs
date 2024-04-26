@@ -1,6 +1,6 @@
 ﻿namespace Prueba2_Fase1
 {
-    partial class FrmVentas
+    partial class frmSeleccionarCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblHasta = new Label();
-            cbTodo = new CheckBox();
-            lblDesde = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            btnAnular = new Button();
-            btnVer = new Button();
-            btnAgregar = new Button();
+            btnCancelar = new Button();
+            btnSeleccionar = new Button();
             txtBuscar = new TextBox();
             btnBuscar = new Button();
             dataGridView1 = new DataGridView();
@@ -47,95 +41,40 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // lblHasta
+            // btnCancelar
             // 
-            lblHasta.AutoSize = true;
-            lblHasta.ForeColor = SystemColors.ControlLightLight;
-            lblHasta.Location = new Point(280, 71);
-            lblHasta.Name = "lblHasta";
-            lblHasta.Size = new Size(40, 15);
-            lblHasta.TabIndex = 32;
-            lblHasta.Text = "Hasta:";
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.Location = new Point(615, 389);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.TabIndex = 32;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
-            // cbTodo
+            // btnSeleccionar
             // 
-            cbTodo.AutoSize = true;
-            cbTodo.ForeColor = SystemColors.ControlLightLight;
-            cbTodo.Location = new Point(510, 65);
-            cbTodo.Name = "cbTodo";
-            cbTodo.Size = new Size(52, 19);
-            cbTodo.TabIndex = 31;
-            cbTodo.Text = "Todo";
-            cbTodo.UseVisualStyleBackColor = true;
-            // 
-            // lblDesde
-            // 
-            lblDesde.AutoSize = true;
-            lblDesde.ForeColor = SystemColors.ControlLightLight;
-            lblDesde.Location = new Point(51, 71);
-            lblDesde.Name = "lblDesde";
-            lblDesde.Size = new Size(42, 15);
-            lblDesde.TabIndex = 30;
-            lblDesde.Text = "Desde:";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(324, 63);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 29;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(95, 63);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 28;
-            // 
-            // btnAnular
-            // 
-            btnAnular.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAnular.Location = new Point(703, 461);
-            btnAnular.Name = "btnAnular";
-            btnAnular.Size = new Size(75, 23);
-            btnAnular.TabIndex = 27;
-            btnAnular.Text = "Anular";
-            btnAnular.UseVisualStyleBackColor = true;
-            // 
-            // btnVer
-            // 
-            btnVer.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnVer.Location = new Point(797, 461);
-            btnVer.Name = "btnVer";
-            btnVer.Size = new Size(75, 23);
-            btnVer.TabIndex = 26;
-            btnVer.Text = "Ver";
-            btnVer.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAgregar.Location = new Point(881, 461);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 23);
-            btnAgregar.TabIndex = 25;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
+            btnSeleccionar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSeleccionar.Location = new Point(699, 389);
+            btnSeleccionar.Name = "btnSeleccionar";
+            btnSeleccionar.Size = new Size(75, 23);
+            btnSeleccionar.TabIndex = 31;
+            btnSeleccionar.Text = "Seleccionar";
+            btnSeleccionar.UseVisualStyleBackColor = true;
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(33, 19);
+            txtBuscar.Location = new Point(84, 39);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(529, 23);
-            txtBuscar.TabIndex = 24;
+            txtBuscar.TabIndex = 30;
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(568, 18);
+            btnBuscar.Location = new Point(651, 39);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(75, 24);
-            btnBuscar.TabIndex = 23;
+            btnBuscar.TabIndex = 29;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
             // 
@@ -146,12 +85,12 @@
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, username, enabled, verified, rol });
-            dataGridView1.Location = new Point(33, 108);
+            dataGridView1.Location = new Point(21, 84);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(923, 335);
-            dataGridView1.TabIndex = 22;
+            dataGridView1.Size = new Size(758, 262);
+            dataGridView1.TabIndex = 28;
             // 
             // id
             // 
@@ -195,26 +134,20 @@
             rol.Name = "rol";
             rol.ReadOnly = true;
             // 
-            // FrmVentas
+            // frmSeleccionarCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(37, 36, 81);
-            ClientSize = new Size(989, 503);
-            Controls.Add(lblHasta);
-            Controls.Add(cbTodo);
-            Controls.Add(lblDesde);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(btnAnular);
-            Controls.Add(btnVer);
-            Controls.Add(btnAgregar);
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnSeleccionar);
             Controls.Add(txtBuscar);
             Controls.Add(btnBuscar);
             Controls.Add(dataGridView1);
-            Name = "FrmVentas";
+            Name = "frmSeleccionarCliente";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "VENTAS";
+            Text = "frmSeleccionarCliente";
+            Load += frmSeleccionarCliente_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -222,14 +155,8 @@
 
         #endregion
 
-        private Label lblHasta;
-        private CheckBox cbTodo;
-        private Label lblDesde;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Button btnAnular;
-        private Button btnVer;
-        private Button btnAgregar;
+        private Button btnCancelar;
+        private Button btnSeleccionar;
         private TextBox txtBuscar;
         private Button btnBuscar;
         private DataGridView dataGridView1;

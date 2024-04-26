@@ -10,17 +10,22 @@ using System.Windows.Forms;
 
 namespace Prueba2_Fase1
 {
-    public partial class FrmPrueba2 : Form
+    public partial class FrmUsuarios : Form
     {
-        public FrmPrueba2()
+        public FrmUsuarios()
         {
             InitializeComponent();
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            frmCompras formCompras = new frmCompras();
-            formCompras.ShowDialog();
+            frmAgregarUsu formAgregarUsuario = new frmAgregarUsu();
+            formAgregarUsuario.ShowDialog();
         }
     }
 }

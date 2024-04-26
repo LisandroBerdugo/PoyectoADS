@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Prueba2_Fase1
 {
-    public partial class FrmPrueba3 : Form
+    public partial class FrmVentas : Form
     {
-        public FrmPrueba3()
+        public FrmVentas()
         {
             InitializeComponent();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmDetVentas formDetVentas = new frmDetVentas();
+            formDetVentas.ShowDialog();
         }
     }
 }

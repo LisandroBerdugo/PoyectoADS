@@ -10,17 +10,30 @@ using System.Windows.Forms;
 
 namespace Prueba2_Fase1
 {
-    public partial class FrmPrueba5 : Form
+    public partial class frmSeleccionarProducto : Form
     {
-        public FrmPrueba5()
+        public frmSeleccionarProducto()
         {
             InitializeComponent();
+
+            this.MaximizeBox = false;
+
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnRegistarProd_Click(object sender, EventArgs e)
         {
             frmRegistrarProducto formRegistrarProducto = new frmRegistrarProducto();
             formRegistrarProducto.ShowDialog();
+        }
+
+        private void frmSeleccionarProducto_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormaMenu));
             panelMenu = new Panel();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             btn6 = new FontAwesome.Sharp.IconButton();
             btn5 = new FontAwesome.Sharp.IconButton();
             btn4 = new FontAwesome.Sharp.IconButton();
@@ -38,20 +41,33 @@
             panelLogo = new Panel();
             btnHome = new PictureBox();
             panelTitleBar = new Panel();
+            btnMinimizar = new FontAwesome.Sharp.IconPictureBox();
+            btnMaximizar = new FontAwesome.Sharp.IconPictureBox();
+            btnExit = new FontAwesome.Sharp.IconPictureBox();
             lblHome = new Label();
             iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             panelSombra = new Panel();
             pnlDesktop = new Panel();
+            lblFecha = new Label();
+            lblHora = new Label();
+            pictureBox1 = new PictureBox();
+            horafecha = new System.Windows.Forms.Timer(components);
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnHome).BeginInit();
             panelTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnMaximizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconCurrentChildForm).BeginInit();
+            pnlDesktop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(0, 0, 64);
+            panelMenu.Controls.Add(iconButton1);
             panelMenu.Controls.Add(btn6);
             panelMenu.Controls.Add(btn5);
             panelMenu.Controls.Add(btn4);
@@ -65,6 +81,28 @@
             panelMenu.Size = new Size(220, 626);
             panelMenu.TabIndex = 0;
             // 
+            // iconButton1
+            // 
+            iconButton1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            iconButton1.Cursor = Cursors.Hand;
+            iconButton1.FlatAppearance.BorderSize = 0;
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.ForeColor = Color.OrangeRed;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.UserSlash;
+            iconButton1.IconColor = Color.OrangeRed;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.IconSize = 46;
+            iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton1.Location = new Point(-3, 566);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Padding = new Padding(10, 0, 20, 0);
+            iconButton1.Size = new Size(220, 60);
+            iconButton1.TabIndex = 7;
+            iconButton1.Text = "Cerrar Sesion";
+            iconButton1.TextAlign = ContentAlignment.MiddleLeft;
+            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton1.UseVisualStyleBackColor = true;
+            // 
             // btn6
             // 
             btn6.Cursor = Cursors.Hand;
@@ -72,7 +110,7 @@
             btn6.FlatAppearance.BorderSize = 0;
             btn6.FlatStyle = FlatStyle.Flat;
             btn6.ForeColor = SystemColors.Window;
-            btn6.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            btn6.IconChar = FontAwesome.Sharp.IconChar.FileInvoiceDollar;
             btn6.IconColor = SystemColors.Window;
             btn6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btn6.IconSize = 46;
@@ -82,7 +120,7 @@
             btn6.Padding = new Padding(10, 0, 20, 0);
             btn6.Size = new Size(220, 60);
             btn6.TabIndex = 6;
-            btn6.Text = "Boton 6";
+            btn6.Text = "Reportes";
             btn6.TextAlign = ContentAlignment.MiddleLeft;
             btn6.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn6.UseVisualStyleBackColor = true;
@@ -95,7 +133,7 @@
             btn5.FlatAppearance.BorderSize = 0;
             btn5.FlatStyle = FlatStyle.Flat;
             btn5.ForeColor = SystemColors.Window;
-            btn5.IconChar = FontAwesome.Sharp.IconChar.EarListen;
+            btn5.IconChar = FontAwesome.Sharp.IconChar.BoxesStacked;
             btn5.IconColor = SystemColors.Window;
             btn5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btn5.IconSize = 46;
@@ -105,7 +143,7 @@
             btn5.Padding = new Padding(10, 0, 20, 0);
             btn5.Size = new Size(220, 60);
             btn5.TabIndex = 5;
-            btn5.Text = "Boton 5";
+            btn5.Text = "Productos";
             btn5.TextAlign = ContentAlignment.MiddleLeft;
             btn5.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn5.UseVisualStyleBackColor = true;
@@ -118,7 +156,7 @@
             btn4.FlatAppearance.BorderSize = 0;
             btn4.FlatStyle = FlatStyle.Flat;
             btn4.ForeColor = SystemColors.Window;
-            btn4.IconChar = FontAwesome.Sharp.IconChar.DotCircle;
+            btn4.IconChar = FontAwesome.Sharp.IconChar.UsersLine;
             btn4.IconColor = SystemColors.Window;
             btn4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btn4.IconSize = 46;
@@ -128,7 +166,7 @@
             btn4.Padding = new Padding(10, 0, 20, 0);
             btn4.Size = new Size(220, 60);
             btn4.TabIndex = 4;
-            btn4.Text = "Boton 4";
+            btn4.Text = "Clientes";
             btn4.TextAlign = ContentAlignment.MiddleLeft;
             btn4.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn4.UseVisualStyleBackColor = true;
@@ -141,7 +179,7 @@
             btn3.FlatAppearance.BorderSize = 0;
             btn3.FlatStyle = FlatStyle.Flat;
             btn3.ForeColor = SystemColors.Window;
-            btn3.IconChar = FontAwesome.Sharp.IconChar.DiceFour;
+            btn3.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
             btn3.IconColor = SystemColors.Window;
             btn3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btn3.IconSize = 46;
@@ -151,7 +189,7 @@
             btn3.Padding = new Padding(10, 0, 20, 0);
             btn3.Size = new Size(220, 60);
             btn3.TabIndex = 3;
-            btn3.Text = "Boton 3";
+            btn3.Text = "Ventas";
             btn3.TextAlign = ContentAlignment.MiddleLeft;
             btn3.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn3.UseVisualStyleBackColor = true;
@@ -164,7 +202,7 @@
             btn2.FlatAppearance.BorderSize = 0;
             btn2.FlatStyle = FlatStyle.Flat;
             btn2.ForeColor = SystemColors.Window;
-            btn2.IconChar = FontAwesome.Sharp.IconChar.Crown;
+            btn2.IconChar = FontAwesome.Sharp.IconChar.Shop;
             btn2.IconColor = SystemColors.Window;
             btn2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btn2.IconSize = 46;
@@ -174,7 +212,7 @@
             btn2.Padding = new Padding(10, 0, 20, 0);
             btn2.Size = new Size(220, 60);
             btn2.TabIndex = 2;
-            btn2.Text = "Boton2 ";
+            btn2.Text = "Compras";
             btn2.TextAlign = ContentAlignment.MiddleLeft;
             btn2.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn2.UseVisualStyleBackColor = true;
@@ -187,7 +225,7 @@
             btn1.FlatAppearance.BorderSize = 0;
             btn1.FlatStyle = FlatStyle.Flat;
             btn1.ForeColor = SystemColors.Window;
-            btn1.IconChar = FontAwesome.Sharp.IconChar.Cube;
+            btn1.IconChar = FontAwesome.Sharp.IconChar.Users;
             btn1.IconColor = SystemColors.Window;
             btn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btn1.IconSize = 46;
@@ -197,7 +235,7 @@
             btn1.Padding = new Padding(10, 0, 20, 0);
             btn1.Size = new Size(220, 60);
             btn1.TabIndex = 1;
-            btn1.Text = "Boton 1";
+            btn1.Text = "Usuarios";
             btn1.TextAlign = ContentAlignment.MiddleLeft;
             btn1.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn1.UseVisualStyleBackColor = true;
@@ -214,10 +252,10 @@
             // 
             // btnHome
             // 
-            btnHome.Image = Properties.Resources.LOGO;
-            btnHome.Location = new Point(3, 3);
+            btnHome.Image = (Image)resources.GetObject("btnHome.Image");
+            btnHome.Location = new Point(21, 12);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(214, 64);
+            btnHome.Size = new Size(176, 106);
             btnHome.SizeMode = PictureBoxSizeMode.Zoom;
             btnHome.TabIndex = 0;
             btnHome.TabStop = false;
@@ -226,6 +264,9 @@
             // panelTitleBar
             // 
             panelTitleBar.BackColor = Color.FromArgb(0, 0, 64);
+            panelTitleBar.Controls.Add(btnMinimizar);
+            panelTitleBar.Controls.Add(btnMaximizar);
+            panelTitleBar.Controls.Add(btnExit);
             panelTitleBar.Controls.Add(lblHome);
             panelTitleBar.Controls.Add(iconCurrentChildForm);
             panelTitleBar.Dock = DockStyle.Top;
@@ -235,13 +276,62 @@
             panelTitleBar.TabIndex = 1;
             panelTitleBar.MouseDown += panelTitleBar_MouseDown;
             // 
+            // btnMinimizar
+            // 
+            btnMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMinimizar.BackColor = Color.Transparent;
+            btnMinimizar.Cursor = Cursors.Hand;
+            btnMinimizar.ForeColor = SystemColors.ControlLightLight;
+            btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            btnMinimizar.IconColor = SystemColors.ControlLightLight;
+            btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnMinimizar.Location = new Point(880, 21);
+            btnMinimizar.Name = "btnMinimizar";
+            btnMinimizar.Size = new Size(32, 32);
+            btnMinimizar.TabIndex = 4;
+            btnMinimizar.TabStop = false;
+            btnMinimizar.Click += btnMinimizar_Click;
+            // 
+            // btnMaximizar
+            // 
+            btnMaximizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMaximizar.BackColor = Color.Transparent;
+            btnMaximizar.Cursor = Cursors.Hand;
+            btnMaximizar.ForeColor = SystemColors.ControlLightLight;
+            btnMaximizar.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
+            btnMaximizar.IconColor = SystemColors.ControlLightLight;
+            btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnMaximizar.Location = new Point(918, 21);
+            btnMaximizar.Name = "btnMaximizar";
+            btnMaximizar.Size = new Size(32, 32);
+            btnMaximizar.TabIndex = 3;
+            btnMaximizar.TabStop = false;
+            btnMaximizar.Click += btnMaximizar_Click;
+            // 
+            // btnExit
+            // 
+            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExit.BackColor = Color.Transparent;
+            btnExit.Cursor = Cursors.Hand;
+            btnExit.ForeColor = SystemColors.ControlLightLight;
+            btnExit.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
+            btnExit.IconColor = SystemColors.ControlLightLight;
+            btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnExit.Location = new Point(956, 21);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(32, 32);
+            btnExit.TabIndex = 2;
+            btnExit.TabStop = false;
+            btnExit.Click += btnExit_Click;
+            // 
             // lblHome
             // 
             lblHome.AutoSize = true;
+            lblHome.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblHome.ForeColor = SystemColors.ControlLightLight;
-            lblHome.Location = new Point(69, 28);
+            lblHome.Location = new Point(58, 21);
             lblHome.Name = "lblHome";
-            lblHome.Size = new Size(36, 15);
+            lblHome.Size = new Size(78, 32);
             lblHome.TabIndex = 1;
             lblHome.Text = "Inicio";
             // 
@@ -269,12 +359,57 @@
             // 
             // pnlDesktop
             // 
+            pnlDesktop.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlDesktop.BackColor = Color.FromArgb(0, 0, 64);
-            pnlDesktop.Dock = DockStyle.Fill;
+            pnlDesktop.Controls.Add(lblFecha);
+            pnlDesktop.Controls.Add(lblHora);
+            pnlDesktop.Controls.Add(pictureBox1);
             pnlDesktop.Location = new Point(220, 84);
             pnlDesktop.Name = "pnlDesktop";
             pnlDesktop.Size = new Size(1005, 542);
             pnlDesktop.TabIndex = 3;
+            // 
+            // lblFecha
+            // 
+            lblFecha.AutoSize = true;
+            lblFecha.BackColor = Color.Transparent;
+            lblFecha.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFecha.ForeColor = SystemColors.ControlLightLight;
+            lblFecha.Location = new Point(6, 3);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(215, 65);
+            lblFecha.TabIndex = 3;
+            lblFecha.Text = "lblFecha";
+            // 
+            // lblHora
+            // 
+            lblHora.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblHora.AutoSize = true;
+            lblHora.BackColor = Color.Transparent;
+            lblHora.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHora.ForeColor = SystemColors.ControlLightLight;
+            lblHora.Location = new Point(805, 3);
+            lblHora.Name = "lblHora";
+            lblHora.Size = new Size(197, 65);
+            lblHora.TabIndex = 2;
+            lblHora.Text = "lblHora";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(194, 16);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(605, 523);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // horafecha
+            // 
+            horafecha.Enabled = true;
+            horafecha.Tick += horafecha_Tick;
             // 
             // FormaMenu
             // 
@@ -286,6 +421,7 @@
             Controls.Add(panelSombra);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(1241, 665);
             Name = "FormaMenu";
             StartPosition = FormStartPosition.CenterScreen;
@@ -295,7 +431,13 @@
             ((System.ComponentModel.ISupportInitialize)btnHome).EndInit();
             panelTitleBar.ResumeLayout(false);
             panelTitleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btnMinimizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnMaximizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnExit).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconCurrentChildForm).EndInit();
+            pnlDesktop.ResumeLayout(false);
+            pnlDesktop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -315,5 +457,13 @@
         private Label lblHome;
         private Panel panelSombra;
         private Panel pnlDesktop;
+        private PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconPictureBox btnMaximizar;
+        private FontAwesome.Sharp.IconPictureBox btnExit;
+        private FontAwesome.Sharp.IconPictureBox btnMinimizar;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private Label lblFecha;
+        private Label lblHora;
+        private System.Windows.Forms.Timer horafecha;
     }
 }
