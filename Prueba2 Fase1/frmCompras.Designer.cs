@@ -11,10 +11,6 @@
         private System.Windows.Forms.Button btnRealizarCompra;
         private System.Windows.Forms.Label lblProveedor;
         private System.Windows.Forms.Label lblProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioCompra;
 
         protected override void Dispose(bool disposing)
         {
@@ -35,11 +31,6 @@
             this.btnRealizarCompra = new System.Windows.Forms.Button();
             this.lblProveedor = new System.Windows.Forms.Label();
             this.lblProductos = new System.Windows.Forms.Label();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +45,7 @@
             // 
             // btnAgregarProveedor
             // 
-            this.btnAgregarProveedor.Location = new System.Drawing.Point(218, 24);
+            this.btnAgregarProveedor.Location = new System.Drawing.Point(218, 25);
             this.btnAgregarProveedor.Name = "btnAgregarProveedor";
             this.btnAgregarProveedor.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarProveedor.TabIndex = 1;
@@ -64,72 +55,39 @@
             // 
             // dgvProductos
             // 
-            this.dgvProductos.AllowUserToAddRows = false;
-            this.dgvProductos.AllowUserToDeleteRows = false;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
-            this.colNombre,
-            this.colCantidad,
-            this.colPrecioCompra});
             this.dgvProductos.Location = new System.Drawing.Point(12, 80);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.ReadOnly = true;
-            this.dgvProductos.Size = new System.Drawing.Size(600, 200);
+            this.dgvProductos.Size = new System.Drawing.Size(776, 300);
             this.dgvProductos.TabIndex = 2;
-            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            // 
-            // colID
-            // 
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            // 
-            // colNombre
-            // 
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.ReadOnly = true;
-            // 
-            // colCantidad
-            // 
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.ReadOnly = true;
-            // 
-            // colPrecioCompra
-            // 
-            this.colPrecioCompra.HeaderText = "Precio Compra";
-            this.colPrecioCompra.Name = "colPrecioCompra";
-            this.colPrecioCompra.ReadOnly = true;
             // 
             // btnAgregarProducto
             // 
-            this.btnAgregarProducto.Location = new System.Drawing.Point(12, 286);
+            this.btnAgregarProducto.Location = new System.Drawing.Point(12, 400);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(100, 23);
+            this.btnAgregarProducto.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarProducto.TabIndex = 3;
-            this.btnAgregarProducto.Text = "Agregar Producto";
+            this.btnAgregarProducto.Text = "Agregar";
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
             this.btnAgregarProducto.Click += new System.EventHandler(this.BtnAgregarProducto_Click);
             // 
             // btnEliminarProducto
             // 
-            this.btnEliminarProducto.Location = new System.Drawing.Point(118, 286);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(93, 400);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
-            this.btnEliminarProducto.Size = new System.Drawing.Size(100, 23);
+            this.btnEliminarProducto.Size = new System.Drawing.Size(75, 23);
             this.btnEliminarProducto.TabIndex = 4;
-            this.btnEliminarProducto.Text = "Eliminar Producto";
+            this.btnEliminarProducto.Text = "Eliminar";
             this.btnEliminarProducto.UseVisualStyleBackColor = true;
             this.btnEliminarProducto.Click += new System.EventHandler(this.BtnEliminarProducto_Click);
             // 
             // btnRealizarCompra
             // 
-            this.btnRealizarCompra.Location = new System.Drawing.Point(512, 286);
+            this.btnRealizarCompra.Location = new System.Drawing.Point(713, 400);
             this.btnRealizarCompra.Name = "btnRealizarCompra";
-            this.btnRealizarCompra.Size = new System.Drawing.Size(100, 23);
+            this.btnRealizarCompra.Size = new System.Drawing.Size(75, 23);
             this.btnRealizarCompra.TabIndex = 5;
-            this.btnRealizarCompra.Text = "Realizar Compra";
+            this.btnRealizarCompra.Text = "Realizar";
             this.btnRealizarCompra.UseVisualStyleBackColor = true;
             this.btnRealizarCompra.Click += new System.EventHandler(this.BtnRealizarCompra_Click);
             // 
@@ -147,13 +105,13 @@
             this.lblProductos.AutoSize = true;
             this.lblProductos.Location = new System.Drawing.Point(12, 64);
             this.lblProductos.Name = "lblProductos";
-            this.lblProductos.Size = new System.Drawing.Size(59, 13);
+            this.lblProductos.Size = new System.Drawing.Size(55, 13);
             this.lblProductos.TabIndex = 7;
             this.lblProductos.Text = "Productos:";
             // 
             // frmCompras
             // 
-            this.ClientSize = new System.Drawing.Size(624, 321);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblProductos);
             this.Controls.Add(this.lblProveedor);
             this.Controls.Add(this.btnRealizarCompra);

@@ -21,6 +21,7 @@ namespace Prueba2_Fase1
         private void frmCompras_Load(object sender, EventArgs e)
         {
             CargarProveedores();
+            ConfigurarDataGridView();
         }
 
         private void CargarProveedores()
@@ -29,6 +30,22 @@ namespace Prueba2_Fase1
             cbProveedores.DataSource = proveedores;
             cbProveedores.DisplayMember = "Nombre";
             cbProveedores.ValueMember = "ID";
+        }
+
+        private void ConfigurarDataGridView()
+        {
+            // Eliminar todas las columnas existentes antes de agregar nuevas
+            dgvProductos.Columns.Clear();
+
+            dgvProductos.Columns.Add("colID", "ID");
+            dgvProductos.Columns.Add("colNombre", "Nombre");
+            dgvProductos.Columns.Add("colCantidad", "Cantidad");
+            dgvProductos.Columns.Add("colPrecioCompra", "Precio Compra");
+
+            dgvProductos.AllowUserToAddRows = false;
+            dgvProductos.AllowUserToDeleteRows = false;
+            dgvProductos.ReadOnly = true;
+            dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void BtnAgregarProducto_Click(object sender, EventArgs e)
@@ -48,6 +65,7 @@ namespace Prueba2_Fase1
                             return;
                         }
                     }
+
                     dgvProductos.Rows.Add(form.Producto.ID, form.Producto.Nombre, form.Cantidad, form.PrecioCompra);
                 }
             }
@@ -87,12 +105,7 @@ namespace Prueba2_Fase1
                 });
             }
 
-            int compraID = comprasDal.InsertarCompra(compra);
-            foreach (var detalle in compra.Detalles)
-            {
-                detalle.CompraID = compraID;
-                comprasDal.InsertarDetalleCompra(detalle);
-            }
+            comprasDal.InsertarCompra(compra);
 
             this.DialogResult = DialogResult.OK;
             this.Close();

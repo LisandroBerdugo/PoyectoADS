@@ -40,7 +40,7 @@ namespace Prueba2_Fase1.DAL
                         Activo = reader.GetBoolean("Activo"),
                         ProveedorID = reader.GetInt32("ProveedorID"),
                         ProveedorNombre = reader.GetString("ProveedorNombre"),
-                        ProveedorTelefono = reader.GetString("ProveedorTelefono"), // Obtener el teléfono del proveedor
+                        ProveedorTelefono = reader.GetString("ProveedorTelefono"),
                         Detalles = ObtenerDetallesCompra(reader.GetInt32("ID"))
                     };
                     compras.Add(compra);
@@ -66,8 +66,8 @@ namespace Prueba2_Fase1.DAL
             using (MySqlConnection conn = conexion.Conectar())
             {
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
-                cmd.Parameters.AddWithValue("@FechaFin", fechaFin);
+                cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@FechaFin", fechaFin.ToString("yyyy-MM-dd 23:59:59"));
 
                 if (!string.IsNullOrEmpty(filtro))
                 {
@@ -87,7 +87,7 @@ namespace Prueba2_Fase1.DAL
                         Activo = reader.GetBoolean("Activo"),
                         ProveedorID = reader.GetInt32("ProveedorID"),
                         ProveedorNombre = reader.GetString("ProveedorNombre"),
-                        ProveedorTelefono = reader.GetString("ProveedorTelefono"), // Obtener el teléfono del proveedor
+                        ProveedorTelefono = reader.GetString("ProveedorTelefono"),
                         Detalles = ObtenerDetallesCompra(reader.GetInt32("ID"))
                     };
                     compras.Add(compra);
@@ -122,7 +122,7 @@ namespace Prueba2_Fase1.DAL
                         Activo = reader.GetBoolean("Activo"),
                         ProveedorID = reader.GetInt32("ProveedorID"),
                         ProveedorNombre = reader.GetString("ProveedorNombre"),
-                        ProveedorTelefono = reader.GetString("ProveedorTelefono"), // Obtener el teléfono del proveedor
+                        ProveedorTelefono = reader.GetString("ProveedorTelefono"),
                         Detalles = ObtenerDetallesCompra(reader.GetInt32("ID"))
                     };
                 }
