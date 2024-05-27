@@ -1,33 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Prueba2_Fase1.EL;
+using Prueba2_Fase1.DAL;
 
 namespace Prueba2_Fase1
 {
     public partial class frmRegistrarProducto : Form
     {
+        private ProductosDAL productosDAL;
+
         public frmRegistrarProducto()
         {
             InitializeComponent();
-
-            this.MaximizeBox = false;
-
+            productosDAL = new ProductosDAL();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
+           /* ProductosEL producto = new ProductosEL
+            {
+                Nombre = textBoxNombre.Text,
+                Descripcion = textBoxDescripcion.Text,
+                Precio = decimal.Parse(textBoxPrecio.Text)
+            };
 
-        private void frmRegistrarProducto_Load(object sender, EventArgs e)
-        {
-
+            productosDAL.AgregarProducto(producto); */
         }
     }
 }

@@ -2,15 +2,13 @@
 {
     partial class frmSeleccionarProducto
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnCancelar;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,105 +18,77 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            btnCancelar = new Button();
-            btnGuardar = new Button();
-            btnRegistarProd = new Button();
-            dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
-            btnBuscar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            SuspendLayout();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
             // 
-            // btnCancelar
+            // txtBuscar
             // 
-            btnCancelar.Location = new Point(566, 387);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
-            btnCancelar.TabIndex = 27;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.Location = new Point(681, 387);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(75, 23);
-            btnGuardar.TabIndex = 26;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnRegistarProd
-            // 
-            btnRegistarProd.Location = new Point(45, 344);
-            btnRegistarProd.Name = "btnRegistarProd";
-            btnRegistarProd.Size = new Size(132, 23);
-            btnRegistarProd.TabIndex = 25;
-            btnRegistarProd.Text = "Registrar Producto";
-            btnRegistarProd.UseVisualStyleBackColor = true;
-            btnRegistarProd.Click += btnRegistarProd_Click;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(45, 99);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(711, 239);
-            dataGridView1.TabIndex = 22;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(115, 50);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(526, 23);
-            textBox1.TabIndex = 20;
+            this.txtBuscar.Location = new System.Drawing.Point(12, 12);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(360, 20);
+            this.txtBuscar.TabIndex = 0;
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(662, 50);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(75, 23);
-            btnBuscar.TabIndex = 29;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Location = new System.Drawing.Point(378, 10);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 50);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(441, 300);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(297, 370);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 3;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(378, 370);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // frmSeleccionarProducto
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(btnBuscar);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnGuardar);
-            Controls.Add(btnRegistarProd);
-            Controls.Add(dataGridView1);
-            Controls.Add(textBox1);
-            MaximumSize = new Size(816, 489);
-            MinimumSize = new Size(816, 489);
-            Name = "frmSeleccionarProducto";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmSeleccionarProducto";
-            Load += frmSeleccionarProducto_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.ClientSize = new System.Drawing.Size(465, 405);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtBuscar);
+            this.Name = "frmSeleccionarProducto";
+            this.Text = "Seleccionar Producto";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
-
-        #endregion
-
-        private Button btnCancelar;
-        private Button btnGuardar;
-        private Button btnRegistarProd;
-        private DataGridView dataGridView1;
-        private TextBox textBox1;
-        private Button btnBuscar;
     }
 }

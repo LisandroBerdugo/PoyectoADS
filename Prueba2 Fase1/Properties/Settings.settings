@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Prueba2_Fase1.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ip_db" Type="System.String" Scope="User">
+      <Value Profile="(Default)">bux6vyzniwu0eisgi5qj-mysql.services.clever-cloud.com</Value>
+    </Setting>
+    <Setting Name="usuario_db" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ulfipektogsvbtya</Value>
+    </Setting>
+    <Setting Name="password_db" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Sqs5ClilmPTeEuleug59</Value>
+    </Setting>
+    <Setting Name="name_db" Type="System.String" Scope="User">
+      <Value Profile="(Default)">bsrcn9rcndiaey9oe7il</Value>
+    </Setting>
+    <Setting Name="port_db" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3306</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

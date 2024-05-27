@@ -1,6 +1,6 @@
 ﻿namespace Prueba2_Fase1
 {
-    partial class frmAgregarUsu
+    partial class frmEditarUsu
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -122,7 +122,7 @@
             this.labelActivo.TabIndex = 10;
             this.labelActivo.Text = "Activo";
             // 
-            // frmAgregarUsu
+            // frmEditarUsu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,9 +138,9 @@
             this.Controls.Add(this.textBoxContraseña);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.textBoxNombre);
-            this.Name = "frmAgregarUsu";
-            this.Text = "Agregar Usuario";
-            this.Load += new System.EventHandler(this.frmAgregarUsu_Load);
+            this.Name = "frmEditarUsu";
+            this.Text = "Editar Usuario";
+            this.Load += new System.EventHandler(this.frmEditarUsu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

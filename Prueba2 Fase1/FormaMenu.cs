@@ -1,16 +1,19 @@
 using FontAwesome.Sharp;
+using System;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Prueba2_Fase1
 {
     public partial class FormaMenu : Form
     {
-        //Fields
+        public int RolUsuario { get; set; }
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
 
-        //Constructor
         public FormaMenu()
         {
             InitializeComponent();
@@ -18,13 +21,52 @@ namespace Prueba2_Fase1
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
 
-            //Quitar funciones de windows
+            // Quitar funciones de windows
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+            pnlDesktop.Dock = DockStyle.Fill; // Asegurarse de que el panel de escritorio llene el formulario principal
+
+            // Inicializar la interfaz basada en el rol del usuario
+            InicializarInterfazUsuario();
         }
-        //Estructuras
+
+        private void InicializarInterfazUsuario()
+        {
+            switch (RolUsuario)
+            {
+                case 1: // Administrador
+                    // Habilitar todas las opciones
+                    btn1.Enabled = true;
+                    btn2.Enabled = true;
+                    btn3.Enabled = true;
+                    btn4.Enabled = true;
+                    btn5.Enabled = true;
+                    btn6.Enabled = true;
+                    break;
+                case 2: // Ventas
+                    // Habilitar solo las opciones de ventas
+                    btn1.Enabled = false;
+                    btn2.Enabled = false;
+                    btn3.Enabled = true;
+                    btn4.Enabled = false;
+                    btn5.Enabled = false;
+                    btn6.Enabled = false;
+                    break;
+                case 3: // Contador
+                    // Habilitar solo las opciones de reportes
+                    btn1.Enabled = false;
+                    btn2.Enabled = false;
+                    btn3.Enabled = false;
+                    btn4.Enabled = false;
+                    btn5.Enabled = false;
+                    btn6.Enabled = true;
+                    break;
+            }
+        }
+
         private struct RGBColors
         {
             public static Color color1 = Color.FromArgb(172, 126, 241);
@@ -35,63 +77,39 @@ namespace Prueba2_Fase1
             public static Color color6 = Color.FromArgb(24, 161, 251);
         }
 
-        //Metodos
-        private void ActivateButton(Object senderBtn, Color color)
+        private async void OpenChildFrm(Form childForm)
         {
-            if (senderBtn != null)
+            // Mostrar pantalla de carga en el subproceso principal
+            LoadingForm loadingForm = new LoadingForm();
+            loadingForm.Size = pnlDesktop.Size; // Ajustar tamaño al tamaño del panel
+            loadingForm.StartPosition = FormStartPosition.Manual;
+            loadingForm.Location = pnlDesktop.PointToScreen(Point.Empty); // Posicionar sobre pnlDesktop
+            loadingForm.Show();
+            loadingForm.Refresh();
+
+            await Task.Run(() =>
             {
-                DisableButton();
-                //Personalizacion de los botones
-                currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(37, 36, 81);
-                currentBtn.ForeColor = color;
-                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                currentBtn.IconColor = color;
-                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+                // Aquí se realiza la carga del formulario hijo
+                Invoke(new Action(() =>
+                {
+                    if (currentChildForm != null)
+                    {
+                        currentChildForm.Close();
+                    }
+                    currentChildForm = childForm;
+                    childForm.TopLevel = false;
+                    childForm.FormBorderStyle = FormBorderStyle.None;
+                    childForm.Dock = DockStyle.Fill;
+                    pnlDesktop.Controls.Add(childForm);
+                    pnlDesktop.Tag = childForm;
+                    childForm.BringToFront();
+                    childForm.Show();
+                    lblHome.Text = childForm.Text;
+                }));
+            });
 
-                ///////////////////////////////////////////////////////////////////////
-                leftBorderBtn.BackColor = color;
-                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
-                leftBorderBtn.Visible = true;
-                leftBorderBtn.BringToFront();
-
-                /////////////////////////////////////////////////////////////////////////
-                iconCurrentChildForm.IconChar = currentBtn.IconChar;
-                iconCurrentChildForm.IconColor = color;
-            }
-        }
-
-        private void DisableButton()
-        {
-            if (currentBtn != null)
-            {
-                currentBtn.BackColor = Color.FromArgb(0, 0, 64);
-                currentBtn.ForeColor = Color.Gainsboro;
-                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.Gainsboro;
-                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            }
-        }
-
-        //Abrir formularios hijos
-        private void OpenChildFrm(Form childForm)
-        {
-            if (currentChildForm != null)
-            {
-                //Abrir un solo formulario
-                currentChildForm.Close();
-            }
-            currentChildForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            pnlDesktop.Controls.Add(childForm);
-            pnlDesktop.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-            lblHome.Text = childForm.Text;
+            // Cerrar pantalla de carga en el subproceso principal
+            loadingForm.Close();
         }
 
         private void btn1_Click(object sender, EventArgs e)
@@ -148,6 +166,42 @@ namespace Prueba2_Fase1
             lblHome.Text = "Home";
         }
 
+        private void ActivateButton(Object senderBtn, Color color)
+        {
+            if (senderBtn != null)
+            {
+                DisableButton();
+                currentBtn = (IconButton)senderBtn;
+                currentBtn.BackColor = Color.FromArgb(37, 36, 81);
+                currentBtn.ForeColor = color;
+                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+                currentBtn.IconColor = color;
+                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+
+                leftBorderBtn.BackColor = color;
+                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
+                leftBorderBtn.Visible = true;
+                leftBorderBtn.BringToFront();
+
+                iconCurrentChildForm.IconChar = currentBtn.IconChar;
+                iconCurrentChildForm.IconColor = color;
+            }
+        }
+
+        private void DisableButton()
+        {
+            if (currentBtn != null)
+            {
+                currentBtn.BackColor = Color.FromArgb(0, 0, 64);
+                currentBtn.ForeColor = Color.Gainsboro;
+                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
+                currentBtn.IconColor = Color.Gainsboro;
+                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            }
+        }
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -182,6 +236,15 @@ namespace Prueba2_Fase1
         {
             lblHora.Text = DateTime.Now.ToShortTimeString();
             lblFecha.Text = DateTime.Now.ToString("dddd dd MMMM yyyy");
+        }
+
+        private void FormaMenu_Load(object sender, EventArgs e)
+        {
+            // Configurar pnlDesktop para llenar el formulario principal
+            pnlDesktop.Dock = DockStyle.Fill;
+
+            // Inicializar la interfaz basada en el rol del usuario
+            InicializarInterfazUsuario();
         }
     }
 }

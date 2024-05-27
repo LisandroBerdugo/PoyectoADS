@@ -157,6 +157,7 @@
             Controls.Add(txtBuscar);
             Controls.Add(btnBuscar);
             Controls.Add(dataGridView1);
+            MinimumSize = new Size(1005, 542);
             Name = "FrmClientes";
             Text = "MANTENIMIENTO CLIENTES";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

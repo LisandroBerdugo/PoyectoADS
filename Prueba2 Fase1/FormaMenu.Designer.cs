@@ -220,7 +220,7 @@
             // 
             // btn1
             // 
-            btn1.Cursor = Cursors.Hand;
+            btn1.Cursor = Cursors.HSplit;
             btn1.Dock = DockStyle.Top;
             btn1.FlatAppearance.BorderSize = 0;
             btn1.FlatStyle = FlatStyle.Flat;
@@ -359,11 +359,11 @@
             // 
             // pnlDesktop
             // 
-            pnlDesktop.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlDesktop.BackColor = Color.FromArgb(0, 0, 64);
             pnlDesktop.Controls.Add(lblFecha);
             pnlDesktop.Controls.Add(lblHora);
             pnlDesktop.Controls.Add(pictureBox1);
+            pnlDesktop.Dock = DockStyle.Fill;
             pnlDesktop.Location = new Point(220, 84);
             pnlDesktop.Name = "pnlDesktop";
             pnlDesktop.Size = new Size(1005, 542);
@@ -426,6 +426,7 @@
             Name = "FormaMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += FormaMenu_Load;
             panelMenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)btnHome).EndInit();

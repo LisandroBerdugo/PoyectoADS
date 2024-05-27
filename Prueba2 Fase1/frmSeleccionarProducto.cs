@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Prueba2_Fase1.EL;
+using Prueba2_Fase1.DAL;
 
 namespace Prueba2_Fase1
 {
@@ -15,9 +8,16 @@ namespace Prueba2_Fase1
         public frmSeleccionarProducto()
         {
             InitializeComponent();
+        }
 
-            this.MaximizeBox = false;
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            // Implementación para buscar productos
+        }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            // Implementación para agregar productos seleccionados
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -25,15 +25,11 @@ namespace Prueba2_Fase1
             this.Close();
         }
 
-        private void btnRegistarProd_Click(object sender, EventArgs e)
+        public List<ProductosEL> ObtenerProductosSeleccionados()
         {
-            frmRegistrarProducto formRegistrarProducto = new frmRegistrarProducto();
-            formRegistrarProducto.ShowDialog();
-        }
-
-        private void frmSeleccionarProducto_Load(object sender, EventArgs e)
-        {
-
+            List<ProductosEL> productosSeleccionados = new List<ProductosEL>();
+            // Implementación para obtener productos seleccionados del DataGridView
+            return productosSeleccionados;
         }
     }
 }

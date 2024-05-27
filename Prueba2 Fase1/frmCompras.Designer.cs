@@ -2,15 +2,20 @@
 {
     partial class frmCompras
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.ComboBox cbProveedores;
+        private System.Windows.Forms.Button btnAgregarProveedor;
+        private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.Button btnAgregarProducto;
+        private System.Windows.Forms.Button btnEliminarProducto;
+        private System.Windows.Forms.Button btnRealizarCompra;
+        private System.Windows.Forms.Label lblProveedor;
+        private System.Windows.Forms.Label lblProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioCompra;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,167 +25,149 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            dataGridView1 = new DataGridView();
-            iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
-            btnDetalles = new Button();
-            btnGuardar = new Button();
-            btnCancelar = new Button();
-            label1 = new Label();
-            label2 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
-            SuspendLayout();
+            this.cbProveedores = new System.Windows.Forms.ComboBox();
+            this.btnAgregarProveedor = new System.Windows.Forms.Button();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.btnAgregarProducto = new System.Windows.Forms.Button();
+            this.btnEliminarProducto = new System.Windows.Forms.Button();
+            this.btnRealizarCompra = new System.Windows.Forms.Button();
+            this.lblProveedor = new System.Windows.Forms.Label();
+            this.lblProductos = new System.Windows.Forms.Label();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            this.SuspendLayout();
             // 
-            // textBox1
+            // cbProveedores
             // 
-            textBox1.Location = new Point(181, 61);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 0;
+            this.cbProveedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbProveedores.FormattingEnabled = true;
+            this.cbProveedores.Location = new System.Drawing.Point(12, 25);
+            this.cbProveedores.Name = "cbProveedores";
+            this.cbProveedores.Size = new System.Drawing.Size(200, 21);
+            this.cbProveedores.TabIndex = 0;
             // 
-            // textBox2
+            // btnAgregarProveedor
             // 
-            textBox2.Location = new Point(418, 61);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 1;
+            this.btnAgregarProveedor.Location = new System.Drawing.Point(218, 24);
+            this.btnAgregarProveedor.Name = "btnAgregarProveedor";
+            this.btnAgregarProveedor.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregarProveedor.TabIndex = 1;
+            this.btnAgregarProveedor.Text = "Agregar";
+            this.btnAgregarProveedor.UseVisualStyleBackColor = true;
+            this.btnAgregarProveedor.Click += new System.EventHandler(this.BtnAgregarProveedor_Click);
             // 
-            // dataGridView1
+            // dgvProductos
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(41, 110);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(711, 239);
-            dataGridView1.TabIndex = 2;
+            this.dgvProductos.AllowUserToAddRows = false;
+            this.dgvProductos.AllowUserToDeleteRows = false;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colID,
+            this.colNombre,
+            this.colCantidad,
+            this.colPrecioCompra});
+            this.dgvProductos.Location = new System.Drawing.Point(12, 80);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.Size = new System.Drawing.Size(600, 200);
+            this.dgvProductos.TabIndex = 2;
+            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             // 
-            // iconPictureBox1
+            // colID
             // 
-            iconPictureBox1.BackColor = Color.Transparent;
-            iconPictureBox1.Cursor = Cursors.Hand;
-            iconPictureBox1.ForeColor = Color.ForestGreen;
-            iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            iconPictureBox1.IconColor = Color.ForestGreen;
-            iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox1.Location = new Point(562, 52);
-            iconPictureBox1.Name = "iconPictureBox1";
-            iconPictureBox1.Size = new Size(32, 32);
-            iconPictureBox1.TabIndex = 3;
-            iconPictureBox1.TabStop = false;
-            iconPictureBox1.Click += iconPictureBox1_Click;
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
             // 
-            // iconPictureBox2
+            // colNombre
             // 
-            iconPictureBox2.BackColor = SystemColors.Control;
-            iconPictureBox2.Cursor = Cursors.Hand;
-            iconPictureBox2.ForeColor = SystemColors.ControlText;
-            iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Search;
-            iconPictureBox2.IconColor = SystemColors.ControlText;
-            iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox2.Location = new Point(616, 52);
-            iconPictureBox2.Name = "iconPictureBox2";
-            iconPictureBox2.Size = new Size(32, 32);
-            iconPictureBox2.TabIndex = 4;
-            iconPictureBox2.TabStop = false;
-            iconPictureBox2.Click += iconPictureBox2_Click;
+            this.colNombre.HeaderText = "Nombre";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.ReadOnly = true;
             // 
-            // btnDetalles
+            // colCantidad
             // 
-            btnDetalles.Location = new Point(41, 355);
-            btnDetalles.Name = "btnDetalles";
-            btnDetalles.Size = new Size(111, 23);
-            btnDetalles.TabIndex = 5;
-            btnDetalles.Text = "Agregar Detalles";
-            btnDetalles.UseVisualStyleBackColor = true;
-            btnDetalles.Click += btnDetalles_Click;
+            this.colCantidad.HeaderText = "Cantidad";
+            this.colCantidad.Name = "colCantidad";
+            this.colCantidad.ReadOnly = true;
             // 
-            // btnGuardar
+            // colPrecioCompra
             // 
-            btnGuardar.Location = new Point(677, 398);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(75, 23);
-            btnGuardar.TabIndex = 6;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
+            this.colPrecioCompra.HeaderText = "Precio Compra";
+            this.colPrecioCompra.Name = "colPrecioCompra";
+            this.colPrecioCompra.ReadOnly = true;
             // 
-            // btnCancelar
+            // btnAgregarProducto
             // 
-            btnCancelar.Location = new Point(562, 398);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
-            btnCancelar.TabIndex = 7;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(12, 286);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(100, 23);
+            this.btnAgregarProducto.TabIndex = 3;
+            this.btnAgregarProducto.Text = "Agregar Producto";
+            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.BtnAgregarProducto_Click);
             // 
-            // label1
+            // btnEliminarProducto
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(114, 64);
-            label1.Name = "label1";
-            label1.Size = new Size(64, 15);
-            label1.TabIndex = 8;
-            label1.Text = "Proveedor:";
+            this.btnEliminarProducto.Location = new System.Drawing.Point(118, 286);
+            this.btnEliminarProducto.Name = "btnEliminarProducto";
+            this.btnEliminarProducto.Size = new System.Drawing.Size(100, 23);
+            this.btnEliminarProducto.TabIndex = 4;
+            this.btnEliminarProducto.Text = "Eliminar Producto";
+            this.btnEliminarProducto.UseVisualStyleBackColor = true;
+            this.btnEliminarProducto.Click += new System.EventHandler(this.BtnEliminarProducto_Click);
             // 
-            // label2
+            // btnRealizarCompra
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(361, 64);
-            label2.Name = "label2";
-            label2.Size = new Size(55, 15);
-            label2.TabIndex = 9;
-            label2.Text = "Telefono:";
+            this.btnRealizarCompra.Location = new System.Drawing.Point(512, 286);
+            this.btnRealizarCompra.Name = "btnRealizarCompra";
+            this.btnRealizarCompra.Size = new System.Drawing.Size(100, 23);
+            this.btnRealizarCompra.TabIndex = 5;
+            this.btnRealizarCompra.Text = "Realizar Compra";
+            this.btnRealizarCompra.UseVisualStyleBackColor = true;
+            this.btnRealizarCompra.Click += new System.EventHandler(this.BtnRealizarCompra_Click);
+            // 
+            // lblProveedor
+            // 
+            this.lblProveedor.AutoSize = true;
+            this.lblProveedor.Location = new System.Drawing.Point(12, 9);
+            this.lblProveedor.Name = "lblProveedor";
+            this.lblProveedor.Size = new System.Drawing.Size(59, 13);
+            this.lblProveedor.TabIndex = 6;
+            this.lblProveedor.Text = "Proveedor:";
+            // 
+            // lblProductos
+            // 
+            this.lblProductos.AutoSize = true;
+            this.lblProductos.Location = new System.Drawing.Point(12, 64);
+            this.lblProductos.Name = "lblProductos";
+            this.lblProductos.Size = new System.Drawing.Size(59, 13);
+            this.lblProductos.TabIndex = 7;
+            this.lblProductos.Text = "Productos:";
             // 
             // frmCompras
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnGuardar);
-            Controls.Add(btnDetalles);
-            Controls.Add(iconPictureBox2);
-            Controls.Add(iconPictureBox1);
-            Controls.Add(dataGridView1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            MaximumSize = new Size(816, 489);
-            MinimumSize = new Size(816, 489);
-            Name = "frmCompras";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmCompras";
-            Load += frmCompras_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox2).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.ClientSize = new System.Drawing.Size(624, 321);
+            this.Controls.Add(this.lblProductos);
+            this.Controls.Add(this.lblProveedor);
+            this.Controls.Add(this.btnRealizarCompra);
+            this.Controls.Add(this.btnEliminarProducto);
+            this.Controls.Add(this.btnAgregarProducto);
+            this.Controls.Add(this.dgvProductos);
+            this.Controls.Add(this.btnAgregarProveedor);
+            this.Controls.Add(this.cbProveedores);
+            this.Name = "frmCompras";
+            this.Text = "Compras";
+            this.Load += new System.EventHandler(this.frmCompras_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
-
-        #endregion
-
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private DataGridView dataGridView1;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
-        private Button btnDetalles;
-        private Button btnGuardar;
-        private Button btnCancelar;
-        private Label label1;
-        private Label label2;
     }
 }
