@@ -23,15 +23,22 @@ namespace Prueba2_Fase1
             CargarClientes();
         }
 
-        private void CargarClientes(string filtroNombre = "")
+        private void CargarClientes(string filtro = "")
         {
             try
             {
                 List<ClientesEL> clientes = clientesDAL.ObtenerClientes();
 
-                if (!string.IsNullOrEmpty(filtroNombre))
+                if (!string.IsNullOrEmpty(filtro))
                 {
-                    clientes = clientes.Where(c => c.Nombre.Contains(filtroNombre, StringComparison.OrdinalIgnoreCase)).ToList();
+                    filtro = filtro.ToLower();
+                    clientes = clientes.Where(c =>
+                        c.Nombre.ToLower().Contains(filtro) ||
+                        c.Apellido.ToLower().Contains(filtro) ||
+                        c.Telefono.ToLower().Contains(filtro) ||
+                        c.Email.ToLower().Contains(filtro) ||
+                        c.Direccion.ToLower().Contains(filtro)
+                    ).ToList();
                 }
 
                 DataTable dt = ConvertToDataTable(clientes);
@@ -76,8 +83,8 @@ namespace Prueba2_Fase1
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string filtroNombre = textBoxFiltroNombre.Text.Trim();
-            CargarClientes(filtroNombre);
+            string filtro = textBoxFiltroNombre.Text.Trim();
+            CargarClientes(filtro);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
