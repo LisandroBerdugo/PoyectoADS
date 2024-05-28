@@ -2,15 +2,13 @@
 {
     partial class FrmClientes
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.DataGridView dataGridViewClientes;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox textBoxFiltroNombre;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnEditar;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,162 +18,90 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            btnEliminar = new Button();
-            btnEditar = new Button();
-            btnAgregar = new Button();
-            txtBuscar = new TextBox();
-            btnBuscar = new Button();
-            dataGridView1 = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            username = new DataGridViewTextBoxColumn();
-            enabled = new DataGridViewTextBoxColumn();
-            verified = new DataGridViewTextBoxColumn();
-            rol = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            SuspendLayout();
+            this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.textBoxFiltroNombre = new System.Windows.Forms.TextBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
+            this.SuspendLayout();
             // 
-            // btnEliminar
+            // dataGridViewClientes
             // 
-            btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnEliminar.Location = new Point(703, 461);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(75, 23);
-            btnEliminar.TabIndex = 16;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            btnEditar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnEditar.Location = new Point(797, 461);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(75, 23);
-            btnEditar.TabIndex = 15;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAgregar.Location = new Point(881, 461);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 23);
-            btnAgregar.TabIndex = 14;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
-            // 
-            // txtBuscar
-            // 
-            txtBuscar.Location = new Point(33, 19);
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(529, 23);
-            txtBuscar.TabIndex = 13;
+            this.dataGridViewClientes.AllowUserToAddRows = false;
+            this.dataGridViewClientes.AllowUserToDeleteRows = false;
+            this.dataGridViewClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClientes.Location = new System.Drawing.Point(32, 102);
+            this.dataGridViewClientes.MultiSelect = false;
+            this.dataGridViewClientes.Name = "dataGridViewClientes";
+            this.dataGridViewClientes.ReadOnly = true;
+            this.dataGridViewClientes.RowHeadersVisible = false;
+            this.dataGridViewClientes.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewClientes.Size = new System.Drawing.Size(923, 335);
+            this.dataGridViewClientes.TabIndex = 0;
+            this.dataGridViewClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClientes_CellClick);
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(568, 18);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(75, 24);
-            btnBuscar.TabIndex = 12;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Location = new System.Drawing.Point(567, 12);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 24);
+            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // dataGridView1
+            // textBoxFiltroNombre
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, username, enabled, verified, rol });
-            dataGridView1.Location = new Point(33, 108);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(923, 335);
-            dataGridView1.TabIndex = 11;
+            this.textBoxFiltroNombre.Location = new System.Drawing.Point(32, 13);
+            this.textBoxFiltroNombre.Name = "textBoxFiltroNombre";
+            this.textBoxFiltroNombre.Size = new System.Drawing.Size(529, 23);
+            this.textBoxFiltroNombre.TabIndex = 2;
             // 
-            // id
+            // btnAgregar
             // 
-            id.Frozen = true;
-            id.HeaderText = "id";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
+            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregar.Location = new System.Drawing.Point(880, 455);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 3;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // username
+            // btnEditar
             // 
-            username.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            username.HeaderText = "usuario";
-            username.MinimumWidth = 100;
-            username.Name = "username";
-            username.ReadOnly = true;
-            // 
-            // enabled
-            // 
-            enabled.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            enabled.FillWeight = 75F;
-            enabled.HeaderText = "habilitado";
-            enabled.MinimumWidth = 75;
-            enabled.Name = "enabled";
-            enabled.ReadOnly = true;
-            // 
-            // verified
-            // 
-            verified.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            verified.FillWeight = 75F;
-            verified.HeaderText = "verificado";
-            verified.MinimumWidth = 75;
-            verified.Name = "verified";
-            verified.ReadOnly = true;
-            // 
-            // rol
-            // 
-            rol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            rol.HeaderText = "rol";
-            rol.MinimumWidth = 75;
-            rol.Name = "rol";
-            rol.ReadOnly = true;
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar.Location = new System.Drawing.Point(781, 455);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 5;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // FrmClientes
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(37, 36, 81);
-            ClientSize = new Size(989, 503);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnEditar);
-            Controls.Add(btnAgregar);
-            Controls.Add(txtBuscar);
-            Controls.Add(btnBuscar);
-            Controls.Add(dataGridView1);
-            MinimumSize = new Size(1005, 542);
-            Name = "FrmClientes";
-            Text = "MANTENIMIENTO CLIENTES";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(36)))), ((int)(((byte)(81)))));
+            this.ClientSize = new System.Drawing.Size(989, 503);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.textBoxFiltroNombre);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.dataGridViewClientes);
+            this.Name = "FrmClientes";
+            this.Text = "MANTENIMIENTO DE CLIENTES";
+            this.Load += new System.EventHandler(this.FrmClientes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
-
-        #endregion
-        private Button btnEliminar;
-        private Button btnEditar;
-        private Button btnAgregar;
-        private TextBox txtBuscar;
-        private Button btnBuscar;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn username;
-        private DataGridViewTextBoxColumn enabled;
-        private DataGridViewTextBoxColumn verified;
-        private DataGridViewTextBoxColumn rol;
     }
 }

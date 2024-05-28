@@ -1,6 +1,6 @@
 ﻿namespace Prueba2_Fase1
 {
-    partial class frmAgregarCliente
+    partial class frmEditarCliente
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.TextBox txtNombre;
@@ -79,7 +79,7 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // frmAgregarCliente
+            // frmEditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -90,8 +90,8 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
-            this.Name = "frmAgregarCliente";
-            this.Text = "Agregar Cliente";
+            this.Name = "frmEditarCliente";
+            this.Text = "Editar Cliente";
             this.ResumeLayout(false);
             this.PerformLayout();
         }
