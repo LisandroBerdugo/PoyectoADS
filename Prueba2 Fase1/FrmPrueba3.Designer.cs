@@ -6,7 +6,7 @@
         private System.Windows.Forms.ComboBox cbClientes;
         private System.Windows.Forms.ComboBox cbProductos;
         private System.Windows.Forms.NumericUpDown numCantidad;
-        private System.Windows.Forms.NumericUpDown numPrecioVenta;
+        private System.Windows.Forms.TextBox txtPrecioVenta; // Cambiado de NumericUpDown a TextBox para que no sea editable
         private System.Windows.Forms.Button btnAgregarProducto;
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnFinalizarVenta;
@@ -25,17 +25,17 @@
             this.cbClientes = new System.Windows.Forms.ComboBox();
             this.cbProductos = new System.Windows.Forms.ComboBox();
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
-            this.numPrecioVenta = new System.Windows.Forms.NumericUpDown();
+            this.txtPrecioVenta = new System.Windows.Forms.TextBox(); // Cambiado de NumericUpDown a TextBox
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnFinalizarVenta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPrecioVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // cbClientes
             // 
+            this.cbClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList; // Evita edición
             this.cbClientes.FormattingEnabled = true;
             this.cbClientes.Location = new System.Drawing.Point(12, 12);
             this.cbClientes.Name = "cbClientes";
@@ -44,11 +44,13 @@
             // 
             // cbProductos
             // 
+            this.cbProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList; // Evita edición
             this.cbProductos.FormattingEnabled = true;
             this.cbProductos.Location = new System.Drawing.Point(12, 39);
             this.cbProductos.Name = "cbProductos";
             this.cbProductos.Size = new System.Drawing.Size(260, 21);
             this.cbProductos.TabIndex = 1;
+            this.cbProductos.SelectedIndexChanged += new System.EventHandler(this.CbProductos_SelectedIndexChanged); // Añadir evento
             // 
             // numCantidad
             // 
@@ -72,28 +74,13 @@
             0,
             0});
             // 
-            // numPrecioVenta
+            // txtPrecioVenta
             // 
-            this.numPrecioVenta.DecimalPlaces = 2;
-            this.numPrecioVenta.Location = new System.Drawing.Point(152, 66);
-            this.numPrecioVenta.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numPrecioVenta.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            131072});
-            this.numPrecioVenta.Name = "numPrecioVenta";
-            this.numPrecioVenta.Size = new System.Drawing.Size(120, 20);
-            this.numPrecioVenta.TabIndex = 3;
-            this.numPrecioVenta.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
+            this.txtPrecioVenta.Location = new System.Drawing.Point(152, 66);
+            this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.ReadOnly = true; // Evita edición
+            this.txtPrecioVenta.Size = new System.Drawing.Size(120, 20);
+            this.txtPrecioVenta.TabIndex = 3;
             // 
             // btnAgregarProducto
             // 
@@ -131,7 +118,7 @@
             this.Controls.Add(this.btnFinalizarVenta);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnAgregarProducto);
-            this.Controls.Add(this.numPrecioVenta);
+            this.Controls.Add(this.txtPrecioVenta); // Cambiado de numPrecioVenta a txtPrecioVenta
             this.Controls.Add(this.numCantidad);
             this.Controls.Add(this.cbProductos);
             this.Controls.Add(this.cbClientes);
@@ -139,9 +126,9 @@
             this.Text = "Realizar Venta";
             this.Load += new System.EventHandler(this.FrmPrueba3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPrecioVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
         }
     }
 }

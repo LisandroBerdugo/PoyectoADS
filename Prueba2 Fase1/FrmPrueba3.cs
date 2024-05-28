@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Prueba2_Fase1.DAL;
 using Prueba2_Fase1.EL;
@@ -44,21 +45,38 @@ namespace Prueba2_Fase1
             cbProductos.ValueMember = "ID";
         }
 
+        private void CbProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbProductos.SelectedItem != null)
+            {
+                ProductosEL producto = (ProductosEL)cbProductos.SelectedItem;
+                txtPrecioVenta.Text = producto.Precio.ToString("F2");
+            }
+        }
+
         private void BtnAgregarProducto_Click(object sender, EventArgs e)
         {
-            if (cbProductos.SelectedItem == null || numCantidad.Value <= 0 || numPrecioVenta.Value <= 0)
+            if (cbProductos.SelectedItem == null || numCantidad.Value <= 0)
             {
-                MessageBox.Show("Debe seleccionar un producto, una cantidad válida y un precio válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar un producto y una cantidad válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             ProductosEL producto = (ProductosEL)cbProductos.SelectedItem;
+
+            // Verificar si el producto ya ha sido agregado
+            if (detallesVenta.Any(d => d.ProductoID == producto.ID))
+            {
+                MessageBox.Show("Este producto ya ha sido agregado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             DetalleVentaEL detalle = new DetalleVentaEL
             {
                 ProductoID = producto.ID,
                 ProductoNombre = producto.Nombre,
                 Cantidad = (int)numCantidad.Value,
-                PrecioVenta = numPrecioVenta.Value
+                PrecioVenta = producto.Precio
             };
             detallesVenta.Add(detalle);
             MostrarDetallesVenta();
