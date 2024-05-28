@@ -24,6 +24,7 @@ namespace Prueba2_Fase1
 
         private void BtnGenerarReporte_Click(object sender, EventArgs e)
         {
+            btnGenerarReporte.Cursor = Cursors.WaitCursor;
             List<ComprasEL> compras = comprasDal.ObtenerCompras();
             List<VentasEL> ventas = ventasDal.ObtenerVentas();
 
@@ -32,18 +33,23 @@ namespace Prueba2_Fase1
             progressBar.Maximum = totalSteps;
             progressBar.Value = 0;
 
-            string path = "ReporteBalance.pdf";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+                + "\\ReporteBalance.pdf";
             using (FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 Document document = new Document();
                 PdfWriter writer = PdfWriter.GetInstance(document, fs);
+                Paragraph texto = new Paragraph();
                 document.Open();
 
                 document.Add(new Paragraph("Reporte de Balance de Compras y Ventas"));
                 document.Add(new Paragraph(" "));
                 UpdateProgressBar();
 
-                document.Add(new Paragraph("Compras"));
+                texto = new Paragraph("Compras");
+                texto.Alignment = Element.ALIGN_CENTER;
+                document.Add(texto);
+
                 PdfPTable tableCompras = new PdfPTable(4);
                 tableCompras.AddCell("ID");
                 tableCompras.AddCell("Proveedor");
@@ -71,7 +77,10 @@ namespace Prueba2_Fase1
                 document.Add(new Paragraph(" "));
                 UpdateProgressBar();
 
-                document.Add(new Paragraph("Ventas"));
+                texto = new Paragraph("Ventas");
+                texto.Alignment = Element.ALIGN_CENTER;
+                document.Add(texto);
+
                 PdfPTable tableVentas = new PdfPTable(4);
                 tableVentas.AddCell("ID");
                 tableVentas.AddCell("Cliente");
@@ -109,6 +118,9 @@ namespace Prueba2_Fase1
 
             MessageBox.Show("Reporte generado con éxito en " + Path.GetFullPath(path), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             progressBar.Value = 0;
+
+            btnGenerarReporte.Cursor = Cursors.Arrow;
+
         }
 
         private void BtnGenerarReporteCompras_Click(object sender, EventArgs e)

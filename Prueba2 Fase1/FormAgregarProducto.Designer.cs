@@ -16,102 +16,77 @@
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.cbProductos = new System.Windows.Forms.ComboBox();
-            this.numCantidad = new System.Windows.Forms.NumericUpDown();
-            this.numPrecioCompra = new System.Windows.Forms.NumericUpDown();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPrecioCompra)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            cbProductos = new ComboBox();
+            numPrecioCompra = new NumericUpDown();
+            btnAceptar = new Button();
+            errorProvider = new ErrorProvider(components);
+            txtCantidad = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)numPrecioCompra).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
+            SuspendLayout();
             // 
             // cbProductos
             // 
-            this.cbProductos.FormattingEnabled = true;
-            this.cbProductos.Location = new System.Drawing.Point(12, 12);
-            this.cbProductos.Name = "cbProductos";
-            this.cbProductos.Size = new System.Drawing.Size(260, 21);
-            this.cbProductos.TabIndex = 0;
-            // 
-            // numCantidad
-            // 
-            this.numCantidad.Location = new System.Drawing.Point(12, 39);
-            this.numCantidad.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numCantidad.Maximum = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-            this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(120, 20);
-            this.numCantidad.TabIndex = 1;
-            this.numCantidad.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            cbProductos.FormattingEnabled = true;
+            cbProductos.Location = new Point(12, 12);
+            cbProductos.Name = "cbProductos";
+            cbProductos.Size = new Size(260, 23);
+            cbProductos.TabIndex = 0;
             // 
             // numPrecioCompra
             // 
-            this.numPrecioCompra.DecimalPlaces = 2;
-            this.numPrecioCompra.Location = new System.Drawing.Point(12, 65);
-            this.numPrecioCompra.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numPrecioCompra.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            131072});
-            this.numPrecioCompra.Name = "numPrecioCompra";
-            this.numPrecioCompra.Size = new System.Drawing.Size(120, 20);
-            this.numPrecioCompra.TabIndex = 2;
-            this.numPrecioCompra.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
+            numPrecioCompra.DecimalPlaces = 2;
+            numPrecioCompra.Location = new Point(12, 65);
+            numPrecioCompra.Maximum = new decimal(new int[] { 99999, 0, 0, 131072 });
+            numPrecioCompra.Minimum = new decimal(new int[] { 1, 0, 0, 131072 });
+            numPrecioCompra.Name = "numPrecioCompra";
+            numPrecioCompra.Size = new Size(120, 23);
+            numPrecioCompra.TabIndex = 2;
+            numPrecioCompra.Value = new decimal(new int[] { 1, 0, 0, 131072 });
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(197, 91);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 3;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
+            btnAceptar.Location = new Point(197, 91);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new Size(75, 23);
+            btnAceptar.TabIndex = 3;
+            btnAceptar.Text = "Aceptar";
+            btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += BtnAceptar_Click;
             // 
             // errorProvider
             // 
-            this.errorProvider.ContainerControl = this;
+            errorProvider.ContainerControl = this;
+            // 
+            // txtCantidad
+            // 
+            txtCantidad.Location = new Point(12, 36);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(120, 23);
+            txtCantidad.TabIndex = 4;
+            txtCantidad.Text = "1";
+            txtCantidad.Validating += txtCantidad_Validating;
             // 
             // FormAgregarProducto
             // 
-            this.ClientSize = new System.Drawing.Size(284, 126);
-            this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.numPrecioCompra);
-            this.Controls.Add(this.numCantidad);
-            this.Controls.Add(this.cbProductos);
-            this.Name = "FormAgregarProducto";
-            this.Text = "Agregar Producto";
-            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPrecioCompra)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            this.ResumeLayout(false);
+            ClientSize = new Size(284, 126);
+            Controls.Add(txtCantidad);
+            Controls.Add(btnAceptar);
+            Controls.Add(numPrecioCompra);
+            Controls.Add(cbProductos);
+            Name = "FormAgregarProducto";
+            Text = "Agregar Producto";
+            ((System.ComponentModel.ISupportInitialize)numPrecioCompra).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.ComboBox cbProductos;
         private System.Windows.Forms.NumericUpDown numCantidad;
         private System.Windows.Forms.NumericUpDown numPrecioCompra;
         private System.Windows.Forms.Button btnAceptar;
+        private TextBox txtCantidad;
     }
 }
