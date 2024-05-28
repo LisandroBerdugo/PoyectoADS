@@ -85,12 +85,21 @@ namespace Prueba2_Fase1
                     {
                         CompraID = compra.ID,
                         Producto = detalle.ProductoNombre,
+                        Cantidad = detalle.Cantidad, 
                         ValorCompra = detalle.PrecioCompra,
                         FechaCompra = compra.FechaCompra
                     });
                 }
             }
             dgvCompras.DataSource = dataSource;
+
+            // Asegurar que las columnas están en el orden correcto
+            dgvCompras.Columns["CompraID"].DisplayIndex = 0;
+            dgvCompras.Columns["Producto"].DisplayIndex = 1;
+            dgvCompras.Columns["Cantidad"].DisplayIndex = 2;
+            dgvCompras.Columns["ValorCompra"].DisplayIndex = 3;
+            dgvCompras.Columns["FechaCompra"].DisplayIndex = 4;
         }
+
     }
 }

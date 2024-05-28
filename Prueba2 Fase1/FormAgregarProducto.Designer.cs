@@ -43,6 +43,11 @@
             0,
             0,
             0});
+            this.numCantidad.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.numCantidad.Name = "numCantidad";
             this.numCantidad.Size = new System.Drawing.Size(120, 20);
             this.numCantidad.TabIndex = 1;
@@ -58,6 +63,11 @@
             this.numPrecioCompra.Location = new System.Drawing.Point(12, 65);
             this.numPrecioCompra.Minimum = new decimal(new int[] {
             1,
+            0,
+            0,
+            131072});
+            this.numPrecioCompra.Maximum = new decimal(new int[] {
+            99999,
             0,
             0,
             131072});

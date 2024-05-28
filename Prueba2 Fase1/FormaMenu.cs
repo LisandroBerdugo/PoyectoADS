@@ -127,7 +127,7 @@ namespace Prueba2_Fase1
         private void btn3_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildFrm(new FrmVentas());
+            OpenChildFrm(new frmPrueba3());
         }
 
         private void btn4_Click(object sender, EventArgs e)

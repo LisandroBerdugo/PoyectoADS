@@ -1,16 +1,16 @@
 ﻿namespace Prueba2_Fase1
 {
-    partial class FrmVentas
+    partial class frmPrueba3
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.ComboBox cbClientes;
+        private System.Windows.Forms.ComboBox cbProductos;
+        private System.Windows.Forms.NumericUpDown numCantidad;
+        private System.Windows.Forms.NumericUpDown numPrecioVenta;
+        private System.Windows.Forms.Button btnAgregarProducto;
+        private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.Button btnFinalizarVenta;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,223 +20,128 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            lblHasta = new Label();
-            cbTodo = new CheckBox();
-            lblDesde = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            btnAnular = new Button();
-            btnVer = new Button();
-            btnAgregar = new Button();
-            txtBuscar = new TextBox();
-            btnBuscar = new Button();
-            dataGridView1 = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            username = new DataGridViewTextBoxColumn();
-            enabled = new DataGridViewTextBoxColumn();
-            verified = new DataGridViewTextBoxColumn();
-            rol = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            SuspendLayout();
+            this.cbClientes = new System.Windows.Forms.ComboBox();
+            this.cbProductos = new System.Windows.Forms.ComboBox();
+            this.numCantidad = new System.Windows.Forms.NumericUpDown();
+            this.numPrecioVenta = new System.Windows.Forms.NumericUpDown();
+            this.btnAgregarProducto = new System.Windows.Forms.Button();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.btnFinalizarVenta = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrecioVenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            this.SuspendLayout();
             // 
-            // lblHasta
+            // cbClientes
             // 
-            lblHasta.AutoSize = true;
-            lblHasta.ForeColor = SystemColors.ControlLightLight;
-            lblHasta.Location = new Point(280, 71);
-            lblHasta.Name = "lblHasta";
-            lblHasta.Size = new Size(40, 15);
-            lblHasta.TabIndex = 32;
-            lblHasta.Text = "Hasta:";
+            this.cbClientes.FormattingEnabled = true;
+            this.cbClientes.Location = new System.Drawing.Point(12, 12);
+            this.cbClientes.Name = "cbClientes";
+            this.cbClientes.Size = new System.Drawing.Size(260, 21);
+            this.cbClientes.TabIndex = 0;
             // 
-            // cbTodo
+            // cbProductos
             // 
-            cbTodo.AutoSize = true;
-            cbTodo.ForeColor = SystemColors.ControlLightLight;
-            cbTodo.Location = new Point(510, 65);
-            cbTodo.Name = "cbTodo";
-            cbTodo.Size = new Size(52, 19);
-            cbTodo.TabIndex = 31;
-            cbTodo.Text = "Todo";
-            cbTodo.UseVisualStyleBackColor = true;
+            this.cbProductos.FormattingEnabled = true;
+            this.cbProductos.Location = new System.Drawing.Point(12, 39);
+            this.cbProductos.Name = "cbProductos";
+            this.cbProductos.Size = new System.Drawing.Size(260, 21);
+            this.cbProductos.TabIndex = 1;
             // 
-            // lblDesde
+            // numCantidad
             // 
-            lblDesde.AutoSize = true;
-            lblDesde.ForeColor = SystemColors.ControlLightLight;
-            lblDesde.Location = new Point(51, 71);
-            lblDesde.Name = "lblDesde";
-            lblDesde.Size = new Size(42, 15);
-            lblDesde.TabIndex = 30;
-            lblDesde.Text = "Desde:";
+            this.numCantidad.Location = new System.Drawing.Point(12, 66);
+            this.numCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numCantidad.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numCantidad.Name = "numCantidad";
+            this.numCantidad.Size = new System.Drawing.Size(120, 20);
+            this.numCantidad.TabIndex = 2;
+            this.numCantidad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // textBox2
+            // numPrecioVenta
             // 
-            textBox2.Location = new Point(324, 63);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 29;
+            this.numPrecioVenta.DecimalPlaces = 2;
+            this.numPrecioVenta.Location = new System.Drawing.Point(152, 66);
+            this.numPrecioVenta.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numPrecioVenta.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            131072});
+            this.numPrecioVenta.Name = "numPrecioVenta";
+            this.numPrecioVenta.Size = new System.Drawing.Size(120, 20);
+            this.numPrecioVenta.TabIndex = 3;
+            this.numPrecioVenta.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             // 
-            // textBox1
+            // btnAgregarProducto
             // 
-            textBox1.Location = new Point(95, 63);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 28;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(197, 92);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregarProducto.TabIndex = 4;
+            this.btnAgregarProducto.Text = "Agregar";
+            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.BtnAgregarProducto_Click);
             // 
-            // btnAnular
+            // dgvProductos
             // 
-            btnAnular.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAnular.Location = new Point(703, 461);
-            btnAnular.Name = "btnAnular";
-            btnAnular.Size = new Size(75, 23);
-            btnAnular.TabIndex = 27;
-            btnAnular.Text = "Anular";
-            btnAnular.UseVisualStyleBackColor = true;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(12, 121);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.Size = new System.Drawing.Size(760, 260);
+            this.dgvProductos.TabIndex = 5;
+            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             // 
-            // btnVer
+            // btnFinalizarVenta
             // 
-            btnVer.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnVer.Location = new Point(797, 461);
-            btnVer.Name = "btnVer";
-            btnVer.Size = new Size(75, 23);
-            btnVer.TabIndex = 26;
-            btnVer.Text = "Ver";
-            btnVer.UseVisualStyleBackColor = true;
+            this.btnFinalizarVenta.Location = new System.Drawing.Point(697, 387);
+            this.btnFinalizarVenta.Name = "btnFinalizarVenta";
+            this.btnFinalizarVenta.Size = new System.Drawing.Size(75, 23);
+            this.btnFinalizarVenta.TabIndex = 6;
+            this.btnFinalizarVenta.Text = "Finalizar Venta";
+            this.btnFinalizarVenta.UseVisualStyleBackColor = true;
+            this.btnFinalizarVenta.Click += new System.EventHandler(this.BtnFinalizarVenta_Click);
             // 
-            // btnAgregar
+            // frmPrueba3
             // 
-            btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAgregar.Location = new Point(881, 461);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 23);
-            btnAgregar.TabIndex = 25;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
-            // 
-            // txtBuscar
-            // 
-            txtBuscar.Location = new Point(33, 19);
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(529, 23);
-            txtBuscar.TabIndex = 24;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.Location = new Point(568, 18);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(75, 24);
-            btnBuscar.TabIndex = 23;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, username, enabled, verified, rol });
-            dataGridView1.Location = new Point(33, 108);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(923, 335);
-            dataGridView1.TabIndex = 22;
-            // 
-            // id
-            // 
-            id.Frozen = true;
-            id.HeaderText = "id";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
-            // 
-            // username
-            // 
-            username.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            username.HeaderText = "usuario";
-            username.MinimumWidth = 100;
-            username.Name = "username";
-            username.ReadOnly = true;
-            // 
-            // enabled
-            // 
-            enabled.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            enabled.FillWeight = 75F;
-            enabled.HeaderText = "habilitado";
-            enabled.MinimumWidth = 75;
-            enabled.Name = "enabled";
-            enabled.ReadOnly = true;
-            // 
-            // verified
-            // 
-            verified.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            verified.FillWeight = 75F;
-            verified.HeaderText = "verificado";
-            verified.MinimumWidth = 75;
-            verified.Name = "verified";
-            verified.ReadOnly = true;
-            // 
-            // rol
-            // 
-            rol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            rol.HeaderText = "rol";
-            rol.MinimumWidth = 75;
-            rol.Name = "rol";
-            rol.ReadOnly = true;
-            // 
-            // FrmVentas
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(37, 36, 81);
-            ClientSize = new Size(989, 503);
-            Controls.Add(lblHasta);
-            Controls.Add(cbTodo);
-            Controls.Add(lblDesde);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(btnAnular);
-            Controls.Add(btnVer);
-            Controls.Add(btnAgregar);
-            Controls.Add(txtBuscar);
-            Controls.Add(btnBuscar);
-            Controls.Add(dataGridView1);
-            Name = "FrmVentas";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "VENTAS";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.ClientSize = new System.Drawing.Size(784, 421);
+            this.Controls.Add(this.btnFinalizarVenta);
+            this.Controls.Add(this.dgvProductos);
+            this.Controls.Add(this.btnAgregarProducto);
+            this.Controls.Add(this.numPrecioVenta);
+            this.Controls.Add(this.numCantidad);
+            this.Controls.Add(this.cbProductos);
+            this.Controls.Add(this.cbClientes);
+            this.Name = "frmPrueba3";
+            this.Text = "Realizar Venta";
+            this.Load += new System.EventHandler(this.FrmPrueba3_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrecioVenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            this.ResumeLayout(false);
         }
-
-        #endregion
-
-        private Label lblHasta;
-        private CheckBox cbTodo;
-        private Label lblDesde;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Button btnAnular;
-        private Button btnVer;
-        private Button btnAgregar;
-        private TextBox txtBuscar;
-        private Button btnBuscar;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn username;
-        private DataGridViewTextBoxColumn enabled;
-        private DataGridViewTextBoxColumn verified;
-        private DataGridViewTextBoxColumn rol;
     }
 }
