@@ -42,5 +42,35 @@ namespace Prueba2_Fase1.DAL
             }
             return inventario;
         }
+
+        public InventarioEL ObtenerInventarioPorProductoID(int productoID)
+        {
+            InventarioEL inventario = null;
+            string query = @"
+                SELECT p.ID, p.Nombre, COALESCE(SUM(a.Cantidad), 0) AS Cantidad
+                FROM Productos p
+                LEFT JOIN Almacenamiento a ON p.ID = a.ProductoID
+                WHERE p.ID = @ProductoID
+                GROUP BY p.ID, p.Nombre";
+
+            using (MySqlConnection conn = conexion.Conectar())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@ProductoID", productoID);
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    inventario = new InventarioEL
+                    {
+                        ProductoID = reader.GetInt32("ID"),
+                        Nombre = reader.GetString("Nombre"),
+                        Cantidad = reader.GetInt32("Cantidad")
+                    };
+                }
+            }
+            return inventario;
+        }
     }
 }

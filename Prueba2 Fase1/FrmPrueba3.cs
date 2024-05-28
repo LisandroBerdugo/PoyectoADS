@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Prueba2_Fase1.DAL;
@@ -12,6 +13,7 @@ namespace Prueba2_Fase1
         private VentasDAL ventasDal;
         private ClientesDAL clientesDal;
         private ProductosDAL productosDal;
+        private InventarioDAL inventarioDal;
         private List<DetalleVentaEL> detallesVenta;
 
         public frmPrueba3()
@@ -20,6 +22,7 @@ namespace Prueba2_Fase1
             ventasDal = new VentasDAL();
             clientesDal = new ClientesDAL();
             productosDal = new ProductosDAL();
+            inventarioDal = new InventarioDAL();
             detallesVenta = new List<DetalleVentaEL>();
         }
 
@@ -54,11 +57,28 @@ namespace Prueba2_Fase1
             }
         }
 
+        private void NumCantidad_Validating(object sender, CancelEventArgs e)
+        {
+            if (numCantidad.Value < 1)
+            {
+                e.Cancel = true;
+                MessageBox.Show("La cantidad debe ser al menos 1.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                numCantidad.Value = 1; // Restablecer el valor a 1
+            }
+        }
+
         private void BtnAgregarProducto_Click(object sender, EventArgs e)
         {
-            if (cbProductos.SelectedItem == null || numCantidad.Value <= 0)
+            if (cbProductos.SelectedItem == null)
             {
-                MessageBox.Show("Debe seleccionar un producto y una cantidad válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar un producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (numCantidad.Value < 1)
+            {
+                MessageBox.Show("La cantidad debe ser al menos 1.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                numCantidad.Value = 1; // Restablecer el valor a 1
                 return;
             }
 
@@ -68,6 +88,14 @@ namespace Prueba2_Fase1
             if (detallesVenta.Any(d => d.ProductoID == producto.ID))
             {
                 MessageBox.Show("Este producto ya ha sido agregado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Verificar stock disponible
+            InventarioEL inventario = inventarioDal.ObtenerInventarioPorProductoID(producto.ID);
+            if (inventario == null || inventario.Cantidad < (int)numCantidad.Value)
+            {
+                MessageBox.Show("No hay suficiente stock para la venta que se quiere realizar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -85,7 +113,22 @@ namespace Prueba2_Fase1
         private void MostrarDetallesVenta()
         {
             dgvProductos.DataSource = null;
-            dgvProductos.DataSource = detallesVenta;
+            dgvProductos.Columns.Clear();
+
+            var dataSource = detallesVenta.Select(d => new
+            {
+                d.ProductoNombre,
+                Cantidad = d.Cantidad,
+                PrecioUnitario = d.PrecioVenta,
+                Total = d.Cantidad * d.PrecioVenta
+            }).ToList();
+
+            dgvProductos.DataSource = dataSource;
+
+            dgvProductos.Columns["ProductoNombre"].HeaderText = "Producto";
+            dgvProductos.Columns["Cantidad"].HeaderText = "Cantidad";
+            dgvProductos.Columns["PrecioUnitario"].HeaderText = "Precio Unitario";
+            dgvProductos.Columns["Total"].HeaderText = "Total";
         }
 
         private void BtnFinalizarVenta_Click(object sender, EventArgs e)
@@ -106,7 +149,14 @@ namespace Prueba2_Fase1
 
             ventasDal.InsertarVenta(venta);
             MessageBox.Show("Venta realizada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+
+            // Limpiar los campos para una nueva venta
+            detallesVenta.Clear();
+            MostrarDetallesVenta();
+            cbClientes.SelectedIndex = -1;
+            cbProductos.SelectedIndex = -1;
+            numCantidad.Value = 1;
+            txtPrecioVenta.Clear();
         }
     }
 }
