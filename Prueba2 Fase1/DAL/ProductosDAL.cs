@@ -82,5 +82,50 @@ namespace Prueba2_Fase1.DAL
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public void EditarProducto(ProductosEL producto)
+        {
+            string query = "UPDATE Productos SET Nombre = @Nombre, Descripcion = @Descripcion, Precio = @Precio WHERE ID = @ID";
+
+            using (MySqlConnection conn = conexion.Conectar())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@ID", producto.ID);
+                cmd.Parameters.AddWithValue("@Nombre", producto.Nombre);
+                cmd.Parameters.AddWithValue("@Descripcion", producto.Descripcion);
+                cmd.Parameters.AddWithValue("@Precio", producto.Precio);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
+        // Nuevo método para buscar productos por nombre
+        public List<ProductosEL> BuscarProductosPorNombre(string nombre)
+        {
+            List<ProductosEL> productos = new List<ProductosEL>();
+            string query = "SELECT ID, Nombre, Descripcion, Precio FROM Productos WHERE Nombre LIKE @Nombre";
+
+            using (MySqlConnection conn = conexion.Conectar())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Nombre", "%" + nombre + "%");
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ProductosEL producto = new ProductosEL
+                    {
+                        ID = reader.GetInt32("ID"),
+                        Nombre = reader.GetString("Nombre"),
+                        Descripcion = reader.GetString("Descripcion"),
+                        Precio = reader.GetDecimal("Precio")
+                    };
+                    productos.Add(producto);
+                }
+            }
+            return productos;
+        }
     }
 }

@@ -26,5 +26,13 @@ namespace Prueba2_Fase1
             List<InventarioEL> inventario = inventarioDal.ObtenerInventario();
             dgvInventario.DataSource = inventario;
         }
+
+        private void btnMantenimientoProductos_Click(object sender, EventArgs e)
+        {
+            using (var frm = new frmMantenimientoProductos())
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }
