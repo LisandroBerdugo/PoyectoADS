@@ -41,14 +41,13 @@ namespace Prueba2_Fase1.DAL
                         Activo = reader.GetBoolean("Activo"),
                         FechaRegistro = reader.GetDateTime("FechaRegistro"),
                         RolID = reader.GetInt32("ID_Rol"),
-                        RolNombre = reader.GetString("RolNombre") // Nuevo campo para el nombre del rol
+                        RolNombre = reader.GetString("RolNombre")
                     };
                     usuarios.Add(usuario);
                 }
             }
             return usuarios;
         }
-
 
         public List<Rol> ObtenerRoles()
         {
@@ -111,6 +110,36 @@ namespace Prueba2_Fase1.DAL
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public Usuario AutenticarUsuario(string nombre, string password)
+        {
+            Usuario usuario = null;
+            string query = "SELECT ID, Nombre, Email, Contraseña, Activo, FechaRegistro, ID_Rol FROM Usuarios WHERE Nombre = @Nombre AND Contraseña = @Password AND Activo = TRUE";
+
+            using (MySqlConnection conn = conexion.Conectar())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Nombre", nombre);
+                cmd.Parameters.AddWithValue("@Password", password);
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    usuario = new Usuario
+                    {
+                        ID = reader.GetInt32("ID"),
+                        Nombre = reader.GetString("Nombre"),
+                        Email = reader.GetString("Email"),
+                        Contraseña = reader.GetString("Contraseña"),
+                        Activo = reader.GetBoolean("Activo"),
+                        FechaRegistro = reader.GetDateTime("FechaRegistro"),
+                        RolID = reader.GetInt32("ID_Rol")
+                    };
+                }
+            }
+            return usuario;
         }
     }
 }

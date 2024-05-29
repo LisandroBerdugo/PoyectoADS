@@ -2,7 +2,6 @@ using FontAwesome.Sharp;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Prueba2_Fase1
@@ -26,8 +25,12 @@ namespace Prueba2_Fase1
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        }
 
-            pnlDesktop.Dock = DockStyle.Fill; // Asegurarse de que el panel de escritorio llene el formulario principal
+        private void FormaMenu_Load(object sender, EventArgs e)
+        {
+            // Configurar pnlDesktop para llenar el formulario principal
+            pnlDesktop.Dock = DockStyle.Fill;
 
             // Inicializar la interfaz basada en el rol del usuario
             InicializarInterfazUsuario();
@@ -35,34 +38,39 @@ namespace Prueba2_Fase1
 
         private void InicializarInterfazUsuario()
         {
+            // Inicializar todos los botones
+            IconButton[] botones = { btn1, btn2, btn3, btn4, btn5, btn6 };
+
+            foreach (var boton in botones)
+            {
+                boton.Enabled = false;
+                boton.ForeColor = Color.Gray; // Cambiar el color del texto a gris
+                boton.IconColor = Color.Gray; // Cambiar el color del ícono a gris
+            }
+
+            // Configurar botones según el rol del usuario
             switch (RolUsuario)
             {
                 case 1: // Administrador
                     // Habilitar todas las opciones
-                    btn1.Enabled = true;
-                    btn2.Enabled = true;
-                    btn3.Enabled = true;
-                    btn4.Enabled = true;
-                    btn5.Enabled = true;
-                    btn6.Enabled = true;
+                    foreach (var boton in botones)
+                    {
+                        boton.Enabled = true;
+                        boton.ForeColor = SystemColors.Window;
+                        boton.IconColor = SystemColors.Window;
+                    }
                     break;
                 case 2: // Ventas
                     // Habilitar solo las opciones de ventas
-                    btn1.Enabled = false;
-                    btn2.Enabled = false;
                     btn3.Enabled = true;
-                    btn4.Enabled = false;
-                    btn5.Enabled = false;
-                    btn6.Enabled = false;
+                    btn3.ForeColor = SystemColors.Window;
+                    btn3.IconColor = SystemColors.Window;
                     break;
                 case 3: // Contador
                     // Habilitar solo las opciones de reportes
-                    btn1.Enabled = false;
-                    btn2.Enabled = false;
-                    btn3.Enabled = false;
-                    btn4.Enabled = false;
-                    btn5.Enabled = false;
                     btn6.Enabled = true;
+                    btn6.ForeColor = SystemColors.Window;
+                    btn6.IconColor = SystemColors.Window;
                     break;
             }
         }
@@ -238,13 +246,9 @@ namespace Prueba2_Fase1
             lblFecha.Text = DateTime.Now.ToString("dddd dd MMMM yyyy");
         }
 
-        private void FormaMenu_Load(object sender, EventArgs e)
+        private void iconButton1_Click(object sender, EventArgs e)
         {
-            // Configurar pnlDesktop para llenar el formulario principal
-            pnlDesktop.Dock = DockStyle.Fill;
-
-            // Inicializar la interfaz basada en el rol del usuario
-            InicializarInterfazUsuario();
+            this.Close();
         }
     }
 }

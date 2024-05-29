@@ -102,6 +102,7 @@
             iconButton1.TextAlign = ContentAlignment.MiddleLeft;
             iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton1.UseVisualStyleBackColor = true;
+            iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // btn6
             // 

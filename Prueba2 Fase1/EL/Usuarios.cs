@@ -8,7 +8,7 @@
         public string Contraseña { get; set; }
         public bool Activo { get; set; }
         public DateTime FechaRegistro { get; set; }
-        public int RolID { get; set; }
-        public string RolNombre { get; set; } // Nueva propiedad
+        public int RolID { get; set; } // Asegúrate de que esta propiedad existe
+        public string RolNombre { get; set; } // Para almacenar el nombre del rol
     }
 }
