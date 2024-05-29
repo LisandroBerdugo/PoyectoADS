@@ -10,6 +10,9 @@ namespace Prueba2_Fase1
         private ProductosDAL productosDAL;
         private ProductosEL producto;
 
+        // Definir el evento
+        public event EventHandler ProductoGuardado;
+
         public frmAgregarEditarProducto(ProductosEL producto)
         {
             InitializeComponent();
@@ -26,6 +29,18 @@ namespace Prueba2_Fase1
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("El campo Nombre no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (numPrecio.Value < 0.01m)
+            {
+                MessageBox.Show("El precio debe ser mayor o igual a 0.01.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (producto == null)
             {
                 producto = new ProductosEL();
@@ -44,7 +59,16 @@ namespace Prueba2_Fase1
                 productosDAL.EditarProducto(producto);
             }
 
+            // Disparar el evento
+            OnProductoGuardado(EventArgs.Empty);
+
             DialogResult = DialogResult.OK;
+        }
+
+        // Método para disparar el evento
+        protected virtual void OnProductoGuardado(EventArgs e)
+        {
+            ProductoGuardado?.Invoke(this, e);
         }
     }
 }

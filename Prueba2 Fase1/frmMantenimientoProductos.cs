@@ -41,6 +41,7 @@ namespace Prueba2_Fase1
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             frmAgregarEditarProducto frm = new frmAgregarEditarProducto(null);
+            frm.ProductoGuardado += Frm_ProductoGuardado;
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 CargarProductos();
@@ -54,6 +55,7 @@ namespace Prueba2_Fase1
                 int idProducto = Convert.ToInt32(dataGridViewProductos.SelectedRows[0].Cells["ID"].Value);
                 ProductosEL producto = productosDAL.ObtenerProductoPorID(idProducto);
                 frmAgregarEditarProducto frm = new frmAgregarEditarProducto(producto);
+                frm.ProductoGuardado += Frm_ProductoGuardado;
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     CargarProductos();
@@ -63,6 +65,11 @@ namespace Prueba2_Fase1
             {
                 MessageBox.Show("Seleccione un producto para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void Frm_ProductoGuardado(object sender, EventArgs e)
+        {
+            CargarProductos();
         }
     }
 }
