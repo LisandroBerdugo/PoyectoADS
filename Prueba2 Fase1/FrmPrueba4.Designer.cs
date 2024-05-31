@@ -20,88 +20,86 @@
 
         private void InitializeComponent()
         {
-            this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.textBoxFiltroNombre = new System.Windows.Forms.TextBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
-            this.SuspendLayout();
+            dataGridViewClientes = new DataGridView();
+            btnBuscar = new Button();
+            textBoxFiltroNombre = new TextBox();
+            btnAgregar = new Button();
+            btnEditar = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
+            SuspendLayout();
             // 
             // dataGridViewClientes
             // 
-            this.dataGridViewClientes.AllowUserToAddRows = false;
-            this.dataGridViewClientes.AllowUserToDeleteRows = false;
-            this.dataGridViewClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClientes.Location = new System.Drawing.Point(32, 102);
-            this.dataGridViewClientes.MultiSelect = false;
-            this.dataGridViewClientes.Name = "dataGridViewClientes";
-            this.dataGridViewClientes.ReadOnly = true;
-            this.dataGridViewClientes.RowHeadersVisible = false;
-            this.dataGridViewClientes.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewClientes.Size = new System.Drawing.Size(923, 335);
-            this.dataGridViewClientes.TabIndex = 0;
-            this.dataGridViewClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClientes_CellClick);
+            dataGridViewClientes.AllowUserToAddRows = false;
+            dataGridViewClientes.AllowUserToDeleteRows = false;
+            dataGridViewClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewClientes.Location = new Point(32, 77);
+            dataGridViewClientes.MultiSelect = false;
+            dataGridViewClientes.Name = "dataGridViewClientes";
+            dataGridViewClientes.ReadOnly = true;
+            dataGridViewClientes.RowHeadersVisible = false;
+            dataGridViewClientes.RowTemplate.Resizable = DataGridViewTriState.False;
+            dataGridViewClientes.Size = new Size(923, 360);
+            dataGridViewClientes.TabIndex = 0;
+            dataGridViewClientes.CellClick += dataGridViewClientes_CellClick;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(567, 12);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 24);
-            this.btnBuscar.TabIndex = 1;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            btnBuscar.Location = new Point(567, 27);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(75, 24);
+            btnBuscar.TabIndex = 1;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // textBoxFiltroNombre
             // 
-            this.textBoxFiltroNombre.Location = new System.Drawing.Point(32, 13);
-            this.textBoxFiltroNombre.Name = "textBoxFiltroNombre";
-            this.textBoxFiltroNombre.Size = new System.Drawing.Size(529, 23);
-            this.textBoxFiltroNombre.TabIndex = 2;
+            textBoxFiltroNombre.Location = new Point(32, 28);
+            textBoxFiltroNombre.Name = "textBoxFiltroNombre";
+            textBoxFiltroNombre.Size = new Size(529, 23);
+            textBoxFiltroNombre.TabIndex = 2;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregar.Location = new System.Drawing.Point(880, 455);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 3;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAgregar.Location = new Point(880, 455);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(75, 23);
+            btnAgregar.TabIndex = 3;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnEditar
             // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar.Location = new System.Drawing.Point(781, 455);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 5;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            btnEditar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnEditar.Location = new Point(781, 455);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(75, 23);
+            btnEditar.TabIndex = 5;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // FrmClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(36)))), ((int)(((byte)(81)))));
-            this.ClientSize = new System.Drawing.Size(989, 503);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.textBoxFiltroNombre);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.dataGridViewClientes);
-            this.Name = "FrmClientes";
-            this.Text = "MANTENIMIENTO DE CLIENTES";
-            this.Load += new System.EventHandler(this.FrmClientes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(37, 36, 81);
+            ClientSize = new Size(989, 503);
+            Controls.Add(btnEditar);
+            Controls.Add(btnAgregar);
+            Controls.Add(textBoxFiltroNombre);
+            Controls.Add(btnBuscar);
+            Controls.Add(dataGridViewClientes);
+            Name = "FrmClientes";
+            Text = "MANTENIMIENTO DE CLIENTES";
+            Load += FrmClientes_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

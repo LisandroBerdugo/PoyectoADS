@@ -22,91 +22,94 @@
 
         private void InitializeComponent()
         {
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.numPrecio = new System.Windows.Forms.NumericUpDown();
-            this.labelNombre = new System.Windows.Forms.Label();
-            this.labelDescripcion = new System.Windows.Forms.Label();
-            this.labelPrecio = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numPrecio)).BeginInit();
-            this.SuspendLayout();
+            txtNombre = new TextBox();
+            txtDescripcion = new TextBox();
+            numPrecio = new NumericUpDown();
+            labelNombre = new Label();
+            labelDescripcion = new Label();
+            labelPrecio = new Label();
+            btnGuardar = new Button();
+            ((System.ComponentModel.ISupportInitialize)numPrecio).BeginInit();
+            SuspendLayout();
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(100, 20);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(200, 22);
-            this.txtNombre.TabIndex = 0;
+            txtNombre.Location = new Point(100, 20);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(200, 23);
+            txtNombre.TabIndex = 0;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(100, 60);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(200, 22);
-            this.txtDescripcion.TabIndex = 1;
+            txtDescripcion.Location = new Point(100, 60);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(200, 23);
+            txtDescripcion.TabIndex = 1;
             // 
             // numPrecio
             // 
-            this.numPrecio.DecimalPlaces = 2;
-            this.numPrecio.Location = new System.Drawing.Point(100, 100);
-            this.numPrecio.Name = "numPrecio";
-            this.numPrecio.Size = new System.Drawing.Size(120, 22);
-            this.numPrecio.TabIndex = 2;
+            numPrecio.DecimalPlaces = 2;
+            numPrecio.Location = new Point(100, 100);
+            numPrecio.Name = "numPrecio";
+            numPrecio.Size = new Size(120, 23);
+            numPrecio.TabIndex = 2;
             // 
             // labelNombre
             // 
-            this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(20, 20);
-            this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(64, 17);
-            this.labelNombre.TabIndex = 3;
-            this.labelNombre.Text = "Nombre:";
+            labelNombre.AutoSize = true;
+            labelNombre.Location = new Point(20, 20);
+            labelNombre.Name = "labelNombre";
+            labelNombre.Size = new Size(54, 15);
+            labelNombre.TabIndex = 3;
+            labelNombre.Text = "Nombre:";
             // 
             // labelDescripcion
             // 
-            this.labelDescripcion.AutoSize = true;
-            this.labelDescripcion.Location = new System.Drawing.Point(20, 60);
-            this.labelDescripcion.Name = "labelDescripcion";
-            this.labelDescripcion.Size = new System.Drawing.Size(85, 17);
-            this.labelDescripcion.TabIndex = 4;
-            this.labelDescripcion.Text = "Descripción:";
+            labelDescripcion.AutoSize = true;
+            labelDescripcion.Location = new Point(20, 60);
+            labelDescripcion.Name = "labelDescripcion";
+            labelDescripcion.Size = new Size(72, 15);
+            labelDescripcion.TabIndex = 4;
+            labelDescripcion.Text = "Descripción:";
             // 
             // labelPrecio
             // 
-            this.labelPrecio.AutoSize = true;
-            this.labelPrecio.Location = new System.Drawing.Point(20, 100);
-            this.labelPrecio.Name = "labelPrecio";
-            this.labelPrecio.Size = new System.Drawing.Size(52, 17);
-            this.labelPrecio.TabIndex = 5;
-            this.labelPrecio.Text = "Precio:";
+            labelPrecio.AutoSize = true;
+            labelPrecio.Location = new Point(20, 100);
+            labelPrecio.Name = "labelPrecio";
+            labelPrecio.Size = new Size(43, 15);
+            labelPrecio.TabIndex = 5;
+            labelPrecio.Text = "Precio:";
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(100, 140);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(100, 30);
-            this.btnGuardar.TabIndex = 6;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            btnGuardar.Location = new Point(100, 140);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(100, 30);
+            btnGuardar.TabIndex = 6;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // frmAgregarEditarProducto
             // 
-            this.ClientSize = new System.Drawing.Size(350, 200);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.labelPrecio);
-            this.Controls.Add(this.labelDescripcion);
-            this.Controls.Add(this.labelNombre);
-            this.Controls.Add(this.numPrecio);
-            this.Controls.Add(this.txtDescripcion);
-            this.Controls.Add(this.txtNombre);
-            this.Name = "frmAgregarEditarProducto";
-            this.Text = "Agregar/Editar Producto";
-            ((System.ComponentModel.ISupportInitialize)(this.numPrecio)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            ClientSize = new Size(350, 200);
+            Controls.Add(btnGuardar);
+            Controls.Add(labelPrecio);
+            Controls.Add(labelDescripcion);
+            Controls.Add(labelNombre);
+            Controls.Add(numPrecio);
+            Controls.Add(txtDescripcion);
+            Controls.Add(txtNombre);
+            MaximizeBox = false;
+            MaximumSize = new Size(366, 239);
+            MinimumSize = new Size(366, 239);
+            Name = "frmAgregarEditarProducto";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Agregar/Editar Producto";
+            ((System.ComponentModel.ISupportInitialize)numPrecio).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

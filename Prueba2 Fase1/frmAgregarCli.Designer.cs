@@ -21,79 +21,83 @@
 
         private void InitializeComponent()
         {
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            txtNombre = new TextBox();
+            txtApellido = new TextBox();
+            txtEmail = new TextBox();
+            txtTelefono = new TextBox();
+            txtDireccion = new TextBox();
+            btnGuardar = new Button();
+            SuspendLayout();
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(12, 12);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(260, 23);
-            this.txtNombre.TabIndex = 0;
-            this.txtNombre.PlaceholderText = "Nombre";
+            txtNombre.Location = new Point(12, 12);
+            txtNombre.Name = "txtNombre";
+            txtNombre.PlaceholderText = "Nombre";
+            txtNombre.Size = new Size(260, 23);
+            txtNombre.TabIndex = 0;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(12, 41);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(260, 23);
-            this.txtApellido.TabIndex = 1;
-            this.txtApellido.PlaceholderText = "Apellido";
+            txtApellido.Location = new Point(12, 41);
+            txtApellido.Name = "txtApellido";
+            txtApellido.PlaceholderText = "Apellido";
+            txtApellido.Size = new Size(260, 23);
+            txtApellido.TabIndex = 1;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(12, 70);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(260, 23);
-            this.txtEmail.TabIndex = 2;
-            this.txtEmail.PlaceholderText = "Email";
+            txtEmail.Location = new Point(12, 70);
+            txtEmail.Name = "txtEmail";
+            txtEmail.PlaceholderText = "Email";
+            txtEmail.Size = new Size(260, 23);
+            txtEmail.TabIndex = 2;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(12, 99);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(260, 23);
-            this.txtTelefono.TabIndex = 3;
-            this.txtTelefono.PlaceholderText = "Telefono";
+            txtTelefono.Location = new Point(12, 99);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.PlaceholderText = "Telefono";
+            txtTelefono.Size = new Size(260, 23);
+            txtTelefono.TabIndex = 3;
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(12, 128);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(260, 23);
-            this.txtDireccion.TabIndex = 4;
-            this.txtDireccion.PlaceholderText = "Direccion";
+            txtDireccion.Location = new Point(12, 128);
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.PlaceholderText = "Direccion";
+            txtDireccion.Size = new Size(260, 23);
+            txtDireccion.TabIndex = 4;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(197, 157);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 5;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            btnGuardar.Location = new Point(197, 157);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(75, 23);
+            btnGuardar.TabIndex = 5;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // frmAgregarCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 192);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.txtDireccion);
-            this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtApellido);
-            this.Controls.Add(this.txtNombre);
-            this.Name = "frmAgregarCliente";
-            this.Text = "Agregar Cliente";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(284, 192);
+            Controls.Add(btnGuardar);
+            Controls.Add(txtDireccion);
+            Controls.Add(txtTelefono);
+            Controls.Add(txtEmail);
+            Controls.Add(txtApellido);
+            Controls.Add(txtNombre);
+            MaximizeBox = false;
+            MaximumSize = new Size(300, 231);
+            MinimumSize = new Size(300, 231);
+            Name = "frmAgregarCliente";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Agregar Cliente";
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

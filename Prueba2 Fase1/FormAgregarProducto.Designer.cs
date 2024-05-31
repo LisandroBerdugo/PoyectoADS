@@ -75,7 +75,11 @@
             Controls.Add(btnAceptar);
             Controls.Add(numPrecioCompra);
             Controls.Add(cbProductos);
+            MaximizeBox = false;
+            MaximumSize = new Size(300, 165);
+            MinimumSize = new Size(300, 165);
             Name = "FormAgregarProducto";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar Producto";
             ((System.ComponentModel.ISupportInitialize)numPrecioCompra).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();

@@ -20,77 +20,80 @@
 
         private void InitializeComponent()
         {
-            this.textBoxBuscar = new System.Windows.Forms.TextBox();
-            this.labelBuscar = new System.Windows.Forms.Label();
-            this.dataGridViewProductos = new System.Windows.Forms.DataGridView();
-            this.btnAgregarProducto = new System.Windows.Forms.Button();
-            this.btnEditarProducto = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).BeginInit();
-            this.SuspendLayout();
+            textBoxBuscar = new TextBox();
+            labelBuscar = new Label();
+            dataGridViewProductos = new DataGridView();
+            btnAgregarProducto = new Button();
+            btnEditarProducto = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProductos).BeginInit();
+            SuspendLayout();
             // 
             // textBoxBuscar
             // 
-            this.textBoxBuscar.Location = new System.Drawing.Point(95, 22);
-            this.textBoxBuscar.Name = "textBoxBuscar";
-            this.textBoxBuscar.Size = new System.Drawing.Size(677, 22);
-            this.textBoxBuscar.TabIndex = 0;
-            this.textBoxBuscar.TextChanged += new System.EventHandler(this.textBoxBuscar_TextChanged);
+            textBoxBuscar.Location = new Point(83, 21);
+            textBoxBuscar.Name = "textBoxBuscar";
+            textBoxBuscar.Size = new Size(593, 23);
+            textBoxBuscar.TabIndex = 0;
+            textBoxBuscar.TextChanged += textBoxBuscar_TextChanged;
             // 
             // labelBuscar
             // 
-            this.labelBuscar.AutoSize = true;
-            this.labelBuscar.Location = new System.Drawing.Point(27, 25);
-            this.labelBuscar.Name = "labelBuscar";
-            this.labelBuscar.Size = new System.Drawing.Size(62, 17);
-            this.labelBuscar.TabIndex = 1;
-            this.labelBuscar.Text = "Buscar:";
+            labelBuscar.AutoSize = true;
+            labelBuscar.Location = new Point(24, 23);
+            labelBuscar.Name = "labelBuscar";
+            labelBuscar.Size = new Size(45, 15);
+            labelBuscar.TabIndex = 1;
+            labelBuscar.Text = "Buscar:";
             // 
             // dataGridViewProductos
             // 
-            this.dataGridViewProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProductos.Location = new System.Drawing.Point(30, 65);
-            this.dataGridViewProductos.Name = "dataGridViewProductos";
-            this.dataGridViewProductos.RowTemplate.Height = 24;
-            this.dataGridViewProductos.Size = new System.Drawing.Size(742, 373);
-            this.dataGridViewProductos.TabIndex = 2;
+            dataGridViewProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewProductos.Location = new Point(26, 61);
+            dataGridViewProductos.Name = "dataGridViewProductos";
+            dataGridViewProductos.RowTemplate.Height = 24;
+            dataGridViewProductos.Size = new Size(649, 350);
+            dataGridViewProductos.TabIndex = 2;
             // 
             // btnAgregarProducto
             // 
-            this.btnAgregarProducto.Location = new System.Drawing.Point(30, 450);
-            this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(150, 30);
-            this.btnAgregarProducto.TabIndex = 3;
-            this.btnAgregarProducto.Text = "Agregar Producto";
-            this.btnAgregarProducto.UseVisualStyleBackColor = true;
-            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
+            btnAgregarProducto.Location = new Point(26, 422);
+            btnAgregarProducto.Name = "btnAgregarProducto";
+            btnAgregarProducto.Size = new Size(131, 28);
+            btnAgregarProducto.TabIndex = 3;
+            btnAgregarProducto.Text = "Agregar Producto";
+            btnAgregarProducto.UseVisualStyleBackColor = true;
+            btnAgregarProducto.Click += btnAgregarProducto_Click;
             // 
             // btnEditarProducto
             // 
-            this.btnEditarProducto.Location = new System.Drawing.Point(200, 450);
-            this.btnEditarProducto.Name = "btnEditarProducto";
-            this.btnEditarProducto.Size = new System.Drawing.Size(150, 30);
-            this.btnEditarProducto.TabIndex = 4;
-            this.btnEditarProducto.Text = "Editar Producto";
-            this.btnEditarProducto.UseVisualStyleBackColor = true;
-            this.btnEditarProducto.Click += new System.EventHandler(this.btnEditarProducto_Click);
+            btnEditarProducto.Location = new Point(175, 422);
+            btnEditarProducto.Name = "btnEditarProducto";
+            btnEditarProducto.Size = new Size(131, 28);
+            btnEditarProducto.TabIndex = 4;
+            btnEditarProducto.Text = "Editar Producto";
+            btnEditarProducto.UseVisualStyleBackColor = true;
+            btnEditarProducto.Click += btnEditarProducto_Click;
             // 
             // frmMantenimientoProductos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 500);
-            this.Controls.Add(this.btnEditarProducto);
-            this.Controls.Add(this.btnAgregarProducto);
-            this.Controls.Add(this.dataGridViewProductos);
-            this.Controls.Add(this.labelBuscar);
-            this.Controls.Add(this.textBoxBuscar);
-            this.Name = "frmMantenimientoProductos";
-            this.Text = "Mantenimiento de Productos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(700, 469);
+            Controls.Add(btnEditarProducto);
+            Controls.Add(btnAgregarProducto);
+            Controls.Add(dataGridViewProductos);
+            Controls.Add(labelBuscar);
+            Controls.Add(textBoxBuscar);
+            MaximizeBox = false;
+            MaximumSize = new Size(716, 508);
+            MinimumSize = new Size(716, 508);
+            Name = "frmMantenimientoProductos";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Mantenimiento de Productos";
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProductos).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

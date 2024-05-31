@@ -22,114 +22,158 @@
 
         private void InitializeComponent()
         {
-            this.cbClientes = new System.Windows.Forms.ComboBox();
-            this.cbProductos = new System.Windows.Forms.ComboBox();
-            this.numCantidad = new System.Windows.Forms.NumericUpDown();
-            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
-            this.btnAgregarProducto = new System.Windows.Forms.Button();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.btnFinalizarVenta = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            this.SuspendLayout();
+            cbClientes = new ComboBox();
+            cbProductos = new ComboBox();
+            numCantidad = new NumericUpDown();
+            txtPrecioVenta = new TextBox();
+            btnAgregarProducto = new Button();
+            dgvProductos = new DataGridView();
+            btnFinalizarVenta = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            ((System.ComponentModel.ISupportInitialize)numCantidad).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
+            SuspendLayout();
             // 
             // cbClientes
             // 
-            this.cbClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbClientes.FormattingEnabled = true;
-            this.cbClientes.Location = new System.Drawing.Point(12, 12);
-            this.cbClientes.Name = "cbClientes";
-            this.cbClientes.Size = new System.Drawing.Size(260, 21);
-            this.cbClientes.TabIndex = 0;
+            cbClientes.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbClientes.FormattingEnabled = true;
+            cbClientes.Location = new Point(75, 28);
+            cbClientes.Name = "cbClientes";
+            cbClientes.Size = new Size(260, 23);
+            cbClientes.TabIndex = 0;
             // 
             // cbProductos
             // 
-            this.cbProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbProductos.FormattingEnabled = true;
-            this.cbProductos.Location = new System.Drawing.Point(12, 39);
-            this.cbProductos.Name = "cbProductos";
-            this.cbProductos.Size = new System.Drawing.Size(260, 21);
-            this.cbProductos.TabIndex = 1;
-            this.cbProductos.SelectedIndexChanged += new System.EventHandler(this.CbProductos_SelectedIndexChanged);
+            cbProductos.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbProductos.FormattingEnabled = true;
+            cbProductos.Location = new Point(456, 28);
+            cbProductos.Name = "cbProductos";
+            cbProductos.Size = new Size(260, 23);
+            cbProductos.TabIndex = 1;
+            cbProductos.SelectedIndexChanged += CbProductos_SelectedIndexChanged;
             // 
             // numCantidad
             // 
-            this.numCantidad.Location = new System.Drawing.Point(12, 66);
-            this.numCantidad.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numCantidad.Maximum = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-            this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(120, 20);
-            this.numCantidad.TabIndex = 2;
-            this.numCantidad.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numCantidad.Validating += new System.ComponentModel.CancelEventHandler(this.NumCantidad_Validating);
+            numCantidad.Location = new Point(86, 74);
+            numCantidad.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            numCantidad.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numCantidad.Name = "numCantidad";
+            numCantidad.Size = new Size(120, 23);
+            numCantidad.TabIndex = 2;
+            numCantidad.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numCantidad.Validating += NumCantidad_Validating;
             // 
             // txtPrecioVenta
             // 
-            this.txtPrecioVenta.Location = new System.Drawing.Point(152, 66);
-            this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.ReadOnly = true;
-            this.txtPrecioVenta.Size = new System.Drawing.Size(120, 20);
-            this.txtPrecioVenta.TabIndex = 3;
+            txtPrecioVenta.Location = new Point(456, 74);
+            txtPrecioVenta.Name = "txtPrecioVenta";
+            txtPrecioVenta.ReadOnly = true;
+            txtPrecioVenta.Size = new Size(120, 23);
+            txtPrecioVenta.TabIndex = 3;
             // 
             // btnAgregarProducto
             // 
-            this.btnAgregarProducto.Location = new System.Drawing.Point(197, 92);
-            this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregarProducto.TabIndex = 4;
-            this.btnAgregarProducto.Text = "Agregar";
-            this.btnAgregarProducto.UseVisualStyleBackColor = true;
-            this.btnAgregarProducto.Click += new System.EventHandler(this.BtnAgregarProducto_Click);
+            btnAgregarProducto.Location = new Point(827, 31);
+            btnAgregarProducto.Name = "btnAgregarProducto";
+            btnAgregarProducto.Size = new Size(139, 23);
+            btnAgregarProducto.TabIndex = 4;
+            btnAgregarProducto.Text = "Agregar Producto";
+            btnAgregarProducto.UseVisualStyleBackColor = true;
+            btnAgregarProducto.Click += BtnAgregarProducto_Click;
             // 
             // dgvProductos
             // 
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(12, 121);
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.ReadOnly = true;
-            this.dgvProductos.Size = new System.Drawing.Size(760, 260);
-            this.dgvProductos.TabIndex = 5;
-            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProductos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProductos.Location = new Point(22, 121);
+            dgvProductos.Name = "dgvProductos";
+            dgvProductos.ReadOnly = true;
+            dgvProductos.Size = new Size(944, 303);
+            dgvProductos.TabIndex = 5;
             // 
             // btnFinalizarVenta
             // 
-            this.btnFinalizarVenta.Location = new System.Drawing.Point(697, 387);
-            this.btnFinalizarVenta.Name = "btnFinalizarVenta";
-            this.btnFinalizarVenta.Size = new System.Drawing.Size(75, 23);
-            this.btnFinalizarVenta.TabIndex = 6;
-            this.btnFinalizarVenta.Text = "Finalizar Venta";
-            this.btnFinalizarVenta.UseVisualStyleBackColor = true;
-            this.btnFinalizarVenta.Click += new System.EventHandler(this.BtnFinalizarVenta_Click);
+            btnFinalizarVenta.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnFinalizarVenta.Location = new Point(841, 448);
+            btnFinalizarVenta.Name = "btnFinalizarVenta";
+            btnFinalizarVenta.Size = new Size(125, 23);
+            btnFinalizarVenta.TabIndex = 6;
+            btnFinalizarVenta.Text = "Finalizar Venta";
+            btnFinalizarVenta.UseVisualStyleBackColor = true;
+            btnFinalizarVenta.Click += BtnFinalizarVenta_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(22, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(47, 15);
+            label1.TabIndex = 7;
+            label1.Text = "Cliente:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(391, 31);
+            label2.Name = "label2";
+            label2.Size = new Size(59, 15);
+            label2.TabIndex = 8;
+            label2.Text = "Producto:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(22, 78);
+            label3.Name = "label3";
+            label3.Size = new Size(58, 15);
+            label3.TabIndex = 9;
+            label3.Text = "Cantidad:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(363, 78);
+            label4.Name = "label4";
+            label4.Size = new Size(87, 15);
+            label4.TabIndex = 10;
+            label4.Text = "Precio unitario:";
             // 
             // frmPrueba3
             // 
-            this.ClientSize = new System.Drawing.Size(784, 421);
-            this.Controls.Add(this.btnFinalizarVenta);
-            this.Controls.Add(this.dgvProductos);
-            this.Controls.Add(this.btnAgregarProducto);
-            this.Controls.Add(this.txtPrecioVenta);
-            this.Controls.Add(this.numCantidad);
-            this.Controls.Add(this.cbProductos);
-            this.Controls.Add(this.cbClientes);
-            this.Name = "frmPrueba3";
-            this.Text = "Realizar Venta";
-            this.Load += new System.EventHandler(this.FrmPrueba3_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            BackColor = Color.FromArgb(37, 36, 81);
+            ClientSize = new Size(989, 503);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(btnFinalizarVenta);
+            Controls.Add(dgvProductos);
+            Controls.Add(btnAgregarProducto);
+            Controls.Add(txtPrecioVenta);
+            Controls.Add(numCantidad);
+            Controls.Add(cbProductos);
+            Controls.Add(cbClientes);
+            Name = "frmPrueba3";
+            Text = "Realizar Venta";
+            Load += FrmPrueba3_Load;
+            ((System.ComponentModel.ISupportInitialize)numCantidad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
+
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
     }
 }

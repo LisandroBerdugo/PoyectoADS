@@ -24,118 +24,124 @@
 
         private void InitializeComponent()
         {
-            this.dgvCompras = new System.Windows.Forms.DataGridView();
-            this.txtFiltro = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnAbrirFrmCompras = new System.Windows.Forms.Button();
-            this.btnVerDetalles = new System.Windows.Forms.Button();
-            this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
-            this.lblFechaInicio = new System.Windows.Forms.Label();
-            this.lblFechaFin = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
-            this.SuspendLayout();
+            dgvCompras = new DataGridView();
+            txtFiltro = new TextBox();
+            btnBuscar = new Button();
+            btnAbrirFrmCompras = new Button();
+            btnVerDetalles = new Button();
+            dtpFechaInicio = new DateTimePicker();
+            dtpFechaFin = new DateTimePicker();
+            lblFechaInicio = new Label();
+            lblFechaFin = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvCompras).BeginInit();
+            SuspendLayout();
             // 
             // dgvCompras
             // 
-            this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCompras.Location = new System.Drawing.Point(12, 12);
-            this.dgvCompras.Name = "dgvCompras";
-            this.dgvCompras.RowHeadersVisible = false; // Ocultar el espacio en blanco antes de CompraID
-            this.dgvCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect; // Seleccionar toda la fila
-            this.dgvCompras.Size = new System.Drawing.Size(760, 400);
-            this.dgvCompras.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill; // Ajustar el tamaño de las columnas
-            this.dgvCompras.TabIndex = 0;
-            this.dgvCompras.SelectionChanged += new System.EventHandler(this.dgvCompras_SelectionChanged); // Añadir evento de selección
+            dgvCompras.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvCompras.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCompras.Location = new Point(21, 65);
+            dgvCompras.Name = "dgvCompras";
+            dgvCompras.RowHeadersVisible = false;
+            dgvCompras.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCompras.Size = new Size(941, 360);
+            dgvCompras.TabIndex = 0;
+            dgvCompras.SelectionChanged += dgvCompras_SelectionChanged;
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(12, 430);
-            this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(200, 20);
-            this.txtFiltro.TabIndex = 1;
+            txtFiltro.Location = new Point(21, 23);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(200, 23);
+            txtFiltro.TabIndex = 1;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(697, 428);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            btnBuscar.Location = new Point(817, 22);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(75, 23);
+            btnBuscar.TabIndex = 2;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // btnAbrirFrmCompras
             // 
-            this.btnAbrirFrmCompras.Location = new System.Drawing.Point(616, 428);
-            this.btnAbrirFrmCompras.Name = "btnAbrirFrmCompras";
-            this.btnAbrirFrmCompras.Size = new System.Drawing.Size(75, 23);
-            this.btnAbrirFrmCompras.TabIndex = 7;
-            this.btnAbrirFrmCompras.Text = "Abrir Compras";
-            this.btnAbrirFrmCompras.UseVisualStyleBackColor = true;
-            this.btnAbrirFrmCompras.Click += new System.EventHandler(this.BtnAbrirFrmCompras_Click);
+            btnAbrirFrmCompras.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAbrirFrmCompras.Location = new Point(31, 456);
+            btnAbrirFrmCompras.Name = "btnAbrirFrmCompras";
+            btnAbrirFrmCompras.Size = new Size(128, 23);
+            btnAbrirFrmCompras.TabIndex = 7;
+            btnAbrirFrmCompras.Text = "Realizar Compra";
+            btnAbrirFrmCompras.UseVisualStyleBackColor = true;
+            btnAbrirFrmCompras.Click += BtnAbrirFrmCompras_Click;
             // 
             // btnVerDetalles
             // 
-            this.btnVerDetalles.Location = new System.Drawing.Point(535, 428);
-            this.btnVerDetalles.Name = "btnVerDetalles";
-            this.btnVerDetalles.Size = new System.Drawing.Size(75, 23);
-            this.btnVerDetalles.TabIndex = 8;
-            this.btnVerDetalles.Text = "Ver";
-            this.btnVerDetalles.UseVisualStyleBackColor = true;
-            this.btnVerDetalles.Click += new System.EventHandler(this.BtnVerDetalles_Click);
-            this.btnVerDetalles.Enabled = false; // Deshabilitar inicialmente
+            btnVerDetalles.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnVerDetalles.Enabled = false;
+            btnVerDetalles.Location = new Point(194, 456);
+            btnVerDetalles.Name = "btnVerDetalles";
+            btnVerDetalles.Size = new Size(105, 23);
+            btnVerDetalles.TabIndex = 8;
+            btnVerDetalles.Text = "Ver Detalles";
+            btnVerDetalles.UseVisualStyleBackColor = true;
+            btnVerDetalles.Click += BtnVerDetalles_Click;
             // 
             // dtpFechaInicio
             // 
-            this.dtpFechaInicio.Location = new System.Drawing.Point(290, 430);
-            this.dtpFechaInicio.Name = "dtpFechaInicio";
-            this.dtpFechaInicio.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaInicio.TabIndex = 3;
+            dtpFechaInicio.Location = new Point(287, 23);
+            dtpFechaInicio.Name = "dtpFechaInicio";
+            dtpFechaInicio.Size = new Size(211, 23);
+            dtpFechaInicio.TabIndex = 3;
             // 
             // dtpFechaFin
             // 
-            this.dtpFechaFin.Location = new System.Drawing.Point(480, 430);
-            this.dtpFechaFin.Name = "dtpFechaFin";
-            this.dtpFechaFin.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaFin.TabIndex = 4;
+            dtpFechaFin.Location = new Point(570, 23);
+            dtpFechaFin.Name = "dtpFechaFin";
+            dtpFechaFin.Size = new Size(218, 23);
+            dtpFechaFin.TabIndex = 4;
             // 
             // lblFechaInicio
             // 
-            this.lblFechaInicio.AutoSize = true;
-            this.lblFechaInicio.Location = new System.Drawing.Point(240, 433);
-            this.lblFechaInicio.Name = "lblFechaInicio";
-            this.lblFechaInicio.Size = new System.Drawing.Size(44, 13);
-            this.lblFechaInicio.TabIndex = 5;
-            this.lblFechaInicio.Text = "Desde:";
+            lblFechaInicio.AutoSize = true;
+            lblFechaInicio.ForeColor = Color.White;
+            lblFechaInicio.Location = new Point(237, 26);
+            lblFechaInicio.Name = "lblFechaInicio";
+            lblFechaInicio.Size = new Size(42, 15);
+            lblFechaInicio.TabIndex = 5;
+            lblFechaInicio.Text = "Desde:";
             // 
             // lblFechaFin
             // 
-            this.lblFechaFin.AutoSize = true;
-            this.lblFechaFin.Location = new System.Drawing.Point(460, 433);
-            this.lblFechaFin.Name = "lblFechaFin";
-            this.lblFechaFin.Size = new System.Drawing.Size(14, 13);
-            this.lblFechaFin.TabIndex = 6;
-            this.lblFechaFin.Text = "A";
+            lblFechaFin.AutoSize = true;
+            lblFechaFin.ForeColor = Color.White;
+            lblFechaFin.Location = new Point(524, 26);
+            lblFechaFin.Name = "lblFechaFin";
+            lblFechaFin.Size = new Size(40, 15);
+            lblFechaFin.TabIndex = 6;
+            lblFechaFin.Text = "Hasta:";
             // 
             // FrmPrueba2
             // 
-            this.ClientSize = new System.Drawing.Size(784, 461);
-            this.Controls.Add(this.btnVerDetalles);
-            this.Controls.Add(this.btnAbrirFrmCompras);
-            this.Controls.Add(this.lblFechaFin);
-            this.Controls.Add(this.lblFechaInicio);
-            this.Controls.Add(this.dtpFechaFin);
-            this.Controls.Add(this.dtpFechaInicio);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txtFiltro);
-            this.Controls.Add(this.dgvCompras);
-            this.Name = "FrmPrueba2";
-            this.Text = "Compras Realizadas";
-            this.Load += new System.EventHandler(this.FrmPrueba2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            BackColor = Color.FromArgb(37, 36, 81);
+            ClientSize = new Size(989, 503);
+            Controls.Add(btnVerDetalles);
+            Controls.Add(btnAbrirFrmCompras);
+            Controls.Add(lblFechaFin);
+            Controls.Add(lblFechaInicio);
+            Controls.Add(dtpFechaFin);
+            Controls.Add(dtpFechaInicio);
+            Controls.Add(btnBuscar);
+            Controls.Add(txtFiltro);
+            Controls.Add(dgvCompras);
+            Name = "FrmPrueba2";
+            Text = "Compras Realizadas";
+            Load += FrmPrueba2_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvCompras).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

@@ -15,134 +15,150 @@
 
         private void InitializeComponent()
         {
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.textBoxContraseña = new System.Windows.Forms.TextBox();
-            this.comboBoxRol = new System.Windows.Forms.ComboBox();
-            this.checkBoxActivo = new System.Windows.Forms.CheckBox();
-            this.buttonGuardar = new System.Windows.Forms.Button();
-            this.labelNombre = new System.Windows.Forms.Label();
-            this.labelEmail = new System.Windows.Forms.Label();
-            this.labelContraseña = new System.Windows.Forms.Label();
-            this.labelRol = new System.Windows.Forms.Label();
-            this.labelActivo = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            textBoxNombre = new TextBox();
+            textBoxEmail = new TextBox();
+            textBoxContraseña = new TextBox();
+            comboBoxRol = new ComboBox();
+            checkBoxActivo = new CheckBox();
+            buttonGuardar = new Button();
+            labelNombre = new Label();
+            labelEmail = new Label();
+            labelContraseña = new Label();
+            labelRol = new Label();
+            labelActivo = new Label();
+            SuspendLayout();
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Location = new System.Drawing.Point(95, 25);
-            this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(200, 20);
-            this.textBoxNombre.TabIndex = 0;
+            textBoxNombre.Location = new Point(111, 29);
+            textBoxNombre.Margin = new Padding(4, 3, 4, 3);
+            textBoxNombre.Name = "textBoxNombre";
+            textBoxNombre.Size = new Size(233, 23);
+            textBoxNombre.TabIndex = 0;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(95, 60);
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(200, 20);
-            this.textBoxEmail.TabIndex = 1;
+            textBoxEmail.Location = new Point(111, 69);
+            textBoxEmail.Margin = new Padding(4, 3, 4, 3);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(233, 23);
+            textBoxEmail.TabIndex = 1;
             // 
             // textBoxContraseña
             // 
-            this.textBoxContraseña.Location = new System.Drawing.Point(95, 95);
-            this.textBoxContraseña.Name = "textBoxContraseña";
-            this.textBoxContraseña.Size = new System.Drawing.Size(200, 20);
-            this.textBoxContraseña.TabIndex = 2;
+            textBoxContraseña.Location = new Point(111, 110);
+            textBoxContraseña.Margin = new Padding(4, 3, 4, 3);
+            textBoxContraseña.Name = "textBoxContraseña";
+            textBoxContraseña.Size = new Size(233, 23);
+            textBoxContraseña.TabIndex = 2;
             // 
             // comboBoxRol
             // 
-            this.comboBoxRol.FormattingEnabled = true;
-            this.comboBoxRol.Location = new System.Drawing.Point(95, 130);
-            this.comboBoxRol.Name = "comboBoxRol";
-            this.comboBoxRol.Size = new System.Drawing.Size(200, 21);
-            this.comboBoxRol.TabIndex = 3;
+            comboBoxRol.FormattingEnabled = true;
+            comboBoxRol.Location = new Point(111, 150);
+            comboBoxRol.Margin = new Padding(4, 3, 4, 3);
+            comboBoxRol.Name = "comboBoxRol";
+            comboBoxRol.Size = new Size(233, 23);
+            comboBoxRol.TabIndex = 3;
             // 
             // checkBoxActivo
             // 
-            this.checkBoxActivo.AutoSize = true;
-            this.checkBoxActivo.Location = new System.Drawing.Point(95, 165);
-            this.checkBoxActivo.Name = "checkBoxActivo";
-            this.checkBoxActivo.Size = new System.Drawing.Size(56, 17);
-            this.checkBoxActivo.TabIndex = 4;
-            this.checkBoxActivo.Text = "Activo";
-            this.checkBoxActivo.UseVisualStyleBackColor = true;
+            checkBoxActivo.AutoSize = true;
+            checkBoxActivo.Location = new Point(111, 190);
+            checkBoxActivo.Margin = new Padding(4, 3, 4, 3);
+            checkBoxActivo.Name = "checkBoxActivo";
+            checkBoxActivo.Size = new Size(60, 19);
+            checkBoxActivo.TabIndex = 4;
+            checkBoxActivo.Text = "Activo";
+            checkBoxActivo.UseVisualStyleBackColor = true;
             // 
             // buttonGuardar
             // 
-            this.buttonGuardar.Location = new System.Drawing.Point(95, 200);
-            this.buttonGuardar.Name = "buttonGuardar";
-            this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
-            this.buttonGuardar.TabIndex = 5;
-            this.buttonGuardar.Text = "Guardar";
-            this.buttonGuardar.UseVisualStyleBackColor = true;
-            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
+            buttonGuardar.Location = new Point(111, 231);
+            buttonGuardar.Margin = new Padding(4, 3, 4, 3);
+            buttonGuardar.Name = "buttonGuardar";
+            buttonGuardar.Size = new Size(88, 27);
+            buttonGuardar.TabIndex = 5;
+            buttonGuardar.Text = "Guardar";
+            buttonGuardar.UseVisualStyleBackColor = true;
+            buttonGuardar.Click += buttonGuardar_Click;
             // 
             // labelNombre
             // 
-            this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(25, 28);
-            this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(44, 13);
-            this.labelNombre.TabIndex = 6;
-            this.labelNombre.Text = "Nombre";
+            labelNombre.AutoSize = true;
+            labelNombre.Location = new Point(29, 32);
+            labelNombre.Margin = new Padding(4, 0, 4, 0);
+            labelNombre.Name = "labelNombre";
+            labelNombre.Size = new Size(51, 15);
+            labelNombre.TabIndex = 6;
+            labelNombre.Text = "Nombre";
             // 
             // labelEmail
             // 
-            this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(25, 63);
-            this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(32, 13);
-            this.labelEmail.TabIndex = 7;
-            this.labelEmail.Text = "Email";
+            labelEmail.AutoSize = true;
+            labelEmail.Location = new Point(29, 73);
+            labelEmail.Margin = new Padding(4, 0, 4, 0);
+            labelEmail.Name = "labelEmail";
+            labelEmail.Size = new Size(36, 15);
+            labelEmail.TabIndex = 7;
+            labelEmail.Text = "Email";
             // 
             // labelContraseña
             // 
-            this.labelContraseña.AutoSize = true;
-            this.labelContraseña.Location = new System.Drawing.Point(25, 98);
-            this.labelContraseña.Name = "labelContraseña";
-            this.labelContraseña.Size = new System.Drawing.Size(61, 13);
-            this.labelContraseña.TabIndex = 8;
-            this.labelContraseña.Text = "Contraseña";
+            labelContraseña.AutoSize = true;
+            labelContraseña.Location = new Point(29, 113);
+            labelContraseña.Margin = new Padding(4, 0, 4, 0);
+            labelContraseña.Name = "labelContraseña";
+            labelContraseña.Size = new Size(67, 15);
+            labelContraseña.TabIndex = 8;
+            labelContraseña.Text = "Contraseña";
             // 
             // labelRol
             // 
-            this.labelRol.AutoSize = true;
-            this.labelRol.Location = new System.Drawing.Point(25, 133);
-            this.labelRol.Name = "labelRol";
-            this.labelRol.Size = new System.Drawing.Size(23, 13);
-            this.labelRol.TabIndex = 9;
-            this.labelRol.Text = "Rol";
+            labelRol.AutoSize = true;
+            labelRol.Location = new Point(29, 153);
+            labelRol.Margin = new Padding(4, 0, 4, 0);
+            labelRol.Name = "labelRol";
+            labelRol.Size = new Size(24, 15);
+            labelRol.TabIndex = 9;
+            labelRol.Text = "Rol";
             // 
             // labelActivo
             // 
-            this.labelActivo.AutoSize = true;
-            this.labelActivo.Location = new System.Drawing.Point(25, 166);
-            this.labelActivo.Name = "labelActivo";
-            this.labelActivo.Size = new System.Drawing.Size(37, 13);
-            this.labelActivo.TabIndex = 10;
-            this.labelActivo.Text = "Activo";
+            labelActivo.AutoSize = true;
+            labelActivo.Location = new Point(29, 192);
+            labelActivo.Margin = new Padding(4, 0, 4, 0);
+            labelActivo.Name = "labelActivo";
+            labelActivo.Size = new Size(41, 15);
+            labelActivo.TabIndex = 10;
+            labelActivo.Text = "Activo";
             // 
             // frmEditarUsu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 241);
-            this.Controls.Add(this.labelActivo);
-            this.Controls.Add(this.labelRol);
-            this.Controls.Add(this.labelContraseña);
-            this.Controls.Add(this.labelEmail);
-            this.Controls.Add(this.labelNombre);
-            this.Controls.Add(this.buttonGuardar);
-            this.Controls.Add(this.checkBoxActivo);
-            this.Controls.Add(this.comboBoxRol);
-            this.Controls.Add(this.textBoxContraseña);
-            this.Controls.Add(this.textBoxEmail);
-            this.Controls.Add(this.textBoxNombre);
-            this.Name = "frmEditarUsu";
-            this.Text = "Editar Usuario";
-            this.Load += new System.EventHandler(this.frmEditarUsu_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(378, 278);
+            Controls.Add(labelActivo);
+            Controls.Add(labelRol);
+            Controls.Add(labelContraseña);
+            Controls.Add(labelEmail);
+            Controls.Add(labelNombre);
+            Controls.Add(buttonGuardar);
+            Controls.Add(checkBoxActivo);
+            Controls.Add(comboBoxRol);
+            Controls.Add(textBoxContraseña);
+            Controls.Add(textBoxEmail);
+            Controls.Add(textBoxNombre);
+            Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MaximumSize = new Size(394, 317);
+            MinimumSize = new Size(394, 317);
+            Name = "frmEditarUsu";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Editar Usuario";
+            Load += frmEditarUsu_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.TextBox textBoxNombre;

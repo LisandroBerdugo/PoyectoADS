@@ -20,67 +20,72 @@
 
         private void InitializeComponent()
         {
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblTelefono = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            txtNombre = new TextBox();
+            txtTelefono = new TextBox();
+            btnAceptar = new Button();
+            lblNombre = new Label();
+            lblTelefono = new Label();
+            SuspendLayout();
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(15, 25);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(200, 20);
-            this.txtNombre.TabIndex = 0;
+            txtNombre.Location = new Point(15, 25);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(200, 23);
+            txtNombre.TabIndex = 0;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(15, 64);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(200, 20);
-            this.txtTelefono.TabIndex = 1;
+            txtTelefono.Location = new Point(15, 64);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(200, 23);
+            txtTelefono.TabIndex = 1;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(75, 100);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 2;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
+            btnAceptar.Location = new Point(75, 100);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new Size(75, 23);
+            btnAceptar.TabIndex = 2;
+            btnAceptar.Text = "Aceptar";
+            btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += BtnAceptar_Click;
             // 
             // lblNombre
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(12, 9);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
-            this.lblNombre.TabIndex = 3;
-            this.lblNombre.Text = "Nombre";
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(12, 9);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(51, 15);
+            lblNombre.TabIndex = 3;
+            lblNombre.Text = "Nombre";
             // 
             // lblTelefono
             // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(12, 48);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(49, 13);
-            this.lblTelefono.TabIndex = 4;
-            this.lblTelefono.Text = "Teléfono";
+            lblTelefono.AutoSize = true;
+            lblTelefono.Location = new Point(12, 48);
+            lblTelefono.Name = "lblTelefono";
+            lblTelefono.Size = new Size(52, 15);
+            lblTelefono.TabIndex = 4;
+            lblTelefono.Text = "Teléfono";
             // 
             // frmAgregarProveedor
             // 
-            this.ClientSize = new System.Drawing.Size(234, 141);
-            this.Controls.Add(this.lblTelefono);
-            this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.txtNombre);
-            this.Name = "frmAgregarProveedor";
-            this.Text = "Agregar Proveedor";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            ClientSize = new Size(234, 141);
+            Controls.Add(lblTelefono);
+            Controls.Add(lblNombre);
+            Controls.Add(btnAceptar);
+            Controls.Add(txtTelefono);
+            Controls.Add(txtNombre);
+            MaximizeBox = false;
+            MaximumSize = new Size(250, 180);
+            MinimizeBox = false;
+            MinimumSize = new Size(250, 180);
+            Name = "frmAgregarProveedor";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Agregar Proveedor";
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }
