@@ -125,6 +125,7 @@ namespace Prueba2_Fase1
 
         private void BtnGenerarReporteCompras_Click(object sender, EventArgs e)
         {
+            btnGenerarReporteCompras.Cursor = Cursors.WaitCursor;
             List<ComprasEL> compras = comprasDal.ObtenerCompras();
 
             int totalSteps = compras.Count + 3;
@@ -174,10 +175,13 @@ namespace Prueba2_Fase1
 
             MessageBox.Show("Reporte de compras generado con éxito en " + Path.GetFullPath(path), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             progressBar.Value = 0;
+
+            btnGenerarReporteCompras.Cursor = Cursors.Arrow;
         }
 
         private void BtnGenerarReporteVentas_Click(object sender, EventArgs e)
         {
+            btnGenerarReporteVentas.Cursor = Cursors.WaitCursor;
             List<VentasEL> ventas = ventasDal.ObtenerVentas();
 
             int totalSteps = ventas.Count + 3;
@@ -227,6 +231,8 @@ namespace Prueba2_Fase1
 
             MessageBox.Show("Reporte de ventas generado con éxito en " + Path.GetFullPath(path), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             progressBar.Value = 0;
+
+            btnGenerarReporteVentas.Cursor = Cursors.Arrow;
         }
 
         private void UpdateProgressBar()

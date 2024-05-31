@@ -45,7 +45,7 @@ namespace Prueba2_Fase1
             {
                 boton.Enabled = false;
                 boton.ForeColor = Color.Gray; // Cambiar el color del texto a gris
-                boton.IconColor = Color.Gray; // Cambiar el color del ícono a gris
+                boton.IconColor = Color.Gray; // Cambiar el color del icono a gris
             }
 
             // Configurar botones según el rol del usuario
@@ -122,38 +122,50 @@ namespace Prueba2_Fase1
 
         private void btn1_Click(object sender, EventArgs e)
         {
+            btn1.Cursor = Cursors.WaitCursor;
             ActivateButton(sender, RGBColors.color1);
             OpenChildFrm(new FrmUsuarios());
+            btn1.Cursor = Cursors.Arrow;
         }
 
         private void btn2_Click(object sender, EventArgs e)
         {
+            btn2.Cursor = Cursors.WaitCursor;
             ActivateButton(sender, RGBColors.color2);
             OpenChildFrm(new FrmPrueba2());
+            btn2.Cursor = Cursors.Arrow;
         }
 
         private void btn3_Click(object sender, EventArgs e)
         {
+            btn3.Cursor = Cursors.WaitCursor;
             ActivateButton(sender, RGBColors.color3);
             OpenChildFrm(new frmPrueba3());
+            btn3.Cursor = Cursors.Arrow;
         }
 
         private void btn4_Click(object sender, EventArgs e)
         {
+            btn4.Cursor = Cursors.WaitCursor;
             ActivateButton(sender, RGBColors.color4);
             OpenChildFrm(new FrmClientes());
+            btn4.Cursor = Cursors.Arrow;
         }
 
         private void btn5_Click(object sender, EventArgs e)
         {
+            btn5.Cursor = Cursors.WaitCursor;
             ActivateButton(sender, RGBColors.color5);
             OpenChildFrm(new FrmPrueba5());
+            btn5.Cursor = Cursors.Arrow;
         }
 
         private void btn6_Click(object sender, EventArgs e)
         {
+            btn6.Cursor = Cursors.WaitCursor;
             ActivateButton(sender, RGBColors.color6);
             OpenChildFrm(new FrmPrueba6());
+            btn6.Cursor = Cursors.Arrow;
         }
 
         private void btnHome_Click(object sender, EventArgs e)

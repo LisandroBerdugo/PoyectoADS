@@ -102,7 +102,7 @@
             iconButton1.TextAlign = ContentAlignment.MiddleLeft;
             iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton1.UseVisualStyleBackColor = true;
-            iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            iconButton1.Click += iconButton1_Click;
             // 
             // btn6
             // 
@@ -221,7 +221,6 @@
             // 
             // btn1
             // 
-            btn1.Cursor = Cursors.HSplit;
             btn1.Dock = DockStyle.Top;
             btn1.FlatAppearance.BorderSize = 0;
             btn1.FlatStyle = FlatStyle.Flat;

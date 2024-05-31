@@ -30,6 +30,7 @@
             // 
             txtNombre.Location = new Point(518, 149);
             txtNombre.Margin = new Padding(4, 3, 4, 3);
+            txtNombre.MaxLength = 10;
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(233, 23);
             txtNombre.TabIndex = 0;
@@ -38,6 +39,7 @@
             // 
             txtPassword.Location = new Point(518, 196);
             txtPassword.Margin = new Padding(4, 3, 4, 3);
+            txtPassword.MaxLength = 10;
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(233, 23);
             txtPassword.TabIndex = 1;
@@ -57,6 +59,7 @@
             // btnExit
             // 
             btnExit.BackColor = Color.Transparent;
+            btnExit.Cursor = Cursors.Hand;
             btnExit.FlatAppearance.BorderSize = 0;
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.IconChar = FontAwesome.Sharp.IconChar.Multiply;
@@ -96,7 +99,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDark;
+            BackColor = Color.FromArgb(128, 255, 128);
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(800, 400);
             Controls.Add(lblContra);
