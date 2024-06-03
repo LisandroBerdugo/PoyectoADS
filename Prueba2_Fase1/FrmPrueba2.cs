@@ -91,14 +91,16 @@ namespace Prueba2_Fase1
                     });
                 }
             }
-            dgvCompras.DataSource = dataSource;
 
-            // Asegurar que las columnas están en el orden correcto
-            dgvCompras.Columns["CompraID"].DisplayIndex = 0;
-            dgvCompras.Columns["Producto"].DisplayIndex = 1;
-            dgvCompras.Columns["Cantidad"].DisplayIndex = 2;
-            dgvCompras.Columns["ValorCompra"].DisplayIndex = 3;
-            dgvCompras.Columns["FechaCompra"].DisplayIndex = 4;
+            dgvCompras.DataSource = dataSource;
+            if (compras.Count > 0)
+            {
+                dgvCompras.Columns["CompraID"].DisplayIndex = 0;
+                dgvCompras.Columns["Producto"].DisplayIndex = 1;
+                dgvCompras.Columns["Cantidad"].DisplayIndex = 2;
+                dgvCompras.Columns["ValorCompra"].DisplayIndex = 3;
+                dgvCompras.Columns["FechaCompra"].DisplayIndex = 4;
+            }
         }
 
     }

@@ -122,10 +122,10 @@ namespace Prueba2_Fase1
 
         private void btn1_Click(object sender, EventArgs e)
         {
-            btn1.Cursor = Cursors.WaitCursor;
+            this.Cursor = Cursors.WaitCursor;
             ActivateButton(sender, RGBColors.color1);
             OpenChildFrm(new FrmUsuarios());
-            btn1.Cursor = Cursors.Arrow;
+            this.Cursor = Cursors.Arrow;
         }
 
         private void btn2_Click(object sender, EventArgs e)

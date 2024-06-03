@@ -221,6 +221,7 @@
             // 
             // btn1
             // 
+            btn1.Cursor = Cursors.Hand;
             btn1.Dock = DockStyle.Top;
             btn1.FlatAppearance.BorderSize = 0;
             btn1.FlatStyle = FlatStyle.Flat;

@@ -58,14 +58,14 @@
             // 
             // btnExit
             // 
-            btnExit.BackColor = Color.Transparent;
+            btnExit.BackColor = Color.FromArgb(86, 249, 120);
             btnExit.Cursor = Cursors.Hand;
             btnExit.FlatAppearance.BorderSize = 0;
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.IconChar = FontAwesome.Sharp.IconChar.Multiply;
             btnExit.IconColor = Color.Black;
             btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnExit.Location = new Point(736, 12);
+            btnExit.Location = new Point(759, 6);
             btnExit.Margin = new Padding(4, 3, 4, 3);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(37, 37);

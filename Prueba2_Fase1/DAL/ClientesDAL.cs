@@ -2,7 +2,6 @@
 using Prueba2_Fase1.EL;
 using System;
 using System.Collections.Generic;
-using PEDUDB;
 
 namespace Prueba2_Fase1.DAL
 {

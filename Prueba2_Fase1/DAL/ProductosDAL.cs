@@ -1,5 +1,4 @@
 ﻿using MySqlConnector;
-using PEDUDB;
 using Prueba2_Fase1.EL;
 using System;
 using System.Collections.Generic;

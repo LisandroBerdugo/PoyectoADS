@@ -1,5 +1,4 @@
 ﻿using MySqlConnector;
-using PEDUDB;
 using Prueba2_Fase1.EL;
 using System;
 using System.Collections.Generic;
@@ -56,23 +55,31 @@ namespace Prueba2_Fase1.DAL
                 SELECT c.ID, c.UsuarioID, c.FechaCompra, c.Activo, c.ProveedorID, p.Nombre AS ProveedorNombre, p.Telefono AS ProveedorTelefono
                 FROM Compras c
                 JOIN Proveedores p ON c.ProveedorID = p.ID
-                WHERE c.FechaCompra BETWEEN @FechaInicio AND @FechaFin";
+                WHERE c.FechaCompra BETWEEN @FechaInicio AND @FechaFin
+                AND (
+                    (p.Nombre LIKE @Filtro OR c.ID LIKE @Filtro)
+                    or 
+                    ((SELECT count(*)
+                       FROM DetalleCompras dc
+                       JOIN Productos pr ON dc.ProductoID = pr.ID
+                       WHERE dc.CompraID = c.ID
+                        AND pr.Nombre LIKE @Filtro OR pr.ID LIKE @Filtro))
+                )
 
+
+";
+            /*
             if (!string.IsNullOrEmpty(filtro))
             {
                 query += " AND (p.Nombre LIKE @Filtro OR c.ID LIKE @Filtro)";
-            }
+            }*/
 
             using (MySqlConnection conn = conexion.Conectar())
             {
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@FechaFin", fechaFin.ToString("yyyy-MM-dd 23:59:59"));
-
-                if (!string.IsNullOrEmpty(filtro))
-                {
-                    cmd.Parameters.AddWithValue("@Filtro", "%" + filtro + "%");
-                }
+                cmd.Parameters.AddWithValue("@Filtro", "%" + filtro + "%");
 
                 conn.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -88,7 +95,7 @@ namespace Prueba2_Fase1.DAL
                         ProveedorID = reader.GetInt32("ProveedorID"),
                         ProveedorNombre = reader.GetString("ProveedorNombre"),
                         ProveedorTelefono = reader.GetString("ProveedorTelefono"),
-                        Detalles = ObtenerDetallesCompra(reader.GetInt32("ID"))
+                        Detalles = ObtenerDetallesCompraByFiltro(reader.GetInt32("ID"),filtro)
                     };
                     compras.Add(compra);
                 }
@@ -129,7 +136,39 @@ namespace Prueba2_Fase1.DAL
             }
             return compra;
         }
+        private List<DetalleCompraEL> ObtenerDetallesCompraByFiltro(int compraID,string filtro)
+        {
+            List<DetalleCompraEL> detalles = new List<DetalleCompraEL>();
+            string query = @"
+                SELECT dc.ProductoID, p.Nombre AS ProductoNombre, dc.Cantidad, dc.PrecioCompra
+                FROM DetalleCompras dc
+                JOIN Productos p ON dc.ProductoID = p.ID
+                WHERE dc.CompraID = @CompraID
+                AND (p.Nombre LIKE @Filtro OR p.ID LIKE @Filtro)
+            ";
 
+            using (MySqlConnection conn = conexion.Conectar())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@CompraID", compraID);
+                cmd.Parameters.AddWithValue("@Filtro", "%" + filtro + "%");
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    DetalleCompraEL detalle = new DetalleCompraEL
+                    {
+                        ProductoID = reader.GetInt32("ProductoID"),
+                        ProductoNombre = reader.GetString("ProductoNombre"),
+                        Cantidad = reader.GetInt32("Cantidad"),
+                        PrecioCompra = reader.GetDecimal("PrecioCompra")
+                    };
+                    detalles.Add(detalle);
+                }
+            }
+            return detalles;
+        }
         private List<DetalleCompraEL> ObtenerDetallesCompra(int compraID)
         {
             List<DetalleCompraEL> detalles = new List<DetalleCompraEL>();
