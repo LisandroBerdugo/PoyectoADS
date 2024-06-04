@@ -25,7 +25,7 @@ namespace Prueba2_Fase1.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("bux6vyzniwu0eisgi5qj-mysql.services.clever-cloud.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("bii9lhle7dzdt3vzmqjl-mysql.services.clever-cloud.com")]
         public string ip_db {
             get {
                 return ((string)(this["ip_db"]));
@@ -37,7 +37,7 @@ namespace Prueba2_Fase1.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ulfipektogsvbtya")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ukgslcutk051wgtv")]
         public string usuario_db {
             get {
                 return ((string)(this["usuario_db"]));
@@ -49,7 +49,7 @@ namespace Prueba2_Fase1.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Sqs5ClilmPTeEuleug59")]
+        [global::System.Configuration.DefaultSettingValueAttribute("BmBc1L26AgQwWBsuilac")]
         public string password_db {
             get {
                 return ((string)(this["password_db"]));
@@ -61,7 +61,7 @@ namespace Prueba2_Fase1.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("bsrcn9rcndiaey9oe7il")]
+        [global::System.Configuration.DefaultSettingValueAttribute("bii9lhle7dzdt3vzmqjl")]
         public string name_db {
             get {
                 return ((string)(this["name_db"]));

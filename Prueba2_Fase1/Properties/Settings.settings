@@ -3,16 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="ip_db" Type="System.String" Scope="User">
-      <Value Profile="(Default)">bux6vyzniwu0eisgi5qj-mysql.services.clever-cloud.com</Value>
+      <Value Profile="(Default)">bii9lhle7dzdt3vzmqjl-mysql.services.clever-cloud.com</Value>
     </Setting>
     <Setting Name="usuario_db" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ulfipektogsvbtya</Value>
+      <Value Profile="(Default)">ukgslcutk051wgtv</Value>
     </Setting>
     <Setting Name="password_db" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Sqs5ClilmPTeEuleug59</Value>
+      <Value Profile="(Default)">BmBc1L26AgQwWBsuilac</Value>
     </Setting>
     <Setting Name="name_db" Type="System.String" Scope="User">
-      <Value Profile="(Default)">bsrcn9rcndiaey9oe7il</Value>
+      <Value Profile="(Default)">bii9lhle7dzdt3vzmqjl</Value>
     </Setting>
     <Setting Name="port_db" Type="System.String" Scope="User">
       <Value Profile="(Default)">3306</Value>

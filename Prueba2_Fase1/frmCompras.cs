@@ -34,56 +34,55 @@ namespace Prueba2_Fase1
 
         private void ConfigurarDataGridView()
         {
-            // Eliminar todas las columnas existentes antes de agregar nuevas
-            dgvProductos.Columns.Clear();
+            dgvItems.Columns.Clear();
 
-            dgvProductos.Columns.Add("colID", "ID");
-            dgvProductos.Columns.Add("colNombre", "Nombre");
-            dgvProductos.Columns.Add("colCantidad", "Cantidad");
-            dgvProductos.Columns.Add("colPrecioCompra", "Precio Compra");
+            dgvItems.Columns.Add("colID", "ID");
+            dgvItems.Columns.Add("colNombre", "Nombre");
+            dgvItems.Columns.Add("colCantidad", "Cantidad");
+            dgvItems.Columns.Add("colPrecioCompra", "Precio Compra");
 
-            dgvProductos.AllowUserToAddRows = false;
-            dgvProductos.AllowUserToDeleteRows = false;
-            dgvProductos.ReadOnly = true;
-            dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvItems.AllowUserToAddRows = false;
+            dgvItems.AllowUserToDeleteRows = false;
+            dgvItems.ReadOnly = true;
+            dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void BtnAgregarProducto_Click(object sender, EventArgs e)
+        private void BtnAgregarItem_Click(object sender, EventArgs e)
         {
-            ProductosDAL productoDAL = new ProductosDAL();
-            List<ProductosEL> productos = productoDAL.ObtenerTodosLosProductos();
+            MateriaPrimaDAL materiaPrimaDAL = new MateriaPrimaDAL();
+            List<MateriaPrima> materiasPrimas = materiaPrimaDAL.ObtenerTodas();
 
-            using (var form = new FormAgregarProducto(productos))
+            using (var form = new FormAgregarMateriaPrima(materiasPrimas))
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    foreach (DataGridViewRow row in dgvProductos.Rows)
+                    foreach (DataGridViewRow row in dgvItems.Rows)
                     {
-                        if (row.Cells["colID"].Value != null && (int)row.Cells["colID"].Value == form.Producto.ID)
+                        if (row.Cells["colID"].Value != null && (int)row.Cells["colID"].Value == form.MateriaPrima.ID)
                         {
-                            MessageBox.Show("El producto ya ha sido agregado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("La materia prima ya ha sido agregada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                     }
 
-                    dgvProductos.Rows.Add(form.Producto.ID, form.Producto.Nombre, form.Cantidad, form.PrecioCompra);
+                    dgvItems.Rows.Add(form.MateriaPrima.ID, form.MateriaPrima.Nombre, form.Cantidad, form.PrecioCompra);
                 }
             }
         }
 
-        private void BtnEliminarProducto_Click(object sender, EventArgs e)
+        private void BtnEliminarItem_Click(object sender, EventArgs e)
         {
-            if (dgvProductos.SelectedRows.Count > 0)
+            if (dgvItems.SelectedRows.Count > 0)
             {
-                dgvProductos.Rows.RemoveAt(dgvProductos.SelectedRows[0].Index);
+                dgvItems.Rows.RemoveAt(dgvItems.SelectedRows[0].Index);
             }
         }
 
         private void BtnRealizarCompra_Click(object sender, EventArgs e)
         {
-            if (cbProveedores.SelectedItem == null || dgvProductos.Rows.Count == 0)
+            if (cbProveedores.SelectedItem == null || dgvItems.Rows.Count == 0)
             {
-                MessageBox.Show("Seleccione un proveedor y agregue al menos un producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione un proveedor y agregue al menos una materia prima.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -95,13 +94,14 @@ namespace Prueba2_Fase1
                 Detalles = new List<DetalleCompraEL>()
             };
 
-            foreach (DataGridViewRow row in dgvProductos.Rows)
+            foreach (DataGridViewRow row in dgvItems.Rows)
             {
                 compra.Detalles.Add(new DetalleCompraEL
                 {
-                    ProductoID = (int)row.Cells["colID"].Value,
+                    ItemID = (int)row.Cells["colID"].Value,
                     Cantidad = (int)row.Cells["colCantidad"].Value,
-                    PrecioCompra = (decimal)row.Cells["colPrecioCompra"].Value
+                    PrecioCompra = (decimal)row.Cells["colPrecioCompra"].Value,
+                    TipoItem = "Materia Prima"
                 });
             }
 

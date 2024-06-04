@@ -8,7 +8,7 @@
         public bool Activo { get; set; }
         public int ProveedorID { get; set; }
         public string ProveedorNombre { get; set; }
-        public string ProveedorTelefono { get; set; } // Nueva propiedad
+        public string ProveedorTelefono { get; set; }
         public List<DetalleCompraEL> Detalles { get; set; }
     }
 }

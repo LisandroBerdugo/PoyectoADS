@@ -5,6 +5,7 @@
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.DataGridView dgvInventario;
         private System.Windows.Forms.Button btnMantenimientoProductos;
+        private System.Windows.Forms.Button btnVerInventarioMateriaPrima;
 
         protected override void Dispose(bool disposing)
         {
@@ -19,6 +20,7 @@
         {
             dgvInventario = new DataGridView();
             btnMantenimientoProductos = new Button();
+            btnVerInventarioMateriaPrima = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvInventario).BeginInit();
             SuspendLayout();
             // 
@@ -44,10 +46,22 @@
             btnMantenimientoProductos.UseVisualStyleBackColor = true;
             btnMantenimientoProductos.Click += btnMantenimientoProductos_Click;
             // 
+            // btnVerInventarioMateriaPrima
+            // 
+            btnVerInventarioMateriaPrima.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnVerInventarioMateriaPrima.Location = new Point(530, 449);
+            btnVerInventarioMateriaPrima.Name = "btnVerInventarioMateriaPrima";
+            btnVerInventarioMateriaPrima.Size = new Size(200, 30);
+            btnVerInventarioMateriaPrima.TabIndex = 2;
+            btnVerInventarioMateriaPrima.Text = "Ver Inventario Materia Prima";
+            btnVerInventarioMateriaPrima.UseVisualStyleBackColor = true;
+            btnVerInventarioMateriaPrima.Click += btnVerInventarioMateriaPrima_Click;
+            // 
             // FrmPrueba5
             // 
             BackColor = Color.FromArgb(37, 36, 81);
             ClientSize = new Size(989, 503);
+            Controls.Add(btnVerInventarioMateriaPrima);
             Controls.Add(btnMantenimientoProductos);
             Controls.Add(dgvInventario);
             ForeColor = SystemColors.ControlText;

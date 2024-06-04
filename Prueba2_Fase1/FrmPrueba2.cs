@@ -81,14 +81,17 @@ namespace Prueba2_Fase1
             {
                 foreach (var detalle in compra.Detalles)
                 {
-                    dataSource.Add(new
+                    if (detalle.TipoItem == "Materia Prima") // Solo mostrar materias primas
                     {
-                        CompraID = compra.ID,
-                        Producto = detalle.ProductoNombre,
-                        Cantidad = detalle.Cantidad, 
-                        ValorCompra = detalle.PrecioCompra,
-                        FechaCompra = compra.FechaCompra
-                    });
+                        dataSource.Add(new
+                        {
+                            CompraID = compra.ID,
+                            Producto = detalle.ItemNombre,
+                            Cantidad = detalle.Cantidad,
+                            ValorCompra = detalle.PrecioCompra,
+                            FechaCompra = compra.FechaCompra
+                        });
+                    }
                 }
             }
 
@@ -102,6 +105,5 @@ namespace Prueba2_Fase1
                 dgvCompras.Columns["FechaCompra"].DisplayIndex = 4;
             }
         }
-
     }
 }

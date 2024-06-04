@@ -5,12 +5,12 @@
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.ComboBox cbProveedores;
         private System.Windows.Forms.Button btnAgregarProveedor;
-        private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.Button btnAgregarProducto;
-        private System.Windows.Forms.Button btnEliminarProducto;
+        private System.Windows.Forms.DataGridView dgvItems;
+        private System.Windows.Forms.Button btnAgregarItem;
+        private System.Windows.Forms.Button btnEliminarItem;
         private System.Windows.Forms.Button btnRealizarCompra;
         private System.Windows.Forms.Label lblProveedor;
-        private System.Windows.Forms.Label lblProductos;
+        private System.Windows.Forms.Label lblItems;
 
         protected override void Dispose(bool disposing)
         {
@@ -25,14 +25,16 @@
         {
             cbProveedores = new ComboBox();
             btnAgregarProveedor = new Button();
-            dgvProductos = new DataGridView();
-            btnAgregarProducto = new Button();
-            btnEliminarProducto = new Button();
+            dgvItems = new DataGridView();
+            btnAgregarItem = new Button();
+            btnEliminarItem = new Button();
             btnRealizarCompra = new Button();
             lblProveedor = new Label();
-            lblProductos = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
+            lblItems = new Label();
+
+            ((System.ComponentModel.ISupportInitialize)dgvItems).BeginInit();
             SuspendLayout();
+
             // 
             // cbProveedores
             // 
@@ -53,34 +55,34 @@
             btnAgregarProveedor.UseVisualStyleBackColor = true;
             btnAgregarProveedor.Click += BtnAgregarProveedor_Click;
             // 
-            // dgvProductos
+            // dgvItems
             // 
-            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Location = new Point(12, 80);
-            dgvProductos.Name = "dgvProductos";
-            dgvProductos.Size = new Size(776, 300);
-            dgvProductos.TabIndex = 2;
+            dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvItems.Location = new Point(12, 80);
+            dgvItems.Name = "dgvItems";
+            dgvItems.Size = new Size(776, 300);
+            dgvItems.TabIndex = 2;
             // 
-            // btnAgregarProducto
+            // btnAgregarItem
             // 
-            btnAgregarProducto.Location = new Point(12, 400);
-            btnAgregarProducto.Name = "btnAgregarProducto";
-            btnAgregarProducto.Size = new Size(136, 23);
-            btnAgregarProducto.TabIndex = 3;
-            btnAgregarProducto.Text = "Agregar Producto";
-            btnAgregarProducto.UseVisualStyleBackColor = true;
-            btnAgregarProducto.Click += BtnAgregarProducto_Click;
+            btnAgregarItem.Location = new Point(12, 400);
+            btnAgregarItem.Name = "btnAgregarItem";
+            btnAgregarItem.Size = new Size(136, 23);
+            btnAgregarItem.TabIndex = 3;
+            btnAgregarItem.Text = "Agregar Materia Prima";
+            btnAgregarItem.UseVisualStyleBackColor = true;
+            btnAgregarItem.Click += BtnAgregarItem_Click;
             // 
-            // btnEliminarProducto
+            // btnEliminarItem
             // 
-            btnEliminarProducto.BackColor = Color.LightCoral;
-            btnEliminarProducto.Location = new Point(193, 400);
-            btnEliminarProducto.Name = "btnEliminarProducto";
-            btnEliminarProducto.Size = new Size(131, 23);
-            btnEliminarProducto.TabIndex = 4;
-            btnEliminarProducto.Text = "Eliminar Producto";
-            btnEliminarProducto.UseVisualStyleBackColor = false;
-            btnEliminarProducto.Click += BtnEliminarProducto_Click;
+            btnEliminarItem.BackColor = Color.LightCoral;
+            btnEliminarItem.Location = new Point(193, 400);
+            btnEliminarItem.Name = "btnEliminarItem";
+            btnEliminarItem.Size = new Size(131, 23);
+            btnEliminarItem.TabIndex = 4;
+            btnEliminarItem.Text = "Eliminar Materia Prima";
+            btnEliminarItem.UseVisualStyleBackColor = false;
+            btnEliminarItem.Click += BtnEliminarItem_Click;
             // 
             // btnRealizarCompra
             // 
@@ -101,24 +103,24 @@
             lblProveedor.TabIndex = 6;
             lblProveedor.Text = "Proveedor:";
             // 
-            // lblProductos
+            // lblItems
             // 
-            lblProductos.AutoSize = true;
-            lblProductos.Location = new Point(12, 64);
-            lblProductos.Name = "lblProductos";
-            lblProductos.Size = new Size(64, 15);
-            lblProductos.TabIndex = 7;
-            lblProductos.Text = "Productos:";
+            lblItems.AutoSize = true;
+            lblItems.Location = new Point(12, 64);
+            lblItems.Name = "lblItems";
+            lblItems.Size = new Size(84, 15);
+            lblItems.TabIndex = 7;
+            lblItems.Text = "Materias Primas:";
             // 
             // frmCompras
             // 
             ClientSize = new Size(800, 450);
-            Controls.Add(lblProductos);
+            Controls.Add(lblItems);
             Controls.Add(lblProveedor);
             Controls.Add(btnRealizarCompra);
-            Controls.Add(btnEliminarProducto);
-            Controls.Add(btnAgregarProducto);
-            Controls.Add(dgvProductos);
+            Controls.Add(btnEliminarItem);
+            Controls.Add(btnAgregarItem);
+            Controls.Add(dgvItems);
             Controls.Add(btnAgregarProveedor);
             Controls.Add(cbProveedores);
             MaximizeBox = false;
@@ -128,7 +130,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Compras";
             Load += frmCompras_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

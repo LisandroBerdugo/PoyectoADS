@@ -31,7 +31,7 @@ namespace Prueba2_Fase1
             dgvDetalles.AllowUserToAddRows = false;
             dgvDetalles.ReadOnly = true;
 
-            dgvDetalles.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Producto", DataPropertyName = "ProductoNombre", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+            dgvDetalles.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Producto", DataPropertyName = "ItemNombre", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
             dgvDetalles.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Cantidad", DataPropertyName = "Cantidad", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
             dgvDetalles.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Precio Compra", DataPropertyName = "PrecioCompra", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
             dgvDetalles.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Proveedor", DataPropertyName = "ProveedorNombre", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
@@ -42,7 +42,7 @@ namespace Prueba2_Fase1
             {
                 dataSource.Add(new
                 {
-                    ProductoNombre = detalle.ProductoNombre,
+                    ItemNombre = detalle.ItemNombre,
                     Cantidad = detalle.Cantidad,
                     PrecioCompra = detalle.PrecioCompra,
                     ProveedorNombre = compra.ProveedorNombre,

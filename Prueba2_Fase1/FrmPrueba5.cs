@@ -34,5 +34,13 @@ namespace Prueba2_Fase1
                 frm.ShowDialog();
             }
         }
+
+        private void btnVerInventarioMateriaPrima_Click(object sender, EventArgs e)
+        {
+            using (var frm = new FrmInventarioMateriaPrima())
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }
