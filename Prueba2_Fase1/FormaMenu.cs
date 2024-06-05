@@ -213,7 +213,7 @@ namespace Prueba2_Fase1
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.FromArgb(0, 0, 64);
+                currentBtn.BackColor = Color.FromArgb(64, 165, 120);
                 currentBtn.ForeColor = Color.Gainsboro;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 currentBtn.IconColor = Color.Gainsboro;

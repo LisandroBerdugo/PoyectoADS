@@ -6,6 +6,7 @@
         private System.Windows.Forms.DataGridView dgvInventario;
         private System.Windows.Forms.Button btnMantenimientoProductos;
         private System.Windows.Forms.Button btnVerInventarioMateriaPrima;
+        private System.Windows.Forms.Button btnCrearJuguete;
 
         protected override void Dispose(bool disposing)
         {
@@ -18,58 +19,74 @@
 
         private void InitializeComponent()
         {
-            dgvInventario = new DataGridView();
-            btnMantenimientoProductos = new Button();
-            btnVerInventarioMateriaPrima = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvInventario).BeginInit();
-            SuspendLayout();
+            this.dgvInventario = new System.Windows.Forms.DataGridView();
+            this.btnMantenimientoProductos = new System.Windows.Forms.Button();
+            this.btnVerInventarioMateriaPrima = new System.Windows.Forms.Button();
+            this.btnCrearJuguete = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
+            this.SuspendLayout();
             // 
             // dgvInventario
             // 
-            dgvInventario.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvInventario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvInventario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvInventario.Location = new Point(26, 44);
-            dgvInventario.Name = "dgvInventario";
-            dgvInventario.ReadOnly = true;
-            dgvInventario.Size = new Size(934, 368);
-            dgvInventario.TabIndex = 0;
+            this.dgvInventario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right));
+            this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventario.Location = new System.Drawing.Point(26, 44);
+            this.dgvInventario.Name = "dgvInventario";
+            this.dgvInventario.ReadOnly = true;
+            this.dgvInventario.Size = new System.Drawing.Size(934, 368);
+            this.dgvInventario.TabIndex = 0;
             // 
             // btnMantenimientoProductos
             // 
-            btnMantenimientoProductos.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnMantenimientoProductos.Location = new Point(760, 449);
-            btnMantenimientoProductos.Name = "btnMantenimientoProductos";
-            btnMantenimientoProductos.Size = new Size(200, 30);
-            btnMantenimientoProductos.TabIndex = 1;
-            btnMantenimientoProductos.Text = "Mantenimiento Productos";
-            btnMantenimientoProductos.UseVisualStyleBackColor = true;
-            btnMantenimientoProductos.Click += btnMantenimientoProductos_Click;
+            this.btnMantenimientoProductos.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            this.btnMantenimientoProductos.Location = new System.Drawing.Point(760, 449);
+            this.btnMantenimientoProductos.Name = "btnMantenimientoProductos";
+            this.btnMantenimientoProductos.Size = new System.Drawing.Size(200, 30);
+            this.btnMantenimientoProductos.TabIndex = 1;
+            this.btnMantenimientoProductos.Text = "Mantenimiento Productos";
+            this.btnMantenimientoProductos.UseVisualStyleBackColor = true;
+            this.btnMantenimientoProductos.Click += new System.EventHandler(this.btnMantenimientoProductos_Click);
             // 
             // btnVerInventarioMateriaPrima
             // 
-            btnVerInventarioMateriaPrima.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnVerInventarioMateriaPrima.Location = new Point(530, 449);
-            btnVerInventarioMateriaPrima.Name = "btnVerInventarioMateriaPrima";
-            btnVerInventarioMateriaPrima.Size = new Size(200, 30);
-            btnVerInventarioMateriaPrima.TabIndex = 2;
-            btnVerInventarioMateriaPrima.Text = "Ver Inventario Materia Prima";
-            btnVerInventarioMateriaPrima.UseVisualStyleBackColor = true;
-            btnVerInventarioMateriaPrima.Click += btnVerInventarioMateriaPrima_Click;
+            this.btnVerInventarioMateriaPrima.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            this.btnVerInventarioMateriaPrima.Location = new System.Drawing.Point(530, 449);
+            this.btnVerInventarioMateriaPrima.Name = "btnVerInventarioMateriaPrima";
+            this.btnVerInventarioMateriaPrima.Size = new System.Drawing.Size(200, 30);
+            this.btnVerInventarioMateriaPrima.TabIndex = 2;
+            this.btnVerInventarioMateriaPrima.Text = "Ver Inventario Materia Prima";
+            this.btnVerInventarioMateriaPrima.UseVisualStyleBackColor = true;
+            this.btnVerInventarioMateriaPrima.Click += new System.EventHandler(this.btnVerInventarioMateriaPrima_Click);
+            // 
+            // btnCrearJuguete
+            // 
+            this.btnCrearJuguete.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            this.btnCrearJuguete.Location = new System.Drawing.Point(300, 449);
+            this.btnCrearJuguete.Name = "btnCrearJuguete";
+            this.btnCrearJuguete.Size = new System.Drawing.Size(200, 30);
+            this.btnCrearJuguete.TabIndex = 3;
+            this.btnCrearJuguete.Text = "Crear Juguete";
+            this.btnCrearJuguete.UseVisualStyleBackColor = true;
+            this.btnCrearJuguete.Click += new System.EventHandler(this.btnCrearJuguete_Click);
             // 
             // FrmPrueba5
             // 
-            BackColor = Color.FromArgb(37, 36, 81);
-            ClientSize = new Size(989, 503);
-            Controls.Add(btnVerInventarioMateriaPrima);
-            Controls.Add(btnMantenimientoProductos);
-            Controls.Add(dgvInventario);
-            ForeColor = SystemColors.ControlText;
-            Name = "FrmPrueba5";
-            Text = "Inventario de Productos";
-            Load += FrmPrueba5_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvInventario).EndInit();
-            ResumeLayout(false);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(36)))), ((int)(((byte)(81)))));
+            this.ClientSize = new System.Drawing.Size(989, 503);
+            this.Controls.Add(this.btnCrearJuguete);
+            this.Controls.Add(this.btnVerInventarioMateriaPrima);
+            this.Controls.Add(this.btnMantenimientoProductos);
+            this.Controls.Add(this.dgvInventario);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Name = "FrmPrueba5";
+            this.Text = "Inventario de Productos";
+            this.Load += new System.EventHandler(this.FrmPrueba5_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
+            this.ResumeLayout(false);
+
         }
     }
 }

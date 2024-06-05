@@ -24,6 +24,30 @@ namespace Prueba2_Fase1
         private void CargarInventario()
         {
             List<InventarioEL> inventario = inventarioDal.ObtenerInventario();
+
+            // Configurar DataGridView manualmente para excluir MateriaPrimaID
+            dgvInventario.Columns.Clear();
+            dgvInventario.AutoGenerateColumns = false;
+
+            dgvInventario.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "ProductoID",
+                DataPropertyName = "ProductoID",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+            dgvInventario.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Nombre",
+                DataPropertyName = "Nombre",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+            dgvInventario.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Cantidad",
+                DataPropertyName = "Cantidad",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+
             dgvInventario.DataSource = inventario;
         }
 
@@ -32,6 +56,7 @@ namespace Prueba2_Fase1
             using (var frm = new frmMantenimientoProductos())
             {
                 frm.ShowDialog();
+                CargarInventario(); // Refrescar inventario después de cerrar el formulario
             }
         }
 
@@ -40,6 +65,16 @@ namespace Prueba2_Fase1
             using (var frm = new FrmInventarioMateriaPrima())
             {
                 frm.ShowDialog();
+                CargarInventario(); // Refrescar inventario después de cerrar el formulario
+            }
+        }
+
+        private void btnCrearJuguete_Click(object sender, EventArgs e)
+        {
+            using (var frm = new frmCrearJuguete())
+            {
+                frm.ShowDialog();
+                CargarInventario(); // Refrescar inventario después de cerrar el formulario
             }
         }
     }

@@ -1,8 +1,6 @@
 ﻿using MySqlConnector;
 using Prueba2_Fase1.EL;
-using System;
 using System.Collections.Generic;
-using System.Data;
 
 namespace Prueba2_Fase1.DAL
 {
@@ -42,18 +40,61 @@ namespace Prueba2_Fase1.DAL
             return materiasPrimas;
         }
 
-        public void Insertar(MateriaPrima materiaPrima)
+        public MateriaPrima ObtenerMateriaPrimaPorID(int id)
         {
+            MateriaPrima materiaPrima = null;
+
             using (MySqlConnection con = conexion.Conectar())
             {
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO MateriaPrima (Nombre, Descripcion, Precio) VALUES (@Nombre, @Descripcion, @Precio)", con);
-                cmd.Parameters.AddWithValue("@Nombre", materiaPrima.Nombre);
-                cmd.Parameters.AddWithValue("@Descripcion", materiaPrima.Descripcion);
-                cmd.Parameters.AddWithValue("@Precio", materiaPrima.Precio);
-                cmd.ExecuteNonQuery();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM MateriaPrima WHERE ID = @ID", con);
+                cmd.Parameters.AddWithValue("@ID", id);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    materiaPrima = new MateriaPrima()
+                    {
+                        ID = reader.GetInt32("ID"),
+                        Nombre = reader.GetString("Nombre"),
+                        Descripcion = reader.GetString("Descripcion"),
+                        Precio = reader.GetDecimal("Precio")
+                    };
+                }
                 con.Close();
             }
+
+            return materiaPrima;
+        }
+
+        public int ObtenerCantidadMateriaPrima(int materiaPrimaID)
+        {
+            int cantidadTotal = 0;
+
+            using (MySqlConnection con = conexion.Conectar())
+            {
+                con.Open();
+
+                // Obtener total de entradas (COMPRA)
+                MySqlCommand cmdEntrada = new MySqlCommand(
+                    "SELECT SUM(Cantidad) FROM Almacenamiento WHERE MateriaPrimaID = @MateriaPrimaID AND TipoMovimiento = 'COMPRA'",
+                    con);
+                cmdEntrada.Parameters.AddWithValue("@MateriaPrimaID", materiaPrimaID);
+                int totalEntradas = cmdEntrada.ExecuteScalar() != DBNull.Value ? Convert.ToInt32(cmdEntrada.ExecuteScalar()) : 0;
+
+                // Obtener total de salidas (USO)
+                MySqlCommand cmdSalida = new MySqlCommand(
+                    "SELECT SUM(Cantidad) FROM Almacenamiento WHERE MateriaPrimaID = @MateriaPrimaID AND TipoMovimiento = 'USO'",
+                    con);
+                cmdSalida.Parameters.AddWithValue("@MateriaPrimaID", materiaPrimaID);
+                int totalSalidas = cmdSalida.ExecuteScalar() != DBNull.Value ? Convert.ToInt32(cmdSalida.ExecuteScalar()) : 0;
+
+                cantidadTotal = totalEntradas - totalSalidas;
+
+                con.Close();
+            }
+
+            return cantidadTotal;
         }
     }
 }

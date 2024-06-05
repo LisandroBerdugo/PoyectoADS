@@ -2,12 +2,14 @@
 using System.Windows.Forms;
 using Prueba2_Fase1.DAL;
 using Prueba2_Fase1.EL;
+using System.Collections.Generic;
 
 namespace Prueba2_Fase1
 {
     public partial class frmAgregarEditarProducto : Form
     {
         private ProductosDAL productosDAL;
+        private MateriaPrimaDAL materiaPrimaDAL;
         private ProductosEL producto;
 
         // Definir el evento
@@ -17,6 +19,7 @@ namespace Prueba2_Fase1
         {
             InitializeComponent();
             productosDAL = new ProductosDAL();
+            materiaPrimaDAL = new MateriaPrimaDAL();
             this.producto = producto;
 
             if (producto != null)
@@ -24,7 +27,15 @@ namespace Prueba2_Fase1
                 txtNombre.Text = producto.Nombre;
                 txtDescripcion.Text = producto.Descripcion;
                 numPrecio.Value = producto.Precio;
+                CargarMateriaPrimaNecesaria();
             }
+            else
+            {
+                this.producto = new ProductosEL();
+                this.producto.MateriaPrimaNecesaria = new List<MateriaPrimaNecesariaEL>();
+            }
+
+            CargarMateriasPrimas();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -39,11 +50,6 @@ namespace Prueba2_Fase1
             {
                 MessageBox.Show("El precio debe ser mayor o igual a 0.01.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
-
-            if (producto == null)
-            {
-                producto = new ProductosEL();
             }
 
             producto.Nombre = txtNombre.Text;
@@ -69,6 +75,37 @@ namespace Prueba2_Fase1
         protected virtual void OnProductoGuardado(EventArgs e)
         {
             ProductoGuardado?.Invoke(this, e);
+        }
+
+        private void btnAgregarMateriaPrima_Click(object sender, EventArgs e)
+        {
+            var materiaPrimaSeleccionada = (MateriaPrima)cbMateriaPrima.SelectedItem;
+            if (materiaPrimaSeleccionada != null)
+            {
+                producto.MateriaPrimaNecesaria.Add(new MateriaPrimaNecesariaEL
+                {
+                    MateriaPrimaID = materiaPrimaSeleccionada.ID,
+                    MateriaPrimaNombre = materiaPrimaSeleccionada.Nombre,
+                    Cantidad = 1 // Aquí puedes poner una lógica para determinar la cantidad
+                });
+
+                CargarMateriaPrimaNecesaria();
+            }
+        }
+
+        private void CargarMateriasPrimas()
+        {
+            var materiasPrimas = materiaPrimaDAL.ObtenerTodas();
+            cbMateriaPrima.DataSource = materiasPrimas;
+            cbMateriaPrima.DisplayMember = "Nombre";
+            cbMateriaPrima.ValueMember = "ID";
+        }
+
+        private void CargarMateriaPrimaNecesaria()
+        {
+            dgvMateriaPrimaNecesaria.DataSource = null;
+            dgvMateriaPrimaNecesaria.DataSource = producto.MateriaPrimaNecesaria;
+            dgvMateriaPrimaNecesaria.Refresh();
         }
     }
 }

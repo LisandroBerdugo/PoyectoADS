@@ -24,6 +24,30 @@ namespace Prueba2_Fase1
         private void CargarInventario()
         {
             List<InventarioEL> inventario = inventarioDal.ObtenerInventarioMateriaPrima();
+
+            // Configurar DataGridView manualmente para excluir ProductoID
+            dgvInventarioMateriaPrima.Columns.Clear();
+            dgvInventarioMateriaPrima.AutoGenerateColumns = false;
+
+            dgvInventarioMateriaPrima.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "MateriaPrimaID",
+                DataPropertyName = "MateriaPrimaID",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+            dgvInventarioMateriaPrima.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Nombre",
+                DataPropertyName = "Nombre",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+            dgvInventarioMateriaPrima.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Cantidad",
+                DataPropertyName = "Cantidad",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+
             dgvInventarioMateriaPrima.DataSource = inventario;
         }
     }

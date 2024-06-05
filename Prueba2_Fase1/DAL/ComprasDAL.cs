@@ -23,28 +23,36 @@ namespace Prueba2_Fase1.DAL
                 FROM Compras c
                 JOIN Proveedores p ON c.ProveedorID = p.ID";
 
-            using (MySqlConnection conn = conexion.Conectar())
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                conn.Open();
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                using (MySqlConnection conn = conexion.Conectar())
                 {
-                    ComprasEL compra = new ComprasEL
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    conn.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
                     {
-                        ID = reader.GetInt32("ID"),
-                        UsuarioID = reader.GetInt32("UsuarioID"),
-                        FechaCompra = reader.GetDateTime("FechaCompra"),
-                        Activo = reader.GetBoolean("Activo"),
-                        ProveedorID = reader.GetInt32("ProveedorID"),
-                        ProveedorNombre = reader.GetString("ProveedorNombre"),
-                        ProveedorTelefono = reader.GetString("ProveedorTelefono"),
-                        Detalles = ObtenerDetallesCompra(reader.GetInt32("ID"))
-                    };
-                    compras.Add(compra);
+                        ComprasEL compra = new ComprasEL
+                        {
+                            ID = reader.GetInt32("ID"),
+                            UsuarioID = reader.GetInt32("UsuarioID"),
+                            FechaCompra = reader.GetDateTime("FechaCompra"),
+                            Activo = reader.GetBoolean("Activo"),
+                            ProveedorID = reader.GetInt32("ProveedorID"),
+                            ProveedorNombre = reader.GetString("ProveedorNombre"),
+                            ProveedorTelefono = reader.GetString("ProveedorTelefono"),
+                            Detalles = ObtenerDetallesCompra(reader.GetInt32("ID"))
+                        };
+                        compras.Add(compra);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener compras: " + ex.Message);
+            }
+
             return compras;
         }
 
@@ -57,28 +65,36 @@ namespace Prueba2_Fase1.DAL
                 JOIN Proveedores p ON c.ProveedorID = p.ID
                 WHERE c.ID = @ID";
 
-            using (MySqlConnection conn = conexion.Conectar())
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ID", id);
-                conn.Open();
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
+                using (MySqlConnection conn = conexion.Conectar())
                 {
-                    compra = new ComprasEL
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    conn.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
                     {
-                        ID = reader.GetInt32("ID"),
-                        UsuarioID = reader.GetInt32("UsuarioID"),
-                        FechaCompra = reader.GetDateTime("FechaCompra"),
-                        Activo = reader.GetBoolean("Activo"),
-                        ProveedorID = reader.GetInt32("ProveedorID"),
-                        ProveedorNombre = reader.GetString("ProveedorNombre"),
-                        ProveedorTelefono = reader.GetString("ProveedorTelefono"),
-                        Detalles = ObtenerDetallesCompra(reader.GetInt32("ID"))
-                    };
+                        compra = new ComprasEL
+                        {
+                            ID = reader.GetInt32("ID"),
+                            UsuarioID = reader.GetInt32("UsuarioID"),
+                            FechaCompra = reader.GetDateTime("FechaCompra"),
+                            Activo = reader.GetBoolean("Activo"),
+                            ProveedorID = reader.GetInt32("ProveedorID"),
+                            ProveedorNombre = reader.GetString("ProveedorNombre"),
+                            ProveedorTelefono = reader.GetString("ProveedorTelefono"),
+                            Detalles = ObtenerDetallesCompra(reader.GetInt32("ID"))
+                        };
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener compra por ID: " + ex.Message);
+            }
+
             return compra;
         }
 
@@ -103,68 +119,41 @@ namespace Prueba2_Fase1.DAL
                     )
                 )";
 
-            using (MySqlConnection conn = conexion.Conectar())
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
-                cmd.Parameters.AddWithValue("@FechaFin", fechaFin);
-                cmd.Parameters.AddWithValue("@Filtro", "%" + filtro + "%");
-
-                conn.Open();
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                using (MySqlConnection conn = conexion.Conectar())
                 {
-                    ComprasEL compra = new ComprasEL
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
+                    cmd.Parameters.AddWithValue("@FechaFin", fechaFin);
+                    cmd.Parameters.AddWithValue("@Filtro", "%" + filtro + "%");
+
+                    conn.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
                     {
-                        ID = reader.GetInt32("ID"),
-                        UsuarioID = reader.GetInt32("UsuarioID"),
-                        FechaCompra = reader.GetDateTime("FechaCompra"),
-                        Activo = reader.GetBoolean("Activo"),
-                        ProveedorID = reader.GetInt32("ProveedorID"),
-                        ProveedorNombre = reader.GetString("ProveedorNombre"),
-                        ProveedorTelefono = reader.GetString("ProveedorTelefono"),
-                        Detalles = ObtenerDetallesCompra(reader.GetInt32("ID"))
-                    };
-                    compras.Add(compra);
+                        ComprasEL compra = new ComprasEL
+                        {
+                            ID = reader.GetInt32("ID"),
+                            UsuarioID = reader.GetInt32("UsuarioID"),
+                            FechaCompra = reader.GetDateTime("FechaCompra"),
+                            Activo = reader.GetBoolean("Activo"),
+                            ProveedorID = reader.GetInt32("ProveedorID"),
+                            ProveedorNombre = reader.GetString("ProveedorNombre"),
+                            ProveedorTelefono = reader.GetString("ProveedorTelefono"),
+                            Detalles = ObtenerDetallesCompra(reader.GetInt32("ID"))
+                        };
+                        compras.Add(compra);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener compras filtradas: " + ex.Message);
+            }
+
             return compras;
-        }
-
-        private List<DetalleCompraEL> ObtenerDetallesCompra(int compraID)
-        {
-            List<DetalleCompraEL> detalles = new List<DetalleCompraEL>();
-            string query = @"
-                SELECT dc.ItemID, dc.TipoItem, 
-                       CASE 
-                           WHEN dc.TipoItem = 'Materia Prima' THEN (SELECT mp.Nombre FROM MateriaPrima mp WHERE mp.ID = dc.ItemID)
-                       END AS ItemNombre,
-                       dc.Cantidad, dc.PrecioCompra
-                FROM DetalleCompras dc
-                WHERE dc.CompraID = @CompraID AND dc.TipoItem = 'Materia Prima'";
-
-            using (MySqlConnection conn = conexion.Conectar())
-            {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@CompraID", compraID);
-                conn.Open();
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    DetalleCompraEL detalle = new DetalleCompraEL
-                    {
-                        ItemID = reader.GetInt32("ItemID"),
-                        ItemNombre = reader.GetString("ItemNombre"),
-                        Cantidad = reader.GetInt32("Cantidad"),
-                        PrecioCompra = reader.GetDecimal("PrecioCompra"),
-                        TipoItem = reader.GetString("TipoItem")
-                    };
-                    detalles.Add(detalle);
-                }
-            }
-            return detalles;
         }
 
         public int InsertarCompra(ComprasEL compra)
@@ -221,6 +210,47 @@ namespace Prueba2_Fase1.DAL
                 cmd.Parameters.AddWithValue("@TipoMovimiento", tipoMovimiento);
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        private List<DetalleCompraEL> ObtenerDetallesCompra(int compraID)
+        {
+            List<DetalleCompraEL> detalles = new List<DetalleCompraEL>();
+            string query = @"
+                SELECT dc.ItemID, mp.Nombre AS ItemNombre, dc.Cantidad, dc.PrecioCompra, dc.TipoItem
+                FROM DetalleCompras dc
+                JOIN MateriaPrima mp ON dc.ItemID = mp.ID
+                WHERE dc.CompraID = @CompraID
+                AND dc.TipoItem = 'Materia Prima'";
+
+            try
+            {
+                using (MySqlConnection conn = conexion.Conectar())
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@CompraID", compraID);
+                    conn.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        DetalleCompraEL detalle = new DetalleCompraEL
+                        {
+                            ItemID = reader.GetInt32("ItemID"),
+                            ItemNombre = reader.GetString("ItemNombre"),
+                            Cantidad = reader.GetInt32("Cantidad"),
+                            PrecioCompra = reader.GetDecimal("PrecioCompra"),
+                            TipoItem = reader.GetString("TipoItem")
+                        };
+                        detalles.Add(detalle);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener detalles de compra: " + ex.Message);
+            }
+
+            return detalles;
         }
     }
 }

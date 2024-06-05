@@ -66,7 +66,7 @@
             // 
             // panelMenu
             // 
-            panelMenu.BackColor = Color.FromArgb(0, 0, 64);
+            panelMenu.BackColor = Color.FromArgb(64, 165, 120);
             panelMenu.Controls.Add(iconButton1);
             panelMenu.Controls.Add(btn6);
             panelMenu.Controls.Add(btn5);
@@ -264,7 +264,7 @@
             // 
             // panelTitleBar
             // 
-            panelTitleBar.BackColor = Color.FromArgb(0, 0, 64);
+            panelTitleBar.BackColor = Color.FromArgb(0, 103, 105);
             panelTitleBar.Controls.Add(btnMinimizar);
             panelTitleBar.Controls.Add(btnMaximizar);
             panelTitleBar.Controls.Add(btnExit);
@@ -338,7 +338,7 @@
             // 
             // iconCurrentChildForm
             // 
-            iconCurrentChildForm.BackColor = Color.FromArgb(0, 0, 64);
+            iconCurrentChildForm.BackColor = Color.Transparent;
             iconCurrentChildForm.ForeColor = Color.DarkViolet;
             iconCurrentChildForm.IconChar = FontAwesome.Sharp.IconChar.HomeLgAlt;
             iconCurrentChildForm.IconColor = Color.DarkViolet;
@@ -360,7 +360,7 @@
             // 
             // pnlDesktop
             // 
-            pnlDesktop.BackColor = Color.FromArgb(0, 0, 64);
+            pnlDesktop.BackColor = Color.FromArgb(37, 36, 81);
             pnlDesktop.Controls.Add(lblFecha);
             pnlDesktop.Controls.Add(lblHora);
             pnlDesktop.Controls.Add(pictureBox1);

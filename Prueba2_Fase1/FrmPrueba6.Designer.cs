@@ -6,6 +6,7 @@
         private System.Windows.Forms.Button btnGenerarReporte;
         private System.Windows.Forms.Button btnGenerarReporteCompras;
         private System.Windows.Forms.Button btnGenerarReporteVentas;
+        private System.Windows.Forms.Button btnGenerarReporteCreacionJuguetes;
         private System.Windows.Forms.ProgressBar progressBar;
 
         protected override void Dispose(bool disposing)
@@ -19,58 +20,71 @@
 
         private void InitializeComponent()
         {
-            btnGenerarReporte = new Button();
-            btnGenerarReporteCompras = new Button();
-            btnGenerarReporteVentas = new Button();
-            progressBar = new ProgressBar();
+            btnGenerarReporte = new System.Windows.Forms.Button();
+            btnGenerarReporteCompras = new System.Windows.Forms.Button();
+            btnGenerarReporteVentas = new System.Windows.Forms.Button();
+            btnGenerarReporteCreacionJuguetes = new System.Windows.Forms.Button();
+            progressBar = new System.Windows.Forms.ProgressBar();
             SuspendLayout();
             // 
             // btnGenerarReporte
             // 
-            btnGenerarReporte.Anchor = AnchorStyles.None;
-            btnGenerarReporte.Location = new Point(116, 120);
+            btnGenerarReporte.Anchor = System.Windows.Forms.AnchorStyles.None;
+            btnGenerarReporte.Location = new System.Drawing.Point(20, 120);
             btnGenerarReporte.Name = "btnGenerarReporte";
-            btnGenerarReporte.Size = new Size(193, 279);
+            btnGenerarReporte.Size = new System.Drawing.Size(150, 50);
             btnGenerarReporte.TabIndex = 0;
             btnGenerarReporte.Text = "Generar Reporte Balance";
             btnGenerarReporte.UseVisualStyleBackColor = true;
-            btnGenerarReporte.Click += BtnGenerarReporte_Click;
+            btnGenerarReporte.Click += new System.EventHandler(BtnGenerarReporte_Click);
             // 
             // btnGenerarReporteCompras
             // 
-            btnGenerarReporteCompras.Anchor = AnchorStyles.None;
-            btnGenerarReporteCompras.Location = new Point(390, 120);
+            btnGenerarReporteCompras.Anchor = System.Windows.Forms.AnchorStyles.None;
+            btnGenerarReporteCompras.Location = new System.Drawing.Point(200, 120);
             btnGenerarReporteCompras.Name = "btnGenerarReporteCompras";
-            btnGenerarReporteCompras.Size = new Size(197, 279);
+            btnGenerarReporteCompras.Size = new System.Drawing.Size(150, 50);
             btnGenerarReporteCompras.TabIndex = 1;
             btnGenerarReporteCompras.Text = "Generar Reporte Compras";
             btnGenerarReporteCompras.UseVisualStyleBackColor = true;
-            btnGenerarReporteCompras.Click += BtnGenerarReporteCompras_Click;
+            btnGenerarReporteCompras.Click += new System.EventHandler(BtnGenerarReporteCompras_Click);
             // 
             // btnGenerarReporteVentas
             // 
-            btnGenerarReporteVentas.Anchor = AnchorStyles.None;
-            btnGenerarReporteVentas.Location = new Point(679, 120);
+            btnGenerarReporteVentas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            btnGenerarReporteVentas.Location = new System.Drawing.Point(380, 120);
             btnGenerarReporteVentas.Name = "btnGenerarReporteVentas";
-            btnGenerarReporteVentas.Size = new Size(195, 279);
+            btnGenerarReporteVentas.Size = new System.Drawing.Size(150, 50);
             btnGenerarReporteVentas.TabIndex = 2;
             btnGenerarReporteVentas.Text = "Generar Reporte Ventas";
             btnGenerarReporteVentas.UseVisualStyleBackColor = true;
-            btnGenerarReporteVentas.Click += BtnGenerarReporteVentas_Click;
+            btnGenerarReporteVentas.Click += new System.EventHandler(BtnGenerarReporteVentas_Click);
+            // 
+            // btnGenerarReporteCreacionJuguetes
+            // 
+            btnGenerarReporteCreacionJuguetes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            btnGenerarReporteCreacionJuguetes.Location = new System.Drawing.Point(560, 120);
+            btnGenerarReporteCreacionJuguetes.Name = "btnGenerarReporteCreacionJuguetes";
+            btnGenerarReporteCreacionJuguetes.Size = new System.Drawing.Size(150, 50);
+            btnGenerarReporteCreacionJuguetes.TabIndex = 3;
+            btnGenerarReporteCreacionJuguetes.Text = "Generar Reporte Creación Juguetes";
+            btnGenerarReporteCreacionJuguetes.UseVisualStyleBackColor = true;
+            btnGenerarReporteCreacionJuguetes.Click += new System.EventHandler(BtnGenerarReporteCreacionJuguetes_Click);
             // 
             // progressBar
             // 
-            progressBar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            progressBar.Location = new Point(707, 27);
+            progressBar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            progressBar.Location = new System.Drawing.Point(20, 20);
             progressBar.Name = "progressBar";
-            progressBar.Size = new Size(260, 23);
-            progressBar.TabIndex = 3;
+            progressBar.Size = new System.Drawing.Size(690, 23);
+            progressBar.TabIndex = 4;
             // 
             // FrmPrueba6
             // 
-            BackColor = Color.FromArgb(37, 36, 81);
-            ClientSize = new Size(989, 503);
+            BackColor = System.Drawing.Color.FromArgb(37, 36, 81);
+            ClientSize = new System.Drawing.Size(734, 261);
             Controls.Add(progressBar);
+            Controls.Add(btnGenerarReporteCreacionJuguetes);
             Controls.Add(btnGenerarReporteVentas);
             Controls.Add(btnGenerarReporteCompras);
             Controls.Add(btnGenerarReporte);

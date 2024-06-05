@@ -2,7 +2,6 @@
 using Prueba2_Fase1.EL;
 using System;
 using System.Collections.Generic;
-using System.Data;
 
 namespace Prueba2_Fase1.DAL
 {
@@ -18,12 +17,12 @@ namespace Prueba2_Fase1.DAL
         public List<ProductosEL> ObtenerTodosLosProductos()
         {
             List<ProductosEL> productos = new List<ProductosEL>();
-            string query = "SELECT ID, Nombre, Descripcion, Precio FROM Productos";
 
             using (MySqlConnection conn = conexion.Conectar())
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
                 conn.Open();
+                string query = "SELECT * FROM Productos";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -33,7 +32,8 @@ namespace Prueba2_Fase1.DAL
                         ID = reader.GetInt32("ID"),
                         Nombre = reader.GetString("Nombre"),
                         Descripcion = reader.GetString("Descripcion"),
-                        Precio = reader.GetDecimal("Precio")
+                        Precio = reader.GetDecimal("Precio"),
+                        MateriaPrimaNecesaria = ObtenerMateriasPrimasPorProducto(reader.GetInt32("ID"))
                     };
                     productos.Add(producto);
                 }
@@ -44,13 +44,13 @@ namespace Prueba2_Fase1.DAL
         public ProductosEL ObtenerProductoPorID(int id)
         {
             ProductosEL producto = null;
-            string query = "SELECT ID, Nombre, Descripcion, Precio FROM Productos WHERE ID = @ID";
 
             using (MySqlConnection conn = conexion.Conectar())
             {
+                conn.Open();
+                string query = "SELECT * FROM Productos WHERE ID = @ID";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@ID", id);
-                conn.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
@@ -60,7 +60,8 @@ namespace Prueba2_Fase1.DAL
                         ID = reader.GetInt32("ID"),
                         Nombre = reader.GetString("Nombre"),
                         Descripcion = reader.GetString("Descripcion"),
-                        Precio = reader.GetDecimal("Precio")
+                        Precio = reader.GetDecimal("Precio"),
+                        MateriaPrimaNecesaria = ObtenerMateriasPrimasPorProducto(reader.GetInt32("ID"))
                     };
                 }
             }
@@ -69,62 +70,101 @@ namespace Prueba2_Fase1.DAL
 
         public void AgregarProducto(ProductosEL producto)
         {
-            string query = "INSERT INTO Productos (Nombre, Descripcion, Precio) VALUES (@Nombre, @Descripcion, @Precio)";
-
             using (MySqlConnection conn = conexion.Conectar())
             {
+                conn.Open();
+                string query = "INSERT INTO Productos (Nombre, Descripcion, Precio) VALUES (@Nombre, @Descripcion, @Precio)";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Nombre", producto.Nombre);
                 cmd.Parameters.AddWithValue("@Descripcion", producto.Descripcion);
                 cmd.Parameters.AddWithValue("@Precio", producto.Precio);
-                conn.Open();
                 cmd.ExecuteNonQuery();
+                producto.ID = (int)cmd.LastInsertedId;
+
+                foreach (var materiaPrima in producto.MateriaPrimaNecesaria)
+                {
+                    AgregarMateriaPrimaAlProducto(producto.ID, materiaPrima);
+                }
             }
         }
 
         public void EditarProducto(ProductosEL producto)
         {
-            string query = "UPDATE Productos SET Nombre = @Nombre, Descripcion = @Descripcion, Precio = @Precio WHERE ID = @ID";
-
             using (MySqlConnection conn = conexion.Conectar())
             {
+                conn.Open();
+                string query = "UPDATE Productos SET Nombre = @Nombre, Descripcion = @Descripcion, Precio = @Precio WHERE ID = @ID";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ID", producto.ID);
                 cmd.Parameters.AddWithValue("@Nombre", producto.Nombre);
                 cmd.Parameters.AddWithValue("@Descripcion", producto.Descripcion);
                 cmd.Parameters.AddWithValue("@Precio", producto.Precio);
-                conn.Open();
+                cmd.Parameters.AddWithValue("@ID", producto.ID);
                 cmd.ExecuteNonQuery();
+
+                // Eliminar materias primas existentes y agregar las nuevas
+                EliminarMateriasPrimasDelProducto(producto.ID);
+                foreach (var materiaPrima in producto.MateriaPrimaNecesaria)
+                {
+                    AgregarMateriaPrimaAlProducto(producto.ID, materiaPrima);
+                }
             }
         }
 
-
-        // Nuevo método para buscar productos por nombre
-        public List<ProductosEL> BuscarProductosPorNombre(string nombre)
+        private List<MateriaPrimaNecesariaEL> ObtenerMateriasPrimasPorProducto(int productoID)
         {
-            List<ProductosEL> productos = new List<ProductosEL>();
-            string query = "SELECT ID, Nombre, Descripcion, Precio FROM Productos WHERE Nombre LIKE @Nombre";
+            List<MateriaPrimaNecesariaEL> materiasPrimas = new List<MateriaPrimaNecesariaEL>();
 
             using (MySqlConnection conn = conexion.Conectar())
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Nombre", "%" + nombre + "%");
                 conn.Open();
+                string query = @"
+                    SELECT mp.ID, mp.Nombre, pmp.Cantidad
+                    FROM ProductoMateriaPrima pmp
+                    JOIN MateriaPrima mp ON pmp.MateriaPrimaID = mp.ID
+                    WHERE pmp.ProductoID = @ProductoID";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@ProductoID", productoID);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    ProductosEL producto = new ProductosEL
+                    MateriaPrimaNecesariaEL materiaPrima = new MateriaPrimaNecesariaEL
                     {
-                        ID = reader.GetInt32("ID"),
-                        Nombre = reader.GetString("Nombre"),
-                        Descripcion = reader.GetString("Descripcion"),
-                        Precio = reader.GetDecimal("Precio")
+                        MateriaPrimaID = reader.GetInt32("ID"),
+                        MateriaPrimaNombre = reader.GetString("Nombre"),
+                        Cantidad = reader.GetInt32("Cantidad")
                     };
-                    productos.Add(producto);
+                    materiasPrimas.Add(materiaPrima);
                 }
             }
-            return productos;
+            return materiasPrimas;
+        }
+
+        private void AgregarMateriaPrimaAlProducto(int productoID, MateriaPrimaNecesariaEL materiaPrima)
+        {
+            using (MySqlConnection conn = conexion.Conectar())
+            {
+                conn.Open();
+                string query = "INSERT INTO ProductoMateriaPrima (ProductoID, MateriaPrimaID, Cantidad) VALUES (@ProductoID, @MateriaPrimaID, @Cantidad)";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@ProductoID", productoID);
+                cmd.Parameters.AddWithValue("@MateriaPrimaID", materiaPrima.MateriaPrimaID);
+                cmd.Parameters.AddWithValue("@Cantidad", materiaPrima.Cantidad);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void EliminarMateriasPrimasDelProducto(int productoID)
+        {
+            using (MySqlConnection conn = conexion.Conectar())
+            {
+                conn.Open();
+                string query = "DELETE FROM ProductoMateriaPrima WHERE ProductoID = @ProductoID";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@ProductoID", productoID);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

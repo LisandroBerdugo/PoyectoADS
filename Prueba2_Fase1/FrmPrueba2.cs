@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Windows.Forms;
-using Prueba2_Fase1.EL;
 using Prueba2_Fase1.DAL;
+using Prueba2_Fase1.EL;
 
 namespace Prueba2_Fase1
 {
     public partial class FrmPrueba2 : Form
     {
-        private ComprasDAL comprasDal = new ComprasDAL();
+        private ComprasDAL comprasDal;
 
         public FrmPrueba2()
         {
             InitializeComponent();
+            comprasDal = new ComprasDAL();
         }
 
         private void FrmPrueba2_Load(object sender, EventArgs e)
@@ -50,7 +53,7 @@ namespace Prueba2_Fase1
         {
             if (dgvCompras.SelectedRows.Count > 0)
             {
-                int compraID = (int)dgvCompras.SelectedRows[0].Cells["CompraID"].Value;
+                int compraID = (int)dgvCompras.SelectedRows[0].Cells["ID"].Value;
                 using (var frmDetalles = new frmDetallesCompra(compraID))
                 {
                     frmDetalles.ShowDialog();
@@ -76,34 +79,43 @@ namespace Prueba2_Fase1
         private void MostrarCompras(List<ComprasEL> compras)
         {
             dgvCompras.DataSource = null;
-            var dataSource = new List<dynamic>();
+            dgvCompras.Rows.Clear();
+            dgvCompras.Columns.Clear();
+
+            DataTable dt = ConvertToDataTable(compras);
+            dgvCompras.DataSource = dt;
+
+            AjustarColumnas();
+        }
+
+        private DataTable ConvertToDataTable(List<ComprasEL> compras)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID", typeof(int));
+            dt.Columns.Add("Materia Prima", typeof(string));
+            dt.Columns.Add("Cantidad", typeof(int));
+            dt.Columns.Add("Precio", typeof(decimal));
+
             foreach (var compra in compras)
             {
                 foreach (var detalle in compra.Detalles)
                 {
-                    if (detalle.TipoItem == "Materia Prima") // Solo mostrar materias primas
+                    if (detalle.TipoItem == "Materia Prima")
                     {
-                        dataSource.Add(new
-                        {
-                            CompraID = compra.ID,
-                            Producto = detalle.ItemNombre,
-                            Cantidad = detalle.Cantidad,
-                            ValorCompra = detalle.PrecioCompra,
-                            FechaCompra = compra.FechaCompra
-                        });
+                        dt.Rows.Add(compra.ID, detalle.ItemNombre, detalle.Cantidad, detalle.PrecioCompra);
                     }
                 }
             }
 
-            dgvCompras.DataSource = dataSource;
-            if (compras.Count > 0)
-            {
-                dgvCompras.Columns["CompraID"].DisplayIndex = 0;
-                dgvCompras.Columns["Producto"].DisplayIndex = 1;
-                dgvCompras.Columns["Cantidad"].DisplayIndex = 2;
-                dgvCompras.Columns["ValorCompra"].DisplayIndex = 3;
-                dgvCompras.Columns["FechaCompra"].DisplayIndex = 4;
-            }
+            return dt;
+        }
+
+        private void AjustarColumnas()
+        {
+            dgvCompras.Columns["ID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvCompras.Columns["Materia Prima"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvCompras.Columns["Cantidad"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvCompras.Columns["Precio"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

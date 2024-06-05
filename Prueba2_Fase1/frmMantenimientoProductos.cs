@@ -1,8 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using Prueba2_Fase1.DAL;
+﻿using Prueba2_Fase1.DAL;
 using Prueba2_Fase1.EL;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Prueba2_Fase1
 {
@@ -14,62 +16,51 @@ namespace Prueba2_Fase1
         {
             InitializeComponent();
             productosDAL = new ProductosDAL();
+        }
+
+        private void frmMantenimientoProductos_Load(object sender, EventArgs e)
+        {
             CargarProductos();
         }
 
-        private void CargarProductos(string nombreFiltro = "")
+        private void CargarProductos()
         {
-            List<ProductosEL> productos;
-
-            if (string.IsNullOrEmpty(nombreFiltro))
+            List<ProductosEL> productos = productosDAL.ObtenerTodosLosProductos();
+            var productosConMateriasPrimas = productos.SelectMany(p => p.MateriaPrimaNecesaria.Select(mp => new
             {
-                productos = productosDAL.ObtenerTodosLosProductos();
-            }
-            else
-            {
-                productos = productosDAL.BuscarProductosPorNombre(nombreFiltro);
-            }
+                p.ID,
+                p.Nombre,
+                p.Descripcion,
+                p.Precio,
+                MateriaPrima = mp.MateriaPrimaNombre,
+                mp.Cantidad
+            })).ToList();
 
-            dataGridViewProductos.DataSource = productos;
+            dgvProductos.DataSource = productosConMateriasPrimas;
         }
 
-        private void textBoxBuscar_TextChanged(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            CargarProductos(textBoxBuscar.Text);
+            frmAgregarEditarProducto frmAgregar = new frmAgregarEditarProducto(null);
+            frmAgregar.ProductoGuardado += (s, ev) => CargarProductos();
+            frmAgregar.ShowDialog();
         }
 
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
-            frmAgregarEditarProducto frm = new frmAgregarEditarProducto(null);
-            frm.ProductoGuardado += Frm_ProductoGuardado;
-            if (frm.ShowDialog() == DialogResult.OK)
+            if (dgvProductos.SelectedRows.Count > 0)
             {
-                CargarProductos();
-            }
-        }
+                int productoID = Convert.ToInt32(dgvProductos.SelectedRows[0].Cells["ID"].Value);
+                ProductosEL producto = productosDAL.ObtenerProductoPorID(productoID);
 
-        private void btnEditarProducto_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewProductos.SelectedRows.Count > 0)
-            {
-                int idProducto = Convert.ToInt32(dataGridViewProductos.SelectedRows[0].Cells["ID"].Value);
-                ProductosEL producto = productosDAL.ObtenerProductoPorID(idProducto);
-                frmAgregarEditarProducto frm = new frmAgregarEditarProducto(producto);
-                frm.ProductoGuardado += Frm_ProductoGuardado;
-                if (frm.ShowDialog() == DialogResult.OK)
-                {
-                    CargarProductos();
-                }
+                frmAgregarEditarProducto frmEditar = new frmAgregarEditarProducto(producto);
+                frmEditar.ProductoGuardado += (s, ev) => CargarProductos();
+                frmEditar.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Seleccione un producto para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void Frm_ProductoGuardado(object sender, EventArgs e)
-        {
-            CargarProductos();
         }
     }
 }
